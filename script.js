@@ -1,5 +1,5 @@
-// আপনার Google Apps Script ওয়েব অ্যাপের URL এখানে বসানো হয়েছে
-const API_URL = 'https://script.google.com/macros/s/AKfycbxDpXrXXy8Z3gCU8y-aty_0--3Ibfso0qZIpZkgtvWeBhIQcyoD_rRyOq2QZ69EK0G5/exec';
+// আপনার Google Apps Script ওয়েব অ্যাপের নতুন URL এখানে বসানো হয়েছে
+const API_URL = 'https://script.google.com/macros/s/AKfycbyQ15swPTYW5WC2BU5p9_MdcCnictCrC7OkZbQ_d9qSEN4mXiCTrzOhfkD-kLi-MqOv/exec';
 
 // backend-এ ডেটা পাঠানোর জন্য ফাংশন
 async function callBackend(action, data) {
