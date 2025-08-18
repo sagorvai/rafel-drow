@@ -29,6 +29,16 @@ function showPage(pageId) {
     document.getElementById(pageId).style.display = 'block';
 }
 
+// Function to open a popup
+function openPopup(popupId) {
+    document.getElementById(popupId).style.display = 'flex';
+}
+
+// Function to close a popup
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = 'none';
+}
+
 // Example to switch between Login and Register forms
 document.getElementById('toggle-auth').addEventListener('click', () => {
     const isRegister = document.getElementById('register-form').style.display !== 'none';
@@ -45,6 +55,11 @@ document.getElementById('menu-btn').addEventListener('click', () => {
 });
 
 // Menu item click handlers
+document.getElementById('home-link').addEventListener('click', () => {
+    showPage('raffle-categories');
+    document.getElementById('menu-popup').style.display = 'none';
+});
+
 document.getElementById('profile-link').addEventListener('click', () => {
     showPage('profile-section');
     document.getElementById('menu-popup').style.display = 'none';
@@ -73,7 +88,6 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const phone = document.getElementById('reg-phone').value;
     const password = document.getElementById('reg-password').value;
     
-    // Call backend to register user
     const response = await callBackend('register', { name, phone, password });
     
     if (response.status === 'success') {
@@ -94,7 +108,6 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const phone = document.getElementById('login-phone').value;
     const password = document.getElementById('login-password').value;
 
-    // Call backend to log in user
     const response = await callBackend('login', { phone, password });
 
     if (response.status === 'success') {
@@ -107,4 +120,96 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     } else {
         alert(response.message || 'Login failed. Invalid credentials.');
     }
+});
+
+// Profile edit logic
+document.querySelectorAll('.edit-icon').forEach(icon => {
+    icon.addEventListener('click', (e) => {
+        const target = e.target.dataset.target;
+        const editField = document.getElementById('edit-field');
+        const popup = document.getElementById('edit-profile-popup');
+        
+        if (target === 'name') {
+            editField.placeholder = "Enter new name";
+        } else if (target === 'wallet') {
+            editField.placeholder = "Enter new wallet number";
+        }
+        editField.dataset.target = target;
+        openPopup('edit-profile-popup');
+    });
+});
+
+document.getElementById('edit-profile-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Logic to save profile changes to backend will be added later
+    closePopup('edit-profile-popup');
+    alert('Profile updated successfully!');
+});
+
+// Recharge button and popup logic
+document.getElementById('recharge-btn').addEventListener('click', () => {
+    openPopup('recharge-popup');
+});
+
+document.getElementById('recharge-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const userId = document.getElementById('user-id').textContent.replace('ID: ', '');
+    const amount = document.getElementById('recharge-amount').value;
+    const phone = document.getElementById('recharge-phone').value;
+    const transactionId = document.getElementById('recharge-transaction-id').value;
+
+    const response = await callBackend('rechargeRequest', { userId, amount, phone, transactionId });
+    if (response.status === 'success') {
+        alert('Recharge request submitted successfully. Please wait for approval.');
+        closePopup('recharge-popup');
+    } else {
+        alert('Failed to submit recharge request. Please try again.');
+    }
+});
+
+// Withdraw button and popup logic
+document.getElementById('withdraw-btn').addEventListener('click', () => {
+    const withdrawAmount = document.getElementById('withdraw-amount').value;
+    const currentBalance = parseFloat(document.getElementById('user-balance').textContent.replace('৳', ''));
+
+    if (withdrawAmount < 500) {
+        alert('Minimum withdrawal amount is ৳500.');
+        return;
+    }
+    if (withdrawAmount > currentBalance) {
+        alert('Insufficient balance.');
+        return;
+    }
+
+    const vat = withdrawAmount * 0.10;
+    const finalAmount = withdrawAmount - vat;
+    
+    document.getElementById('confirm-message').textContent = `You will withdraw ৳${withdrawAmount}. A 10% VAT (৳${vat.toFixed(2)}) will be deducted. You will receive ৳${finalAmount.toFixed(2)}.`;
+    openPopup('withdraw-confirm-popup');
+});
+
+document.getElementById('confirm-withdraw-btn').addEventListener('click', async () => {
+    const userId = document.getElementById('user-id').textContent.replace('ID: ', '');
+    const withdrawAmount = document.getElementById('withdraw-amount').value;
+
+    const response = await callBackend('withdrawRequest', { userId, amount: withdrawAmount });
+    if (response.status === 'success') {
+        alert('Withdrawal request submitted successfully. Please wait for approval.');
+        closePopup('withdraw-confirm-popup');
+    } else {
+        alert('Failed to submit withdrawal request. Please try again.');
+    }
+});
+
+// Popup close button handlers
+document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const popupId = e.target.dataset.popup;
+        closePopup(popupId);
+    });
+});
+
+// Initial page load
+document.addEventListener('DOMContentLoaded', () => {
+    showPage('raffle-categories');
 });
