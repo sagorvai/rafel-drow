@@ -8,10 +8,12 @@
 </head>
 <body>
 
+    <!-- Auth Page (Login & Register) -->
     <div id="auth-page">
         <div class="form-container">
             <h2 id="auth-title">Register</h2>
             
+            <!-- Registration Form -->
             <form id="register-form" class="auth-form">
                 <input type="text" id="reg-name" placeholder="Name" required>
                 <input type="tel" id="reg-phone" placeholder="Phone Number" required>
@@ -19,6 +21,7 @@
                 <button type="submit">Register</button>
             </form>
 
+            <!-- Login Form -->
             <form id="login-form" class="auth-form" style="display:none;">
                 <input type="tel" id="login-phone" placeholder="Phone Number" required>
                 <input type="password" id="login-password" placeholder="Password" required>
@@ -29,6 +32,7 @@
         </div>
     </div>
 
+    <!-- Dashboard Page -->
     <div id="dashboard-page" style="display:none;">
         <header class="top-bar">
             <span id="user-name"></span>
@@ -37,8 +41,10 @@
             <button id="menu-btn">☰</button>
         </header>
 
+        <!-- Menu Pop-up -->
         <div id="menu-popup" class="menu" style="display:none;">
             <ul>
+                <li id="home-link">Home</li>
                 <li id="profile-link">Profile</li>
                 <li id="balance-link">Balance</li>
                 <li id="withdraw-link">Withdraw</li>
@@ -46,7 +52,9 @@
             </ul>
         </div>
         
+        <!-- Main Content Area -->
         <div class="content-area">
+            <!-- Game Categories -->
             <div id="raffle-categories" class="section active">
                 <h3>Choose a Raffle Category</h3>
                 <div class="category-grid">
@@ -60,33 +68,64 @@
                 </div>
             </div>
 
+            <!-- Profile Section -->
             <div id="profile-section" class="section" style="display:none;">
                 <h3>User Profile</h3>
                 <div class="profile-info">
-                    <p>Name: <span id="profile-name"></span> <span class="edit-icon">✏️</span></p>
+                    <p>Name: <span id="profile-name"></span> <span class="edit-icon" data-target="name">✏️</span></p>
                     <p>ID: <span id="profile-id"></span></p>
-                    <p>Wallet: <span id="profile-wallet">Not set</span> <span class="edit-icon">✏️</span></p>
+                    <p>Wallet: <span id="profile-wallet">Not set</span> <span class="edit-icon" data-target="wallet">✏️</span></p>
+                </div>
+            </div>
+             <!-- Edit Profile Popup -->
+            <div id="edit-profile-popup" class="popup" style="display:none;">
+                <div class="popup-content">
+                    <h4>Edit Your Information</h4>
+                    <button class="close-btn" data-popup="edit-profile-popup">X</button>
+                    <form id="edit-profile-form">
+                        <input type="text" id="edit-field" placeholder="New Value" required>
+                        <button type="submit">Update</button>
+                    </form>
                 </div>
             </div>
 
+            <!-- Balance Section -->
             <div id="balance-section" class="section" style="display:none;">
                 <h3>Current Balance</h3>
                 <p>Your balance is: <span id="current-balance">৳50</span></p>
                 <button id="recharge-btn">Recharge</button>
-                <div id="recharge-popup" class="popup" style="display:none;">
-                    <div class="popup-content">
-                        <h4>Recharge Your Account</h4>
-                        <button class="close-btn">X</button>
-                        </div>
-                </div>
             </div>
             
+            <!-- Recharge Popup -->
+            <div id="recharge-popup" class="popup" style="display:none;">
+                <div class="popup-content">
+                    <h4>Recharge Your Account</h4>
+                    <button class="close-btn" data-popup="recharge-popup">X</button>
+                    <form id="recharge-form">
+                        <input type="number" id="recharge-amount" placeholder="Amount" min="10" required>
+                        <input type="tel" id="recharge-phone" placeholder="Your Mobile Number" required>
+                        <input type="text" id="recharge-transaction-id" placeholder="Transaction ID" required>
+                        <button type="submit">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Withdraw Section -->
             <div id="withdraw-section" class="section" style="display:none;">
                 <h3>Withdraw Balance</h3>
                 <div class="withdraw-info">
                     <p>Wallet: <span id="withdraw-wallet"></span></p>
-                    <input type="number" id="withdraw-amount" placeholder="Amount to withdraw" min="500">
+                    <input type="number" id="withdraw-amount" placeholder="Amount to withdraw" min="500" required>
                     <button id="withdraw-btn">Withdraw</button>
+                </div>
+            </div>
+            <!-- Withdraw Confirmation Popup -->
+            <div id="withdraw-confirm-popup" class="popup" style="display:none;">
+                <div class="popup-content">
+                    <h4>Withdrawal Confirmation</h4>
+                    <button class="close-btn" data-popup="withdraw-confirm-popup">X</button>
+                    <p id="confirm-message"></p>
+                    <button id="confirm-withdraw-btn">Confirm</button>
                 </div>
             </div>
 
