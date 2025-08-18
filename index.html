@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffle Realms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="auth-page">
+        <div class="form-container">
+            <h2 id="auth-title">Register</h2>
+            
+            <form id="register-form" class="auth-form">
+                <input type="text" id="reg-name" placeholder="Name" required>
+                <input type="tel" id="reg-phone" placeholder="Phone Number" required>
+                <input type="password" id="reg-password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+
+            <form id="login-form" class="auth-form" style="display:none;">
+                <input type="tel" id="login-phone" placeholder="Phone Number" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="toggle-auth">Already have an account? <span class="link-text">Login</span></p>
+        </div>
+    </div>
+
+    <div id="dashboard-page" style="display:none;">
+        <header class="top-bar">
+            <span id="user-name"></span>
+            <span id="user-id">ID: GR001</span>
+            <span id="user-balance">৳50</span>
+            <button id="menu-btn">☰</button>
+        </header>
+
+        <div id="menu-popup" class="menu" style="display:none;">
+            <ul>
+                <li id="profile-link">Profile</li>
+                <li id="balance-link">Balance</li>
+                <li id="withdraw-link">Withdraw</li>
+                <li id="signout-link">Sign Out</li>
+            </ul>
+        </div>
+        
+        <div class="content-area">
+            <div id="raffle-categories" class="section active">
+                <h3>Choose a Raffle Category</h3>
+                <div class="category-grid">
+                    <button class="raffle-card" data-amount="20">৳20</button>
+                    <button class="raffle-card" data-amount="50">৳50</button>
+                    <button class="raffle-card" data-amount="100">৳100</button>
+                    <button class="raffle-card" data-amount="200">৳200</button>
+                    <button class="raffle-card" data-amount="300">৳300</button>
+                    <button class="raffle-card" data-amount="500">৳500</button>
+                    <button class="raffle-card" data-amount="1000">৳1000</button>
+                </div>
+            </div>
+
+            <div id="profile-section" class="section" style="display:none;">
+                <h3>User Profile</h3>
+                <div class="profile-info">
+                    <p>Name: <span id="profile-name"></span> <span class="edit-icon">✏️</span></p>
+                    <p>ID: <span id="profile-id"></span></p>
+                    <p>Wallet: <span id="profile-wallet">Not set</span> <span class="edit-icon">✏️</span></p>
+                </div>
+            </div>
+
+            <div id="balance-section" class="section" style="display:none;">
+                <h3>Current Balance</h3>
+                <p>Your balance is: <span id="current-balance">৳50</span></p>
+                <button id="recharge-btn">Recharge</button>
+                <div id="recharge-popup" class="popup" style="display:none;">
+                    <div class="popup-content">
+                        <h4>Recharge Your Account</h4>
+                        <button class="close-btn">X</button>
+                        </div>
+                </div>
+            </div>
+            
+            <div id="withdraw-section" class="section" style="display:none;">
+                <h3>Withdraw Balance</h3>
+                <div class="withdraw-info">
+                    <p>Wallet: <span id="withdraw-wallet"></span></p>
+                    <input type="number" id="withdraw-amount" placeholder="Amount to withdraw" min="500">
+                    <button id="withdraw-btn">Withdraw</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
