@@ -1,5 +1,5 @@
 // আপনার Google Apps Script ওয়েব অ্যাপের URL এখানে বসানো হয়েছে
-const API_URL = 'https://script.google.com/macros/s/AKfycbzhWMdjJPH-n2LsOqXunT-X2WqR-AVlBTTuKVtWwGwNbgWQRt00W1aC6F5XrMgHMeDU/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycby1Hi5YDqhE_4j4OaeVOBlZgWdvAsSyCL6xcFVPDBVtsGKlZU-ZtvBKMSLd5roPtw8r7A/exec';
 
 // backend-এ ডেটা পাঠানোর জন্য ফাংশন
 async function callBackend(action, data) {
@@ -37,6 +37,19 @@ function openPopup(popupId) {
 // Function to close a popup
 function closePopup(popupId) {
     document.getElementById(popupId).style.display = 'none';
+}
+
+// Function to update user data on UI and save to localStorage
+function updateUI(userData) {
+    document.getElementById('user-name').textContent = userData.name;
+    document.getElementById('user-id').textContent = `ID: ${userData.userId}`;
+    document.getElementById('user-balance').textContent = `৳${userData.balance}`;
+    localStorage.setItem('currentUser', JSON.stringify(userData));
+    
+    // Update profile page info
+    document.getElementById('profile-name').textContent = userData.name;
+    document.getElementById('profile-id').textContent = userData.userId;
+    document.getElementById('profile-wallet').textContent = userData.wallet || 'Not set';
 }
 
 // Example to switch between Login and Register forms
@@ -79,6 +92,7 @@ document.getElementById('withdraw-link').addEventListener('click', () => {
 document.getElementById('signout-link').addEventListener('click', () => {
     document.getElementById('dashboard-page').style.display = 'none';
     document.getElementById('auth-page').style.display = 'flex';
+    localStorage.removeItem('currentUser'); // Clear user data
 });
 
 // Handle Registration form submission
@@ -94,9 +108,11 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         alert(`Registration successful! Your User ID is ${response.userId}. You received ৳50 bonus!`);
         document.getElementById('dashboard-page').style.display = 'block';
         document.getElementById('auth-page').style.display = 'none';
-        document.getElementById('user-name').textContent = name;
-        document.getElementById('user-id').textContent = `ID: ${response.userId}`;
-        document.getElementById('user-balance').textContent = `৳${response.balance}`;
+        updateUI({
+            userId: response.userId,
+            name: name,
+            balance: response.balance
+        });
     } else {
         alert(response.message || 'Registration failed. Please try again.');
     }
@@ -114,15 +130,14 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         alert('Login successful!');
         document.getElementById('dashboard-page').style.display = 'block';
         document.getElementById('auth-page').style.display = 'none';
-        document.getElementById('user-name').textContent = response.name;
-        document.getElementById('user-id').textContent = `ID: ${response.userId}`;
-        document.getElementById('user-balance').textContent = `৳${response.balance}`;
+        updateUI(response); // Use the response to update UI and save to localStorage
     } else {
         alert(response.message || 'Login failed. Invalid credentials.');
     }
 });
 
 // Profile edit logic
+let currentEditTarget = '';
 document.querySelectorAll('.edit-icon').forEach(icon => {
     icon.addEventListener('click', (e) => {
         const target = e.target.dataset.target;
@@ -134,17 +149,43 @@ document.querySelectorAll('.edit-icon').forEach(icon => {
         } else if (target === 'wallet') {
             editField.placeholder = "Enter new wallet number";
         }
-        editField.dataset.target = target;
+        currentEditTarget = target;
         openPopup('edit-profile-popup');
     });
 });
 
-document.getElementById('edit-profile-form').addEventListener('submit', (e) => {
+document.getElementById('edit-profile-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    // Logic to save profile changes to backend will be added later
-    closePopup('edit-profile-popup');
-    alert('Profile updated successfully!');
+    const newValue = document.getElementById('edit-field').value;
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (!currentUser) {
+        alert('User data not found. Please log in again.');
+        return;
+    }
+    
+    const data = {
+        userId: currentUser.userId,
+        target: currentEditTarget,
+        newValue: newValue
+    };
+    
+    const response = await callBackend('updateProfile', data);
+    
+    if (response.status === 'success') {
+        alert('Profile updated successfully!');
+        if (currentEditTarget === 'name') {
+            currentUser.name = newValue;
+        } else if (currentEditTarget === 'wallet') {
+            currentUser.wallet = newValue;
+        }
+        updateUI(currentUser);
+        closePopup('edit-profile-popup');
+    } else {
+        alert(response.message || 'Failed to update profile.');
+    }
 });
+
 
 // Recharge button and popup logic
 document.getElementById('recharge-btn').addEventListener('click', () => {
@@ -153,12 +194,12 @@ document.getElementById('recharge-btn').addEventListener('click', () => {
 
 document.getElementById('recharge-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const userId = document.getElementById('user-id').textContent.replace('ID: ', '');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const amount = document.getElementById('recharge-amount').value;
     const phone = document.getElementById('recharge-phone').value;
     const transactionId = document.getElementById('recharge-transaction-id').value;
 
-    const response = await callBackend('rechargeRequest', { userId, amount, phone, transactionId });
+    const response = await callBackend('rechargeRequest', { userId: currentUser.userId, amount, phone, transactionId });
     if (response.status === 'success') {
         alert('Recharge request submitted successfully. Please wait for approval.');
         closePopup('recharge-popup');
@@ -189,10 +230,10 @@ document.getElementById('withdraw-btn').addEventListener('click', () => {
 });
 
 document.getElementById('confirm-withdraw-btn').addEventListener('click', async () => {
-    const userId = document.getElementById('user-id').textContent.replace('ID: ', '');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const withdrawAmount = document.getElementById('withdraw-amount').value;
 
-    const response = await callBackend('withdrawRequest', { userId, amount: withdrawAmount });
+    const response = await callBackend('withdrawRequest', { userId: currentUser.userId, amount: withdrawAmount });
     if (response.status === 'success') {
         alert('Withdrawal request submitted successfully. Please wait for approval.');
         closePopup('withdraw-confirm-popup');
@@ -209,7 +250,15 @@ document.querySelectorAll('.close-btn').forEach(btn => {
     });
 });
 
-// Initial page load
+// Initial page load check for saved user session
 document.addEventListener('DOMContentLoaded', () => {
-    showPage('raffle-categories');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        document.getElementById('dashboard-page').style.display = 'block';
+        document.getElementById('auth-page').style.display = 'none';
+        updateUI(currentUser);
+    } else {
+        document.getElementById('dashboard-page').style.display = 'none';
+        document.getElementById('auth-page').style.display = 'flex';
+    }
 });
