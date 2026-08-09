@@ -1,0 +1,47 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() { return request.auth != null; }
+    function own(uid) { return signedIn() && request.auth.uid == uid; }
+    function imageFile() {
+      return request.resource != null
+        && request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /profile_pics/{uid}/{fileName} {
+      allow read: if true;
+      allow write: if own(uid) && imageFile();
+      allow delete: if own(uid);
+    }
+
+    match /company_logos/{uid}/{fileName} {
+      allow read: if true;
+      allow write: if own(uid) && imageFile();
+      allow delete: if own(uid);
+    }
+
+    match /staging/images/{uid}/{fileName} {
+      allow read: if own(uid);
+      allow write: if own(uid) && imageFile();
+      allow delete: if own(uid);
+    }
+
+    match /staging/documents/{docType}/{uid}/{fileName} {
+      allow read: if own(uid);
+      allow write: if own(uid) && imageFile();
+      allow delete: if own(uid);
+    }
+
+    // Permanent property files may be stored under a UID-owned path.
+    match /properties/{uid}/{allPaths=**} {
+      allow read: if true;
+      allow write: if own(uid) && imageFile();
+      allow delete: if own(uid);
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

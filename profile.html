@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="bn">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>প্রোফাইল ড্যাশবোর্ড - আমার বাড়ি.কম</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
+<meta content="#0f766e" name="theme-color"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="strict-origin-when-cross-origin" name="referrer"/><link href="https://amarbari.online/profile.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="আমার বাড়ি.কম" property="og:site_name"/><meta content="প্রোফাইল ড্যাশবোর্ড - আমার বাড়ি.কম" property="og:title"/><meta content="বাংলাদেশে প্রপার্টি কেনাবেচা ও ভাড়ার অনলাইন প্ল্যাটফর্ম।" property="og:description"/><meta content="https://amarbari.online/profile.html" property="og:url"/><meta content="summary_large_image" name="twitter:card"/></head>
+<body class="page-profile">
+<div class="overlay" id="overlay"></div>
+<header class="main-header">
+<div class="header-top">
+<div class="header-left">
+<i class="material-icons menu-icon" id="menuButton">menu</i>
+<a class="logo-title" href="index.html">
+<i class="material-icons logo-icon">home</i>
+<span>আমার বাড়ি.কম</span>
+</a>
+</div>
+<div class="header-actions">
+<div class="icon-wrapper" id="notificationButton">
+<i class="material-icons notification-icon">notifications</i>
+<span class="notification-count" id="notification-count"></span>
+</div>
+<div class="icon-wrapper" id="headerPostButton">
+<i class="material-icons post-icon-header">add_circle_outline</i>
+</div>
+<div class="icon-wrapper" id="messageButton">
+<i class="material-icons message-icon">message</i>
+<span class="notification-count" id="message-count"></span>
+</div>
+<div class="profile-image-wrapper" id="profileImageWrapper">
+<img alt="Profile" id="profileImage" src="https://www.w3schools.com/howto/img_avatar.png"/>
+</div>
+</div>
+</div>
+</header>
+<div class="sidebar" id="sidebar">
+<nav class="inline-style-page-profile-1">
+<a class="sidebar-logo" href="index.html">
+<i class="material-icons">home</i>
+<span>আমার বাড়ি.কম</span>
+</a>
+<a href="index.html" id="home-link-sidebar"><i class="material-icons">dashboard</i> ড্যাশবোর্ড</a>
+<a class="sidebar-post-link" href="post.html" id="post-link-sidebar-menu"><i class="material-icons">add_home</i> প্রপার্টি যোগ করুন</a>
+<a href="tips.html" id="tips-link-sidebar"><i class="material-icons">lightbulb</i> টিপস ও গাইড</a>
+<a href="privacy.html" id="privacy-link-sidebar"><i class="material-icons">security</i> প্রাইভেসি পলিসি</a>
+<a href="about.html" id="about-link-sidebar"><i class="material-icons">info</i> আমাদের সম্পর্কে</a>
+<a href="contact.html" id="contact-link-sidebar"><i class="material-icons">mail</i> যোগাযোগ</a>
+<a class="login-link" href="auth.html" id="login-link-sidebar"><i class="material-icons">lock_open</i> লগইন</a>
+</nav>
+</div>
+<main class="main-content container">
+<!-- ⬅️ স্ক্রিনশটের মতো ব্যাক অ্যারো নেভিগেশন -->
+<div class="back-navigation-bar" onclick="window.history.back()">
+<i class="material-icons">arrow_back</i>
+<span>ফিরে যান</span>
+</div>
+<!-- Main Profile Card -->
+<div class="profile-premium-card">
+<div class="profile-cover-photo" id="profile-cover-photo"></div>
+<div class="profile-content-box">
+<div class="avatar-container">
+<img alt="User Avatar" class="profile-avatar-big" id="user-avatar" src="https://www.w3schools.com/howto/img_avatar.png"/>
+</div>
+<div class="user-info">
+<h2 id="display-name">আমার প্রোফাইল</h2>
+<p class="user-bio-text" id="user-bio">আপনার সম্পর্কে কিছু লিখুন...</p>
+<div class="action-buttons-div">
+<div class="edit-badge" id="edit-profile-show-btn" onclick="handleEditButtonClick()">
+<i class="material-icons inline-style-page-profile-2" id="edit-btn-icon">edit</i>
+<span id="edit-btn-text">প্রোফাইল সাজান</span>
+</div>
+<button class="add-property-btn" id="direct-post-btn">
+<i class="material-icons inline-style-page-profile-3">add_circle</i> প্রোপার্টি যুক্ত করুন
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 🏢 ⭐ কোম্পানি পেজ সুইচার / ক্রিয়েট উইজেট ⭐ -->
+<div class="company-switch-card">
+<h4>আবাসন ও ডেভেলপার পেজ</h4>
+<div id="company-widget-content">
+<!-- JavaScript থেকে ডাইনামিক লোড হবে -->
+</div>
+</div>
+<!-- Intro Section -->
+<div class="facebook-intro-card">
+<h3>পরিচিতি (Intro)</h3>
+<ul class="intro-list">
+<li class="intro-item"><i class="material-icons">work</i><span>পেশা: <strong id="user-profession">যুক্ত করা নেই</strong></span></li>
+<li class="intro-item"><i class="material-icons">location_on</i><span>অবস্থান: <strong id="user-location">যুক্ত করা নেই</strong></span></li>
+<li class="intro-item inline-style-page-profile-4" id="intro-office-item"><i class="material-icons">business</i><span>অফিস: <strong id="user-office">...</strong></span></li>
+<li class="intro-item"><i class="material-icons">phone</i><span>মোবাইল: <strong id="user-phone">ফোন সেট করা নেই</strong></span></li>
+<li class="intro-item"><i class="material-icons">email</i><span>ইমেইল: <strong id="user-email">...</strong></span></li>
+</ul>
+</div>
+<div class="stats-container">
+<div class="stat-card"><h4>আমার লিস্টিং</h4><p id="total-posts-count">০</p></div>
+<div class="stat-card"><h4>পছন্দের তালিকা</h4><p id="saved-posts-count">০</p></div>
+<div class="stat-card"><h4>পাবলিক রেটিং</h4><p id="my-rating-score">⭐ ০.০</p></div>
+</div>
+<div class="profile-tabs">
+<button class="tab-btn active" id="my-posts-tab-btn" onclick="openTab(event, 'my-posts')">আমার পোস্ট সমূহ</button>
+<button class="tab-btn" onclick="openTab(event, 'saved-posts')">বুকমার্ক প্রপার্টি</button>
+</div>
+<div class="tab-content active" id="my-posts">
+<div class="property-grid" id="my-properties-list"></div>
+<p class="inline-style-page-profile-5" id="empty-posts-message">আপনি এখনও কোনো প্রপার্টি বিজ্ঞাপন দেননি।</p>
+</div>
+<div class="tab-content" id="saved-posts">
+<p class="inline-style-page-profile-6">বুকমার্ক তালিকায় কোনো আইটেম নেই।</p>
+</div>
+</main>
+<!-- ✏️ Edit Profile Modal -->
+<div class="modal" id="editProfileModal">
+<div class="modal-content">
+<span class="close-modal" id="edit-profile-close-btn">×</span>
+<h3 class="inline-style-page-profile-7">তথ্য আপডেট করুন</h3>
+<form id="edit-profile-form">
+<div class="inline-style-page-profile-8">
+<img class="inline-style-page-profile-9" id="edit-avatar-preview" src="https://www.w3schools.com/howto/img_avatar.png"/>
+<label class="inline-style-page-profile-10" for="edit-profile-picture">
+<i class="material-icons inline-style-page-profile-11">photo_camera</i>
+</label>
+<input accept="image/png, image/jpeg" class="inline-style-page-profile-12" id="edit-profile-picture" type="file"/>
+</div>
+<div class="input-group"><label>আপনার পুরো নাম:</label><input id="edit-full-name" required="" type="text"/></div>
+<div class="input-group"><label>বায়ো (Bio):</label><textarea id="edit-bio" maxlength="120"></textarea></div>
+<div class="input-group"><label>পেশা:</label><input id="edit-profession" type="text"/></div>
+<div class="input-group"><label>ফোন নম্বর:</label><input id="edit-phone-number" type="tel"/></div>
+<div class="input-group"><label>বর্তমান অবস্থান:</label><input id="edit-location" type="text"/></div>
+<div class="input-group"><label>অফিসের ঠিকানা (ঐচ্ছিক):</label><input id="edit-office" type="text"/></div>
+<button class="submit-button" id="update-profile-btn" type="submit">পরিবর্তন সেভ করুন</button>
+</form>
+</div>
+</div>
+<!-- 🏢 ⭐ Create / Edit Company Page Modal ⭐ -->
+<div class="modal" id="createCompanyModal">
+<div class="modal-content">
+<span class="close-modal" id="close-company-modal-btn">×</span>
+<h3 class="inline-style-page-profile-13">আবাসন ও ডেভেলপার পেজ খুলুন</h3>
+<form id="create-company-form">
+<div class="inline-style-page-profile-14">
+<img class="inline-style-page-profile-15" id="company-logo-preview" src="https://via.placeholder.com/90?text=Logo"/>
+<label class="inline-style-page-profile-16" for="company-logo-file">
+<i class="material-icons inline-style-page-profile-17">photo_camera</i>
+</label>
+<input accept="image/*" class="inline-style-page-profile-18" id="company-logo-file" type="file"/>
+</div>
+<div class="input-group"><label>প্রতিষ্ঠানের নাম *</label><input id="comp-name" placeholder="যেমন: ড্রিম হাউজিং লিঃ" required="" type="text"/></div>
+<div class="input-group"><label>স্লোগান / Bio</label><input id="comp-bio" placeholder="যেমন: আপনার স্বপ্নের ঠিকানা আমরা গড়ি" type="text"/></div>
+<div class="input-group"><label>অফিসের ঠিকানা *</label><input id="comp-office" placeholder="যেমন: জলিল সরণি, রায়য়ের মহল, খুলনা" required="" type="text"/></div>
+<div class="input-group"><label>হটলাইন/ফোন নম্বর *</label><input id="comp-phone" placeholder="017xxxxxxxx" required="" type="tel"/></div>
+<button class="submit-button" id="save-company-btn" type="submit">পেজ তৈরি করুন</button>
+</form>
+</div>
+</div>
+<script src="profile.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menuButton');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const notificationButton = document.getElementById('notificationButton');
+            const headerPostButton = document.getElementById('headerPostButton');
+            const messageButton = document.getElementById('messageButton');
+            const profileImageWrapper = document.getElementById('profileImageWrapper');
+
+            if (menuButton && sidebar && overlay) {
+                menuButton.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                });
+                overlay.addEventListener('click', () => {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                });
+            }
+
+            if (notificationButton) notificationButton.addEventListener('click', () => { window.location.href = 'notifications.html'; });
+            if (headerPostButton) headerPostButton.addEventListener('click', () => { window.location.href = 'post.html'; });
+            if (messageButton) messageButton.addEventListener('click', () => { window.location.href = 'messages.html'; });
+            if (profileImageWrapper) profileImageWrapper.addEventListener('click', () => { window.location.href = 'profile.html'; });
+        });
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].classList.remove("active"); }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].classList.remove("active"); }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+<script src="notifications.js"></script>
+<script src="header-sync.js"></script>
+<footer class="footer">
+<div class="container inline-style-page-profile-19">
+<p>© 2024 আমার বাড়ি.কম। সর্বস্বত্ব সংরক্ষিত।</p>
+</div>
+</footer>
+</body>
+</html>
