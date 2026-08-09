@@ -1,7 +1,4 @@
-/* =========================================================
-   AMAR BARI - PRODUCTION STYLESHEET
-   Consolidated from all page <style> blocks.
-   ========================================================= */
+/* AMAR BARI — single consolidated stylesheet. Original shared CSS preserved. Page-specific CSS is scoped to each page to prevent cross-page overrides. */
 
 /* =====================================
    ১. বেসিক এবং সাধারণ স্টাইল
@@ -1295,184 +1292,10 @@ h2 {
 
 
 
-/* ===== preview.html: extracted page CSS ===== */
 
+/* ===== index.html page-specific CSS ===== */
 
-    body.page-preview{
-      --primary: #1e3a8a;
-      --secondary: #0284c7;
-      --success: #16a34a;
-      --dark: #1f2937;
-      --gray-bg: #f8fafc;
-      --card-border: #e2e8f0;
-    }
-
-    body.page-preview{
-      font-family: "Hind Siliguri", sans-serif;
-      background-color: #f1f5f9;
-      color: var(--dark);
-      margin: 0;
-      padding: 0;
-    }
-
-    
-    body.page-preview .preview-wrapper{
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 24px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-    }
-
-    body.page-preview .page-title{
-      color: var(--primary);
-      font-size: 24px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: 700;
-    }
-
-    /* 🖼️ প্রোপার্টি ইমেজ গ্যালারি ও ফ্রেম স্টাইল */
-    body.page-preview .gallery-title{
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--primary);
-      margin: 10px 0 6px 0;
-    }
-    
-    body.page-preview .preview-images{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
-      padding: 12px;
-      background: var(--gray-bg);
-      border-radius: 12px;
-      border: 1px dashed #cbd5e1;
-    }
-
-    body.page-preview .preview-images img{
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 3px solid #ffffff;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
-    }
-
-    body.page-preview .preview-images img:hover{
-      transform: scale(1.04);
-    }
-
-    /* 📑 খতিয়ান ও নকশার জন্য বিশেষ ডকুমেন্ট সেকশন */
-    body.page-preview .document-section{
-      background: #fffbeb;
-      border: 1px dashed #f59e0b;
-    }
-
-    /* 📂 কার্ড এবং সেকশন ডিজাইন */
-    body.page-preview .preview-section{
-      background: #ffffff;
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 18px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-    }
-
-    body.page-preview .preview-section h3{
-      margin-top: 0;
-      margin-bottom: 16px;
-      color: var(--primary);
-      font-size: 16px;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 8px;
-    }
-
-    /* 📊 গ্রিড লেআউট (দুই কলামে তথ্য সাজানো) */
-    body.page-preview .section-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 12px;
-    }
-
-    body.page-preview .preview-row{
-      display: flex;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid #f1f5f9;
-      font-size: 14px;
-    }
-
-    body.page-preview .preview-row strong{
-      color: #64748b;
-      min-width: 130px;
-      display: inline-block;
-    }
-
-    body.page-preview .preview-row span{
-      color: var(--dark);
-      font-weight: 500;
-    }
-
-    /* 💰 দামের জন্য স্পেশাল হাইলাইট */
-    body.page-preview .price-tag{
-      color: var(--success) !important;
-      font-weight: 700 !important;
-      font-size: 16px;
-    }
-
-    /* 🔘 বোতামের আকর্ষণীয় ডিজাইন */
-    body.page-preview .preview-actions{
-      display: flex;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    body.page-preview .preview-actions button{
-      flex: 1;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    body.page-preview .btn-edit{
-      background-color: #e2e8f0;
-      color: #475569;
-    }
-
-    body.page-preview .btn-edit:hover{ background-color: #cbd5e1; }
-
-    body.page-preview .btn-publish{
-      background-color: var(--secondary);
-      color: white;
-    }
-
-    body.page-preview .btn-publish:hover{ background-color: #026ca3; }
-  
-
-/* inline style migrated from preview.html */
-body.page-preview .inline-style-page-preview-1 { background-color: #28a745; }
-
-
-/* inline style migrated from preview.html */
-body.page-preview .inline-style-page-preview-2 { display: none; }
-
-
-/* inline style migrated from preview.html */
-body.page-preview .inline-style-page-preview-3 { display: none; }
-
-
-/* ===== index.html: extracted page CSS ===== */
-
-
-        body.page-index{
+        html.page-index{
             --fb-blue: #1877f2;
             --fb-bg: #f0f2f5;
             --fb-card-bg: #ffffff;
@@ -1619,662 +1442,7 @@ body.page-preview .inline-style-page-preview-3 { display: none; }
         body.page-index .fb-footer{ background: white; border-top: 1px solid var(--border-color); padding: 14px 0; text-align: center; font-size: 12px; color: var(--text-sub); margin-top: 20px; }
     
 
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-1 { color: var(--success); }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-2 { display:none; }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-3 { font-size: 38px; color: var(--text-sub); cursor:pointer; }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-4 { background: var(--fb-bg); font-weight: bold; color: var(--fb-blue); border-radius: 8px; margin: 4px 8px; }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-5 { color: var(--boost-gold); }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-6 { background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=80'); }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-7 { background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&auto=format&fit=crop&q=80'); }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-8 { background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80'); }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-9 { display: none; }
-
-
-/* inline style migrated from index.html */
-body.page-index .inline-style-page-index-10 { height: 420px; width: 100%; border-radius: 8px; border: 1px solid var(--border-color); }
-
-
-/* ===== privacy.html: extracted page CSS ===== */
-
-
-        /* CSS ভেরিয়েবল */
-        body.page-privacy{
-            --primary-color: #007bff;
-        }
-
-        /* গ্লোবাল ফিক্স */
-        body.page-privacy{
-            margin: 0; 
-            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
-            font-family: Arial, sans-serif; 
-        }
-
-        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
-        body.page-privacy .main-header{
-             position: fixed; 
-             top: 0;
-             left: 0;
-             right: 0;
-             background-color: white; 
-             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-             z-index: 1000; 
-             padding-bottom: 0;
-        }
-        
-        /* --- [START] সাইডবার ফিক্স: সম্পূর্ণ কার্যকারিতা, নতুন রঙ সহ --- */
-        body.page-privacy .sidebar{
-            position: fixed; /* ফিক্সড পজিশন সেট করা হলো */
-            top: 0;
-            left: -250px; /* ডিফল্টভাবে স্ক্রিনের বাইরে লুকিয়ে রাখা হলো */
-            width: 250px; /* সাইডবারের প্রস্থ */
-            height: 100%;
-            
-            /* ⭐ ব্যাকগ্রাউন্ড কালার ফিক্সড: গাঢ় নীল/ধূসর (#34495e) ⭐ */
-            background-color: #34495e; 
-            
-            transition: left 0.3s ease; /* মসৃণ স্লাইড ট্রানজিশন */
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
-            z-index: 1050; 
-            overflow-y: auto;
-            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
-        }
-        
-        body.page-privacy .sidebar.active{
-            left: 0; 
-        }
-        
-        body.page-privacy .overlay{
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: 1040; 
-            display: none; 
-        }
-        
-        body.page-privacy .overlay.active{
-            display: block; 
-        }
-        
-        /* ⭐ সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা (#ffffff) ⭐ */
-        body.page-privacy .sidebar a{
-            color: #ffffff; 
-            padding: 12px 15px; /* লিঙ্কগুলোর padding */
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        body.page-privacy .sidebar a i.material-icons{
-            color: #ffffff; /* আইকনগুলোর রঙ সাদা */
-            margin-right: 10px;
-        }
-
-        body.page-privacy .sidebar a:hover{
-            background-color: #3e5369; /* হোভার ইফেক্টের জন্য একটু হালকা রঙ */
-        }
-        
-        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
-        body.page-privacy .sidebar-logo{
-            padding: 15px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white !important; /* নিশ্চিত সাদা */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 5px;
-        }
-        
-        /* --- [END] সাইডবার ফিক্স: সম্পূর্ণ কার্যকারিতা, নতুন রঙ সহ --- */
-
-
-        body.page-privacy .header-top{
-            display: flex;
-            align-items: center;
-            justify-content: space-between; 
-            padding: 8px 15px; 
-        }
-
-        body.page-privacy .header-left{
-            display: flex;
-            align-items: center;
-            flex-shrink: 0; 
-        }
-
-        body.page-privacy .menu-icon{
-             margin-right: 0; 
-             cursor: pointer;
-        }
-        
-        body.page-privacy .logo-title{
-            display: flex;
-            align-items: center;
-            font-size: 1.8em; 
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-left: 0px; 
-            text-decoration: none; 
-            white-space: nowrap; 
-        }
-        body.page-privacy .logo-title:visited{
-             color: var(--primary-color);
-        }
-        body.page-privacy .logo-icon{
-            margin-right: 5px;
-        }
-
-        /* ডানের ব্লক (আইকন) ফিক্স */
-        body.page-privacy .header-actions{
-             display: flex;
-             align-items: center;
-             gap: 12px; 
-             position: relative; 
-             flex-shrink: 0; 
-        }
-        
-        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
-        body.page-privacy .icon-wrapper{
-             position: relative;
-             display: inline-flex;
-             cursor: pointer;
-             align-items: center; 
-             justify-content: center;
-             height: 30px; 
-             width: 30px; 
-        }
-        
-        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
-        body.page-privacy .notification-count{
-            position: absolute;
-            top: -5px; 
-            right: -8px; 
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 5px; 
-            font-size: 0.7em;
-            font-weight: bold;
-            min-width: 10px;
-            text-align: center;
-            line-height: 1; 
-            display: none; 
-        }
-        
-        /* আইকন কালার */
-        body.page-privacy .notification-icon{ color: var(--primary-color); }
-        body.page-privacy .message-icon{ color: var(--primary-color); }
-        body.page-privacy .post-icon-header{ color: #28a745; }
-
-        /* প্রোফাইল ইমেজ স্টাইল */
-        body.page-privacy .profile-image-wrapper{
-            cursor: pointer;
-            width: 35px; 
-            height: 35px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--primary-color); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body.page-privacy #profileImage{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
-        @media (max-width: 600px) {
-            body.page-privacy{
-                padding-top: 46px; 
-            }
-            body.page-privacy .logo-title{
-                 font-size: 1.5em; 
-                 margin-left: 0px;
-            }
-            body.page-privacy .header-actions{
-                 gap: 8px; 
-            }
-            body.page-privacy .profile-image-wrapper{
-                 width: 30px; 
-                 height: 30px;
-            }
-        }
-        
-    
-
-/* inline style migrated from privacy.html */
-body.page-privacy .inline-style-page-privacy-1 { background-color: #28a745; }
-
-
-/* ===== seller-profile.html: extracted page CSS ===== */
-
-
-        body.page-seller_profile{ 
-            --primary: #007bff; 
-            --primary-gradient: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
-            --cover-gradient: linear-gradient(135deg, rgba(24, 43, 73, 0.9) 0%, rgba(0, 123, 255, 0.85) 100%);
-            --success: #28a745; 
-            --dark: #1c1e21;
-            --gray: #65676b;
-            --bg: #f0f2f5;
-            --gold: #f1c40f;
-            --border: #e4e6eb;
-        }
-        body.page-seller_profile{ background-color: var(--bg); font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding-top: 70px; color: var(--dark); }
-       
-        body.page-seller_profile .main-header{
-             position: fixed; 
-             top: 0; left: 0; right: 0;
-             background-color: white; 
-             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-             z-index: 1000; 
-        }
-        
-        body.page-seller_profile .sidebar{
-            position: fixed; 
-            top: 0;
-            left: -250px; 
-            width: 250px; 
-            height: 100%;
-            background-color: #34495e;
-            transition: left 0.3s ease; 
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
-            z-index: 1050; 
-            overflow-y: auto;
-            padding-top: 50px; 
-        }
-        
-        body.page-seller_profile .sidebar.active{ left: 0; }
-        
-        body.page-seller_profile .overlay{
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: 1040; display: none; 
-        }
-        body.page-seller_profile .overlay.active{ display: block; }
-        
-        body.page-seller_profile .sidebar a{
-            color: white; padding: 12px 15px; display: flex;
-            align-items: center; text-decoration: none; font-weight: 500;
-        }
-        body.page-seller_profile .sidebar a i.material-icons{ color: white; margin-right: 10px; }
-        body.page-seller_profile .sidebar a:hover{ background-color: #3e5369; }
-        
-        body.page-seller_profile .sidebar-logo{
-            padding: 15px; font-size: 1.5em; font-weight: bold;
-            color: white !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 5px;
-        }
-        
-        body.page-seller_profile .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
-        body.page-seller_profile .header-left{ display: flex; align-items: center; flex-shrink: 0; }
-        body.page-seller_profile .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
-        body.page-seller_profile .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary); text-decoration: none; white-space: nowrap; margin-left: 10px; }
-        body.page-seller_profile .logo-icon{ margin-right: 5px; }
-
-        body.page-seller_profile .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-        body.page-seller_profile .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
-        
-        body.page-seller_profile .notification-count{ position: absolute; top: -5px; right: -8px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold; min-width: 10px; text-align: center; line-height: 1; display: none; }
-        body.page-seller_profile .notification-icon, body.page-seller_profile .message-icon{ color: var(--primary); }
-        body.page-seller_profile .post-icon-header{ color: #28a745; }
-
-        body.page-seller_profile .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; }
-        body.page-seller_profile .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-        
-        @media (max-width: 600px) {
-            body.page-seller_profile{ padding-top: 55px; }
-            body.page-seller_profile .logo-title{ font-size: 1.2em; }
-            body.page-seller_profile .header-actions{ gap: 8px; }
-        }
-        
-        body.page-seller_profile .container{ max-width: 600px; margin: auto; padding: 10px; box-sizing: border-box; }
-        body.page-seller_profile .btn-back{ background: white; border: 1px solid #ddd; color: var(--dark); padding: 8px 16px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: bold; font-size: 14px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: fit-content; transition: 0.2s; }
-        body.page-seller_profile .btn-back:hover{ background: var(--primary); color: white; border-color: var(--primary); }
-
-        /* 👑 প্রিমিয়াম প্রোফাইল কার্ড */
-        body.page-seller_profile .seller-premium-card{ 
-            background: white; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); text-align: center; margin-bottom: 16px; position: relative; overflow: hidden; border: 1px solid var(--border);
-        }
-
-        body.page-seller_profile .profile-cover-photo{ height: 140px; background: var(--cover-gradient); position: relative; }
-        body.page-seller_profile .profile-cover-photo::before{
-            content: "corporate_fare"; font-family: "Material Icons"; position: absolute; right: 15px; bottom: -15px; font-size: 120px; color: rgba(255, 255, 255, 0.08); pointer-events: none;
-        }
-        body.page-seller_profile .profile-cover-photo::after{
-            content: "home"; font-family: "Material Icons"; position: absolute; left: 20px; top: 20px; font-size: 70px; color: rgba(255, 255, 255, 0.05); pointer-events: none;
-        }
-
-        body.page-seller_profile .profile-content-box{ padding: 0px 16px 20px 16px; position: relative; margin-top: -60px; z-index: 5; }
-
-        body.page-seller_profile .viral-badge-box{ position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; z-index: 10; }
-        body.page-seller_profile .badge-item{ display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 20px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        body.page-seller_profile .badge-verified{ background: #00b894; }
-        body.page-seller_profile .badge-top-seller{ background: #6c5ce7; }
-
-        body.page-seller_profile .avatar-container{ position: relative; width: 110px; height: 110px; margin: 0 auto 10px auto; }
-        body.page-seller_profile .seller-avatar{ width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); background: #fff; }
-        body.page-seller_profile .status-dot{ position: absolute; bottom: 6px; right: 6px; width: 14px; height: 14px; background: #2ecc71; border: 2px solid white; border-radius: 50%; }
-
-        body.page-seller_profile .seller-name{ font-size: 24px; font-weight: bold; color: var(--dark); margin: 0 0 4px 0; }
-        body.page-seller_profile .seller-bio{ font-size: 14px; color: var(--gray); line-height: 1.4; margin: 6px auto 12px auto; max-width: 85%; font-style: italic; }
-
-        body.page-seller_profile .facebook-intro-card{ background: white; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(0,0,0,0.1); padding: 16px; margin-bottom: 16px; text-align: left; }
-        body.page-seller_profile .facebook-intro-card h3{ margin: 0 0 12px 0; font-size: 17px; font-weight: bold; color: var(--dark); }
-        
-        body.page-seller_profile .intro-list{ list-style: none; padding: 0; margin: 0; }
-        body.page-seller_profile .intro-item{ display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--dark); }
-        body.page-seller_profile .intro-item i{ color: #8c939d; font-size: 20px; }
-
-        body.page-seller_profile .profile-rating-section{ background: #fffdf3; border: 1px solid #fbf1c9; padding: 15px; border-radius: 12px; margin-top: 15px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-        body.page-seller_profile .rating-title{ font-size: 13px; font-weight: bold; color: #b78a00; text-transform: uppercase; }
-        body.page-seller_profile .stars-display{ display: flex; gap: 4px; }
-        body.page-seller_profile .stars-display i{ font-size: 26px; color: #ddd; cursor: pointer; transition: 0.1s; }
-        body.page-seller_profile .stars-display i.active{ color: var(--gold); }
-        body.page-seller_profile .rating-stats-text{ font-size: 12px; color: var(--dark); font-weight: 600; background: #fef6d3; padding: 4px 10px; border-radius: 10px; }
-
-        body.page-seller_profile .list-title{ font-size: 16px; font-weight: bold; color: var(--dark); margin: 25px 0 12px 0; display: flex; align-items: center; gap: 6px; border-left: 4px solid var(--primary); padding-left: 8px; }
-        body.page-seller_profile .seller-posts-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-        body.page-seller_profile .post-card{ background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid var(--border); position: relative; }
-        body.page-seller_profile .post-card img{ width: 100%; height: 110px; object-fit: cover; background: #eee; }
-        
-        body.page-seller_profile .card-tag{ position: absolute; top: 6px; left: 6px; background: rgba(0, 0, 0, 0.75); color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: bold; }
-        body.page-seller_profile .post-info{ padding: 8px; }
-        body.page-seller_profile .post-title-text{ font-size: 12px; font-weight: bold; margin: 0; height: 32px; overflow: hidden; color: var(--dark); line-height: 1.3; }
-        body.page-seller_profile .post-meta-loc{ font-size: 11px; color: var(--gray); display: flex; align-items: center; gap: 2px; margin: 4px 0; }
-        body.page-seller_profile .post-meta-loc i{ font-size: 12px; }
-        body.page-seller_profile .post-price-box{ display: flex; justify-content: space-between; align-items: center; margin-top: 6px; border-top: 1px solid #f5f5f5; padding-top: 6px; }
-        body.page-seller_profile .post-price-text{ color: var(--success); font-size: 12px; font-weight: bold; margin: 0; }
-        
-        body.page-seller_profile .no-post{ text-align: center; color: var(--gray); padding: 30px; font-weight: 500; width: 100%; background: white; border-radius: 8px; border: 1px solid var(--border); box-sizing: border-box; }
-
-        @media (min-width:768px){
-            body.page-seller_profile .container{ max-width:950px; }
-            body.page-seller_profile .profile-cover-photo{ height:180px; }
-            body.page-seller_profile .seller-posts-grid{ grid-template-columns:repeat(3,1fr); }
-            body.page-seller_profile .seller-name{ font-size:28px; }
-        }
-
-        @media (min-width:1024px){
-            body.page-seller_profile .container{ max-width:1200px; }
-            body.page-seller_profile .profile-cover-photo{ height:220px; }
-            body.page-seller_profile .avatar-container{ width:130px; height:130px; }
-            body.page-seller_profile .seller-name{ font-size:30px; }
-            body.page-seller_profile .seller-posts-grid{ grid-template-columns:repeat(4,1fr); }
-        }
-    
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-1 { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
-
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-2 { display: none; }
-
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-3 { font-size:14px }
-
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-4 { display: none; }
-
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-5 { font-size:14px }
-
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-6 { display: none; }
-
-
-/* inline style migrated from seller-profile.html */
-body.page-seller_profile .inline-style-page-seller-profile-7 { color:var(--primary) }
-
-
-/* ===== contact.html: extracted page CSS ===== */
-
-
-        /* CSS ভেরিয়েবল */
-        body.page-contact{
-            --primary-color: #007bff;
-        }
-
-        /* গ্লোবাল ফিক্স */
-        body.page-contact{
-            margin: 0; 
-            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
-            font-family: Arial, sans-serif; 
-        }
-
-        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
-        body.page-contact .main-header{
-             position: fixed; 
-             top: 0;
-             left: 0;
-             right: 0;
-             background-color: white; 
-             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-             z-index: 1000; 
-             padding-bottom: 0;
-        }
-        
-        /* --- [ফিক্স: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ] --- */
-        body.page-contact .sidebar{
-            position: fixed; 
-            top: 0;
-            left: -250px; 
-            width: 250px; 
-            height: 100%;
-            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
-            transition: left 0.3s ease; 
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
-            z-index: 1050; 
-            overflow-y: auto;
-            padding-top: 50px; 
-        }
-        
-        body.page-contact .sidebar.active{
-            left: 0; 
-        }
-        
-        body.page-contact .overlay{
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: 1040; 
-            display: none; 
-        }
-        
-        body.page-contact .overlay.active{
-            display: block; 
-        }
-        
-        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
-        body.page-contact .sidebar a{
-            color: #ffffff; 
-            padding: 12px 15px; 
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        body.page-contact .sidebar a i.material-icons{
-            color: #ffffff; 
-            margin-right: 10px;
-        }
-
-        body.page-contact .sidebar a:hover{
-            background-color: #3e5369; 
-        }
-        
-        /* সাইডবারের লোগো লিঙ্ক */
-        body.page-contact .sidebar-logo{
-            padding: 15px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white !important; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 5px;
-        }
-        /* --- [ফিক্স শেষ] --- */
-
-        body.page-contact .header-top{
-            display: flex;
-            align-items: center;
-            justify-content: space-between; 
-            padding: 8px 15px; 
-        }
-
-        body.page-contact .header-left{
-            display: flex;
-            align-items: center;
-            flex-shrink: 0; 
-        }
-
-        body.page-contact .menu-icon{
-             margin-right: 0; 
-             cursor: pointer;
-        }
-        
-        body.page-contact .logo-title{
-            display: flex;
-            align-items: center;
-            font-size: 1.8em; 
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-left: 0px; 
-            text-decoration: none; 
-            white-space: nowrap; 
-        }
-        body.page-contact .logo-icon{
-            margin-right: 5px;
-        }
-
-        /* ডানের ব্লক (আইকন) ফিক্স */
-        body.page-contact .header-actions{
-             display: flex;
-             align-items: center;
-             gap: 12px; 
-             position: relative; 
-             flex-shrink: 0; 
-        }
-        
-        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
-        body.page-contact .icon-wrapper{
-             position: relative;
-             display: inline-flex;
-             cursor: pointer;
-             align-items: center; 
-             justify-content: center;
-             height: 30px; 
-             width: 30px; 
-        }
-        
-        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
-        body.page-contact .notification-count{
-            position: absolute;
-            top: -5px; 
-            right: -8px; 
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 5px; 
-            font-size: 0.7em;
-            font-weight: bold;
-            min-width: 10px;
-            text-align: center;
-            line-height: 1; 
-            display: none; 
-        }
-        
-        /* আইকন কালার */
-        body.page-contact .notification-icon{ color: var(--primary-color); }
-        body.page-contact .message-icon{ color: var(--primary-color); }
-        body.page-contact .post-icon-header{ color: #28a745; }
-
-        /* ⭐ ফিক্স: প্রোফাইল ইমেজ স্টাইল (ছবি লোড না হলেও ডিফল্ট আইকন দেখা যাবে) ⭐ */
-        body.page-contact .profile-image-wrapper{
-            cursor: pointer;
-            width: 35px; 
-            height: 35px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--primary-color); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body.page-contact #profileImage{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none; /* ডিফল্টভাবে ছবি লুকানো থাকবে */
-        }
-        body.page-contact #defaultProfileIcon{
-            display: block; /* ডিফল্টভাবে আইকন দেখাবে */
-            font-size: 24px;
-            color: var(--primary-color);
-        }
-        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
-        @media (max-width: 600px) {
-            body.page-contact{
-                padding-top: 46px; 
-            }
-            body.page-contact .logo-title{
-                 font-size: 1.5em; 
-                 margin-left: 0px;
-            }
-            body.page-contact .header-actions{
-                 gap: 8px; 
-            }
-            body.page-contact .profile-image-wrapper{
-                 width: 30px; 
-                 height: 30px;
-            }
-        }
-        
-    
-
-/* inline style migrated from contact.html */
-body.page-contact .inline-style-page-contact-1 { background-color: #28a745; }
-
-
-/* ===== auth.html: extracted page CSS ===== */
-
+/* ===== auth.html page-specific CSS ===== */
 
         /* পুরো পেজের ব্যাকগ্রাউন্ড কালার ব্লু করা হয়েছে */
         body.page-auth .auth-body{
@@ -2423,237 +1591,10 @@ body.page-contact .inline-style-page-contact-1 { background-color: #28a745; }
         }
     
 
-/* inline style migrated from auth.html */
-body.page-auth .inline-style-page-auth-1 { display: none; }
-
-
-/* ===== tips.html: extracted page CSS ===== */
-
-
-        /* CSS ভেরিয়েবল */
-        body.page-tips{
-            --primary-color: #007bff;
-        }
-
-        /* গ্লোবাল ফিক্স */
-        body.page-tips{
-            margin: 0; 
-            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
-            font-family: Arial, sans-serif; 
-        }
-
-        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
-        body.page-tips .main-header{
-             position: fixed; 
-             top: 0;
-             left: 0;
-             right: 0;
-             background-color: white; 
-             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-             z-index: 1000; 
-             padding-bottom: 0;
-        }
-        
-        /* --- ⭐ FIX 2: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ যোগ করা হলো ⭐ --- */
-        body.page-tips .sidebar{
-            position: fixed; 
-            top: 0;
-            left: -250px; 
-            width: 250px; 
-            height: 100%;
-            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
-            transition: left 0.3s ease; 
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
-            z-index: 1050; 
-            overflow-y: auto;
-            padding-top: 50px; 
-        }
-        
-        body.page-tips .sidebar.active{
-            left: 0; 
-        }
-        
-        body.page-tips .overlay{
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: 1040; 
-            display: none; 
-        }
-        
-        body.page-tips .overlay.active{
-            display: block; 
-        }
-        
-        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
-        body.page-tips .sidebar a{
-            color: #ffffff; 
-            padding: 12px 15px; 
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        body.page-tips .sidebar a i.material-icons{
-            color: #ffffff; 
-            margin-right: 10px;
-        }
-
-        body.page-tips .sidebar a:hover{
-            background-color: #3e5369; 
-        }
-        
-        /* সাইডবারের লোগো লিঙ্ক */
-        body.page-tips .sidebar-logo{
-            padding: 15px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white !important; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 5px;
-        }
-        /* --- [সাইডবার ফিক্স শেষ] --- */
-
-        body.page-tips .header-top{
-            display: flex;
-            align-items: center;
-            justify-content: space-between; 
-            padding: 8px 15px; 
-        }
-
-        body.page-tips .header-left{
-            display: flex;
-            align-items: center;
-            flex-shrink: 0; 
-        }
-
-        body.page-tips .menu-icon{
-             margin-right: 0; 
-             cursor: pointer;
-        }
-        
-        body.page-tips .logo-title{
-            display: flex;
-            align-items: center;
-            font-size: 1.8em; 
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-left: 0px; 
-            text-decoration: none; 
-            white-space: nowrap; 
-        }
-        body.page-tips .logo-title:visited{
-             color: var(--primary-color);
-        }
-        body.page-tips .logo-icon{
-            margin-right: 5px;
-        }
-
-        /* ডানের ব্লক (আইকন) ফিক্স */
-        body.page-tips .header-actions{
-             display: flex;
-             align-items: center;
-             gap: 12px; 
-             position: relative; 
-             flex-shrink: 0; 
-        }
-        
-        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
-        body.page-tips .icon-wrapper{
-             position: relative;
-             display: inline-flex;
-             cursor: pointer;
-             align-items: center; 
-             justify-content: center;
-             height: 30px; 
-             width: 30px; 
-        }
-        
-        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
-        body.page-tips .notification-count{
-            position: absolute;
-            top: -5px; 
-            right: -8px; 
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 5px; 
-            font-size: 0.7em;
-            font-weight: bold;
-            min-width: 10px;
-            text-align: center;
-            line-height: 1; 
-            display: none; 
-        }
-        
-        /* আইকন কালার */
-        body.page-tips .notification-icon{ color: var(--primary-color); }
-        body.page-tips .message-icon{ color: var(--primary-color); }
-        body.page-tips .post-icon-header{ color: #28a745; }
-
-        
-
-        /* প্রোফাইল ইমেজের বাইরের গোল বক্স */
-
-        body.page-tips .profile-image-wrapper{
-            cursor: pointer;
-            width: 35px; /* আইকন থেকে সামান্য বড় */
-            height: 35px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body.page-tips #profileImage{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-/* 🎯 ইমেজের একাংশ কেটে যাওয়া রোধ করার ফিক্স */
-body.page-tips .profile-image-wrapper img{
-    width: 100%;          /* বক্সের পুরো উইডথ নিবে */
-    height: 100%;         /* বক্সের পুরো হাইট নিবে */
-    object-fit: cover;    /* 👈 এটি ছবিটিকে চ্যাপ্টা বা বিকৃত না করে গোল বক্সের মাঝে সুন্দরভাবে ফিট করবে */
-    object-position: center; /* ছবির মাঝখানের অংশ ফোকাস করবে */
-    display: block;
-}
-     
-        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
-        @media (max-width: 600px) {
-            body.page-tips{
-                padding-top: 46px; 
-            }
-            body.page-tips .logo-title{
-                 font-size: 1.5em; 
-                 margin-left: 0px;
-            }
-            body.page-tips .header-actions{
-                 gap: 8px; 
-            }
-            body.page-tips .profile-image-wrapper{
-                 width: 30px; 
-                 height: 30px;
-            }
-        }
-        
-    
-
-/* inline style migrated from tips.html */
-body.page-tips .inline-style-page-tips-1 { background-color: #28a745; }
-
-
-/* ===== post.html: extracted page CSS ===== */
-
+/* ===== post.html page-specific CSS ===== */
 
         /* প্রজেক্টের মেইন থিম ও গ্লোবাল কালার */
-body.page-post{
+html.page-post{
     --primary-color: #007bff;
     --success-color: #28a745;
     --background-gray: #f4f6f9;
@@ -3046,256 +1987,170 @@ body.page-post .submit-button:active, body.page-post button[type="submit"]:activ
         
     
 
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-1 { background-color: #28a745; }
+/* ===== preview.html page-specific CSS ===== */
 
+    html.page-preview{
+      --primary: #1e3a8a;
+      --secondary: #0284c7;
+      --success: #16a34a;
+      --dark: #1f2937;
+      --gray-bg: #f8fafc;
+      --card-border: #e2e8f0;
+    }
 
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-2 { color: red; display: none; margin-bottom: 15px; }
+    body.page-preview{
+      font-family: "Hind Siliguri", sans-serif;
+      background-color: #f1f5f9;
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+    }
 
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-3 { display: none; }
-
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-4 { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
-
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-5 { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-6 { font-size: 50px; color: #ff9800; margin-bottom: 15px; }
-
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-7 { margin-bottom: 10px; color: #333; font-size: 20px; }
-
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-8 { color: #666; font-size: 14px; margin-bottom: 25px; line-height: 1.5; }
-
-
-/* inline style migrated from post.html */
-body.page-post .inline-style-page-post-9 { background: #007bff; color: white; border: none; padding: 12px 25px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; transition: 0.3s; }
-
-
-/* ===== about.html: extracted page CSS ===== */
-
-
-        /* CSS ভেরিয়েবল */
-        body.page-about{
-            --primary-color: #007bff;
-        }
-
-        /* গ্লোবাল ফিক্স */
-        body.page-about{
-            margin: 0; 
-            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
-            font-family: Arial, sans-serif; 
-        }
-
-        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
-        body.page-about .main-header{
-             position: fixed; 
-             top: 0;
-             left: 0;
-             right: 0;
-             background-color: white; 
-             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-             z-index: 1000; 
-             padding-bottom: 0;
-        }
-        
-        /* --- [ফিক্স: সাইডবার পজিশনিং এবং ট্রানজিশন] --- */
-        body.page-about .sidebar{
-            position: fixed; 
-            top: 0;
-            left: -250px; 
-            width: 250px; 
-            height: 100%;
-            background-color: #34495e; /* আপনার পছন্দ করা গাঢ় নীল/ধূসর রঙ */
-            transition: left 0.3s ease; 
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
-            z-index: 1050; 
-            overflow-y: auto;
-            padding-top: 50px; /* হেডার এর নিচে থেকে শুরু হবে */
-        }
-        
-        body.page-about .sidebar.active{
-            left: 0; 
-        }
-        
-        body.page-about .overlay{
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: 1040; 
-            display: none; 
-        }
-        
-        body.page-about .overlay.active{
-            display: block; 
-        }
-        
-        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
-        body.page-about .sidebar a{
-            color: #ffffff; 
-            padding: 12px 15px; 
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        body.page-about .sidebar a i.material-icons{
-            color: #ffffff; 
-            margin-right: 10px;
-        }
-
-        body.page-about .sidebar a:hover{
-            background-color: #3e5369; 
-        }
-        
-        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
-        body.page-about .sidebar-logo{
-            padding: 15px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white !important; 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 5px;
-        }
-        /* --- [ফিক্স শেষ] --- */
-
-        body.page-about .header-top{
-            display: flex;
-            align-items: center;
-            justify-content: space-between; 
-            padding: 8px 15px; 
-        }
-
-        body.page-about .header-left{
-            display: flex;
-            align-items: center;
-            flex-shrink: 0; 
-        }
-
-        body.page-about .menu-icon{
-             margin-right: 0; 
-             cursor: pointer;
-        }
-        
-        body.page-about .logo-title{
-            display: flex;
-            align-items: center;
-            font-size: 1.8em; 
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-left: 0px; 
-            text-decoration: none; 
-            white-space: nowrap; 
-        }
-        body.page-about .logo-title:visited{
-             color: var(--primary-color);
-        }
-        body.page-about .logo-icon{
-            margin-right: 5px;
-        }
-
-        /* ডানের ব্লক (আইকন) ফিক্স */
-        body.page-about .header-actions{
-             display: flex;
-             align-items: center;
-             gap: 12px; 
-             position: relative; 
-             flex-shrink: 0; 
-        }
-        
-        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
-        body.page-about .icon-wrapper{
-             position: relative;
-             display: inline-flex;
-             cursor: pointer;
-             align-items: center; 
-             justify-content: center;
-             height: 30px; 
-             width: 30px; 
-        }
-        
-        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
-        body.page-about .notification-count{
-            position: absolute;
-            top: -5px; 
-            right: -8px; 
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 5px; 
-            font-size: 0.7em;
-            font-weight: bold;
-            min-width: 10px;
-            text-align: center;
-            line-height: 1; 
-            display: none; 
-        }
-        
-        /* আইকন কালার */
-        body.page-about .notification-icon{ color: var(--primary-color); }
-        body.page-about .message-icon{ color: var(--primary-color); }
-        body.page-about .post-icon-header{ color: #28a745; }
-
-        /* প্রোফাইল ইমেজ স্টাইল */
-        body.page-about .profile-image-wrapper{
-            cursor: pointer;
-            width: 35px; /* আইকন থেকে সামান্য বড় */
-            height: 35px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body.page-about #profileImage{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
-        @media (max-width: 600px) {
-            body.page-about{
-                padding-top: 46px; 
-            }
-            body.page-about .logo-title{
-                 font-size: 1.5em; 
-                 margin-left: 0px;
-            }
-            body.page-about .header-actions{
-                 gap: 8px; 
-            }
-            body.page-about .profile-image-wrapper{
-                 width: 30px; 
-                 height: 30px;
-            }
-        }
-        
     
+    body.page-preview .preview-wrapper{
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 24px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
 
-/* inline style migrated from about.html */
-body.page-about .inline-style-page-about-1 { background-color: #28a745; }
+    body.page-preview .page-title{
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
 
+    /* 🖼️ প্রোপার্টি ইমেজ গ্যালারি ও ফ্রেম স্টাইল */
+    body.page-preview .gallery-title{
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 10px 0 6px 0;
+    }
+    
+    body.page-preview .preview-images{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: var(--gray-bg);
+      border-radius: 12px;
+      border: 1px dashed #cbd5e1;
+    }
 
-/* ===== details.html: extracted page CSS ===== */
+    body.page-preview .preview-images img{
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
 
+    body.page-preview .preview-images img:hover{
+      transform: scale(1.04);
+    }
 
-        body.page-details{ --primary: #007bff; --success: #28a745; --dark: #2c3e50; --gray: #7f8c8d; --bg: #f4f7f6; }
+    /* 📑 খতিয়ান ও নকশার জন্য বিশেষ ডকুমেন্ট সেকশন */
+    body.page-preview .document-section{
+      background: #fffbeb;
+      border: 1px dashed #f59e0b;
+    }
+
+    /* 📂 কার্ড এবং সেকশন ডিজাইন */
+    body.page-preview .preview-section{
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    body.page-preview .preview-section h3{
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-size: 16px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+    }
+
+    /* 📊 গ্রিড লেআউট (দুই কলামে তথ্য সাজানো) */
+    body.page-preview .section-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    body.page-preview .preview-row{
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+    }
+
+    body.page-preview .preview-row strong{
+      color: #64748b;
+      min-width: 130px;
+      display: inline-block;
+    }
+
+    body.page-preview .preview-row span{
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    /* 💰 দামের জন্য স্পেশাল হাইলাইট */
+    body.page-preview .price-tag{
+      color: var(--success) !important;
+      font-weight: 700 !important;
+      font-size: 16px;
+    }
+
+    /* 🔘 বোতামের আকর্ষণীয় ডিজাইন */
+    body.page-preview .preview-actions{
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    body.page-preview .preview-actions button{
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    body.page-preview .btn-edit{
+      background-color: #e2e8f0;
+      color: #475569;
+    }
+
+    body.page-preview .btn-edit:hover{ background-color: #cbd5e1; }
+
+    body.page-preview .btn-publish{
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    body.page-preview .btn-publish:hover{ background-color: #026ca3; }
+  
+
+/* ===== details.html page-specific CSS ===== */
+
+        html.page-details{ --primary: #007bff; --success: #28a745; --dark: #2c3e50; --gray: #7f8c8d; --bg: #f4f7f6; }
         body.page-details{ background-color: var(--bg); font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding-bottom: 50px; }
         body.page-details .container{ max-width: 800px; margin: auto; padding: 15px; }
         
@@ -3406,7 +2261,7 @@ body.page-details .gallery-thumb:hover{
         body.page-details #lb-img{ max-width: 90%; max-height: 80%; }
 
         /* CSS ভেরিয়েবল */
-        body.page-details{
+        html.page-details{
             --primary-color: #007bff;
         }
 
@@ -3919,223 +2774,9 @@ body.page-details .profile-image-wrapper img{
 
     
 
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-1 { background-color: #28a745; }
+/* ===== messages.html page-specific CSS ===== */
 
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-2 { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-3 { font-size: 11px; color: var(--gray); font-weight: bold; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-4 { display: none; color: #3498db; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-5 { display: none; color: #9b59b6; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-6 { display: none; color: #e74c3c; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-7 { display:none; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-8 { background: #27ae60; margin-top: 10px; text-decoration: none; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-9 { height: 350px; width: 100%; border-radius: 12px; margin-top: 20px; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-10 { margin-top:30px; }
-
-
-/* inline style migrated from details.html */
-body.page-details .inline-style-page-details-11 { display:none; }
-
-
-/* ===== notifications.html: extracted page CSS ===== */
-
-
-        body.page-notifications{
-            --primary-color: #007bff;
-            --dark: #2c3e50;
-            --gray: #7f8c8d;
-            --bg: #f4f7f6;
-        }
-
-        body.page-notifications{
-            margin: 0; 
-            padding-top: 60px;
-            font-family: "Segoe UI", Arial, sans-serif; 
-            background-color: var(--bg);
-        }
-
-        /* --- হেডার ফিক্স --- */
-        body.page-notifications .main-header{
-             position: fixed; 
-             top: 0; left: 0; right: 0;
-             background-color: white; 
-             box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
-             z-index: 1000; 
-        }
-        
-        /* --- সাইডবার ফিক্স --- */
-        body.page-notifications .sidebar{
-            position: fixed; top: 0; left: -250px; width: 250px; height: 100%;
-            background-color: #34495e; transition: left 0.3s ease; 
-            box-shadow: 2px 0 5px rgba(0,0,0,0.5); z-index: 1050; 
-            overflow-y: auto; padding-top: 50px; 
-        }
-        body.page-notifications .sidebar.active{ left: 0; }
-        body.page-notifications .overlay{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1040; display: none; }
-        body.page-notifications .overlay.active{ display: block; }
-        
-        body.page-notifications .sidebar a{ color: #ffffff; padding: 12px 15px; display: flex; align-items: center; text-decoration: none; font-weight: 500; }
-        body.page-notifications .sidebar a i.material-icons{ margin-right: 10px; }
-        body.page-notifications .sidebar a:hover{ background-color: #3e5369; }
-        body.page-notifications .sidebar-logo{ padding: 15px; font-size: 1.5em; font-weight: bold; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 5px; }
-        
-        body.page-notifications .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
-        body.page-notifications .header-left{ display: flex; align-items: center; flex-shrink: 0; }
-        body.page-notifications .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
-        
-        body.page-notifications .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary-color); text-decoration: none; white-space: nowrap; margin-left: 10px; }
-        body.page-notifications .logo-icon{ margin-right: 5px; }
-
-        body.page-notifications .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-        body.page-notifications .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
-        
-        body.page-notifications .notification-count{
-            position: absolute; top: -5px; right: -8px; background-color: red; color: white;
-            border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold;
-            min-width: 10px; text-align: center; line-height: 1; display: none; 
-        }
-        
-        body.page-notifications .notification-icon, body.page-notifications .message-icon{ color: var(--primary-color); }
-        body.page-notifications .post-icon-header{ color: #28a745; }
-
-        body.page-notifications .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; }
-        body.page-notifications .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* --- নোটিফিকেশন পেজ কন্টেন্ট স্টাইল --- */
-        body.page-notifications .main-content{
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        body.page-notifications .notification-page-container{
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        body.page-notifications .notification-page-container h2{
-            margin-top: 0;
-            color: var(--dark);
-            font-size: 22px;
-            border-bottom: 2px solid #edf2f7;
-            padding-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        body.page-notifications .notification-list{
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        body.page-notifications .notification-item{
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            border-bottom: 1px solid #f1f5f9;
-            cursor: pointer;
-            transition: background 0.2s;
-            position: relative;
-        }
-
-        body.page-notifications .notification-item:hover{
-            background: #f8fafc;
-        }
-
-        body.page-notifications .notification-item.unread{
-            background: #ebf5ff;
-        }
-
-        body.page-notifications .notification-icon-large{
-            font-size: 28px;
-            color: var(--gray);
-        }
-
-        body.page-notifications .notification-item.unread .notification-icon-large{
-            color: var(--primary-color);
-        }
-
-        body.page-notifications .notif-content{
-            flex: 1;
-        }
-
-        body.page-notifications .notif-text{
-            margin: 0;
-            font-size: 15px;
-            color: #334155;
-        }
-
-        body.page-notifications .notification-item.unread .notif-text{
-            font-weight: 600;
-        }
-
-        body.page-notifications .notif-time{
-            font-size: 12px;
-            color: var(--gray);
-            white-space: nowrap;
-        }
-
-        body.page-notifications .footer{
-            background: white;
-            border-top: 1px solid #edf2f7;
-            padding: 15px 0;
-            text-align: center;
-            font-size: 13px;
-            color: var(--gray);
-            margin-top: 40px;
-        }
-        
-        @media (max-width: 600px) {
-            body.page-notifications .logo-title{ font-size: 1.2em; }
-            body.page-notifications .header-actions{ gap: 8px; }
-            body.page-notifications .notification-item{ flex-direction: column; align-items: flex-start; gap: 8px; }
-            body.page-notifications .notif-time{ align-self: flex-end; }
-        }
-    
-
-/* inline style migrated from notifications.html */
-body.page-notifications .inline-style-page-notifications-1 { vertical-align: middle; }
-
-
-/* inline style migrated from notifications.html */
-body.page-notifications .inline-style-page-notifications-2 { text-align: center; color: #555; }
-
-
-/* ===== messages.html: extracted page CSS ===== */
-
-
-        body.page-messages{ 
+        html.page-messages{ 
             --primary: #007bff; 
             --primary-light: #ebf5ff;
             --success: #28a745; 
@@ -4570,26 +3211,9 @@ body.page-notifications .inline-style-page-notifications-2 { text-align: center;
         }
     
 
-/* inline style migrated from messages.html */
-body.page-messages .inline-style-page-messages-1 { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+/* ===== profile.html page-specific CSS ===== */
 
-
-/* inline style migrated from messages.html */
-body.page-messages .inline-style-page-messages-2 { padding:20px; text-align:center; color:var(--gray); }
-
-
-/* inline style migrated from messages.html */
-body.page-messages .inline-style-page-messages-3 { display:none; flex-direction:column; flex:1; height:100%; }
-
-
-/* inline style migrated from messages.html */
-body.page-messages .inline-style-page-messages-4 { display:none; }
-
-
-/* ===== profile.html: extracted page CSS ===== */
-
-
-        body.page-profile{ 
+        html.page-profile{ 
             --primary: #007bff; 
             --primary-gradient: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
             --cover-gradient: linear-gradient(135deg, rgba(24, 43, 73, 0.9) 0%, rgba(0, 123, 255, 0.85) 100%);
@@ -4814,126 +3438,1169 @@ body.page-messages .inline-style-page-messages-4 { display:none; }
         }
     
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-1 { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+/* ===== seller-profile.html page-specific CSS ===== */
+
+        html.page-seller_profile{ 
+            --primary: #007bff; 
+            --primary-gradient: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+            --cover-gradient: linear-gradient(135deg, rgba(24, 43, 73, 0.9) 0%, rgba(0, 123, 255, 0.85) 100%);
+            --success: #28a745; 
+            --dark: #1c1e21;
+            --gray: #65676b;
+            --bg: #f0f2f5;
+            --gold: #f1c40f;
+            --border: #e4e6eb;
+        }
+        body.page-seller_profile{ background-color: var(--bg); font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding-top: 70px; color: var(--dark); }
+       
+        body.page-seller_profile .main-header{
+             position: fixed; 
+             top: 0; left: 0; right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+        }
+        
+        body.page-seller_profile .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e;
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-seller_profile .sidebar.active{ left: 0; }
+        
+        body.page-seller_profile .overlay{
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; display: none; 
+        }
+        body.page-seller_profile .overlay.active{ display: block; }
+        
+        body.page-seller_profile .sidebar a{
+            color: white; padding: 12px 15px; display: flex;
+            align-items: center; text-decoration: none; font-weight: 500;
+        }
+        body.page-seller_profile .sidebar a i.material-icons{ color: white; margin-right: 10px; }
+        body.page-seller_profile .sidebar a:hover{ background-color: #3e5369; }
+        
+        body.page-seller_profile .sidebar-logo{
+            padding: 15px; font-size: 1.5em; font-weight: bold;
+            color: white !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        body.page-seller_profile .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+        body.page-seller_profile .header-left{ display: flex; align-items: center; flex-shrink: 0; }
+        body.page-seller_profile .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
+        body.page-seller_profile .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary); text-decoration: none; white-space: nowrap; margin-left: 10px; }
+        body.page-seller_profile .logo-icon{ margin-right: 5px; }
+
+        body.page-seller_profile .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        body.page-seller_profile .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
+        
+        body.page-seller_profile .notification-count{ position: absolute; top: -5px; right: -8px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold; min-width: 10px; text-align: center; line-height: 1; display: none; }
+        body.page-seller_profile .notification-icon, body.page-seller_profile .message-icon{ color: var(--primary); }
+        body.page-seller_profile .post-icon-header{ color: #28a745; }
+
+        body.page-seller_profile .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; }
+        body.page-seller_profile .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        
+        @media (max-width: 600px) {
+            body.page-seller_profile{ padding-top: 55px; }
+            body.page-seller_profile .logo-title{ font-size: 1.2em; }
+            body.page-seller_profile .header-actions{ gap: 8px; }
+        }
+        
+        body.page-seller_profile .container{ max-width: 600px; margin: auto; padding: 10px; box-sizing: border-box; }
+        body.page-seller_profile .btn-back{ background: white; border: 1px solid #ddd; color: var(--dark); padding: 8px 16px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: bold; font-size: 14px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: fit-content; transition: 0.2s; }
+        body.page-seller_profile .btn-back:hover{ background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* 👑 প্রিমিয়াম প্রোফাইল কার্ড */
+        body.page-seller_profile .seller-premium-card{ 
+            background: white; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); text-align: center; margin-bottom: 16px; position: relative; overflow: hidden; border: 1px solid var(--border);
+        }
+
+        body.page-seller_profile .profile-cover-photo{ height: 140px; background: var(--cover-gradient); position: relative; }
+        body.page-seller_profile .profile-cover-photo::before{
+            content: "corporate_fare"; font-family: "Material Icons"; position: absolute; right: 15px; bottom: -15px; font-size: 120px; color: rgba(255, 255, 255, 0.08); pointer-events: none;
+        }
+        body.page-seller_profile .profile-cover-photo::after{
+            content: "home"; font-family: "Material Icons"; position: absolute; left: 20px; top: 20px; font-size: 70px; color: rgba(255, 255, 255, 0.05); pointer-events: none;
+        }
+
+        body.page-seller_profile .profile-content-box{ padding: 0px 16px 20px 16px; position: relative; margin-top: -60px; z-index: 5; }
+
+        body.page-seller_profile .viral-badge-box{ position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; z-index: 10; }
+        body.page-seller_profile .badge-item{ display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 20px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        body.page-seller_profile .badge-verified{ background: #00b894; }
+        body.page-seller_profile .badge-top-seller{ background: #6c5ce7; }
+
+        body.page-seller_profile .avatar-container{ position: relative; width: 110px; height: 110px; margin: 0 auto 10px auto; }
+        body.page-seller_profile .seller-avatar{ width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); background: #fff; }
+        body.page-seller_profile .status-dot{ position: absolute; bottom: 6px; right: 6px; width: 14px; height: 14px; background: #2ecc71; border: 2px solid white; border-radius: 50%; }
+
+        body.page-seller_profile .seller-name{ font-size: 24px; font-weight: bold; color: var(--dark); margin: 0 0 4px 0; }
+        body.page-seller_profile .seller-bio{ font-size: 14px; color: var(--gray); line-height: 1.4; margin: 6px auto 12px auto; max-width: 85%; font-style: italic; }
+
+        body.page-seller_profile .facebook-intro-card{ background: white; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(0,0,0,0.1); padding: 16px; margin-bottom: 16px; text-align: left; }
+        body.page-seller_profile .facebook-intro-card h3{ margin: 0 0 12px 0; font-size: 17px; font-weight: bold; color: var(--dark); }
+        
+        body.page-seller_profile .intro-list{ list-style: none; padding: 0; margin: 0; }
+        body.page-seller_profile .intro-item{ display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--dark); }
+        body.page-seller_profile .intro-item i{ color: #8c939d; font-size: 20px; }
+
+        body.page-seller_profile .profile-rating-section{ background: #fffdf3; border: 1px solid #fbf1c9; padding: 15px; border-radius: 12px; margin-top: 15px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        body.page-seller_profile .rating-title{ font-size: 13px; font-weight: bold; color: #b78a00; text-transform: uppercase; }
+        body.page-seller_profile .stars-display{ display: flex; gap: 4px; }
+        body.page-seller_profile .stars-display i{ font-size: 26px; color: #ddd; cursor: pointer; transition: 0.1s; }
+        body.page-seller_profile .stars-display i.active{ color: var(--gold); }
+        body.page-seller_profile .rating-stats-text{ font-size: 12px; color: var(--dark); font-weight: 600; background: #fef6d3; padding: 4px 10px; border-radius: 10px; }
+
+        body.page-seller_profile .list-title{ font-size: 16px; font-weight: bold; color: var(--dark); margin: 25px 0 12px 0; display: flex; align-items: center; gap: 6px; border-left: 4px solid var(--primary); padding-left: 8px; }
+        body.page-seller_profile .seller-posts-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+        body.page-seller_profile .post-card{ background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid var(--border); position: relative; }
+        body.page-seller_profile .post-card img{ width: 100%; height: 110px; object-fit: cover; background: #eee; }
+        
+        body.page-seller_profile .card-tag{ position: absolute; top: 6px; left: 6px; background: rgba(0, 0, 0, 0.75); color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: bold; }
+        body.page-seller_profile .post-info{ padding: 8px; }
+        body.page-seller_profile .post-title-text{ font-size: 12px; font-weight: bold; margin: 0; height: 32px; overflow: hidden; color: var(--dark); line-height: 1.3; }
+        body.page-seller_profile .post-meta-loc{ font-size: 11px; color: var(--gray); display: flex; align-items: center; gap: 2px; margin: 4px 0; }
+        body.page-seller_profile .post-meta-loc i{ font-size: 12px; }
+        body.page-seller_profile .post-price-box{ display: flex; justify-content: space-between; align-items: center; margin-top: 6px; border-top: 1px solid #f5f5f5; padding-top: 6px; }
+        body.page-seller_profile .post-price-text{ color: var(--success); font-size: 12px; font-weight: bold; margin: 0; }
+        
+        body.page-seller_profile .no-post{ text-align: center; color: var(--gray); padding: 30px; font-weight: 500; width: 100%; background: white; border-radius: 8px; border: 1px solid var(--border); box-sizing: border-box; }
+
+        @media (min-width:768px){
+            body.page-seller_profile .container{ max-width:950px; }
+            body.page-seller_profile .profile-cover-photo{ height:180px; }
+            body.page-seller_profile .seller-posts-grid{ grid-template-columns:repeat(3,1fr); }
+            body.page-seller_profile .seller-name{ font-size:28px; }
+        }
+
+        @media (min-width:1024px){
+            body.page-seller_profile .container{ max-width:1200px; }
+            body.page-seller_profile .profile-cover-photo{ height:220px; }
+            body.page-seller_profile .avatar-container{ width:130px; height:130px; }
+            body.page-seller_profile .seller-name{ font-size:30px; }
+            body.page-seller_profile .seller-posts-grid{ grid-template-columns:repeat(4,1fr); }
+        }
+    
+
+/* ===== notifications.html page-specific CSS ===== */
+
+        html.page-notifications{
+            --primary-color: #007bff;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --bg: #f4f7f6;
+        }
+
+        body.page-notifications{
+            margin: 0; 
+            padding-top: 60px;
+            font-family: "Segoe UI", Arial, sans-serif; 
+            background-color: var(--bg);
+        }
+
+        /* --- হেডার ফিক্স --- */
+        body.page-notifications .main-header{
+             position: fixed; 
+             top: 0; left: 0; right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+             z-index: 1000; 
+        }
+        
+        /* --- সাইডবার ফিক্স --- */
+        body.page-notifications .sidebar{
+            position: fixed; top: 0; left: -250px; width: 250px; height: 100%;
+            background-color: #34495e; transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); z-index: 1050; 
+            overflow-y: auto; padding-top: 50px; 
+        }
+        body.page-notifications .sidebar.active{ left: 0; }
+        body.page-notifications .overlay{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1040; display: none; }
+        body.page-notifications .overlay.active{ display: block; }
+        
+        body.page-notifications .sidebar a{ color: #ffffff; padding: 12px 15px; display: flex; align-items: center; text-decoration: none; font-weight: 500; }
+        body.page-notifications .sidebar a i.material-icons{ margin-right: 10px; }
+        body.page-notifications .sidebar a:hover{ background-color: #3e5369; }
+        body.page-notifications .sidebar-logo{ padding: 15px; font-size: 1.5em; font-weight: bold; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 5px; }
+        
+        body.page-notifications .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+        body.page-notifications .header-left{ display: flex; align-items: center; flex-shrink: 0; }
+        body.page-notifications .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
+        
+        body.page-notifications .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary-color); text-decoration: none; white-space: nowrap; margin-left: 10px; }
+        body.page-notifications .logo-icon{ margin-right: 5px; }
+
+        body.page-notifications .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        body.page-notifications .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
+        
+        body.page-notifications .notification-count{
+            position: absolute; top: -5px; right: -8px; background-color: red; color: white;
+            border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold;
+            min-width: 10px; text-align: center; line-height: 1; display: none; 
+        }
+        
+        body.page-notifications .notification-icon, body.page-notifications .message-icon{ color: var(--primary-color); }
+        body.page-notifications .post-icon-header{ color: #28a745; }
+
+        body.page-notifications .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; }
+        body.page-notifications .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* --- নোটিফিকেশন পেজ কন্টেন্ট স্টাইল --- */
+        body.page-notifications .main-content{
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        body.page-notifications .notification-page-container{
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        body.page-notifications .notification-page-container h2{
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 22px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        body.page-notifications .notification-list{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        body.page-notifications .notification-item{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        body.page-notifications .notification-item:hover{
+            background: #f8fafc;
+        }
+
+        body.page-notifications .notification-item.unread{
+            background: #ebf5ff;
+        }
+
+        body.page-notifications .notification-icon-large{
+            font-size: 28px;
+            color: var(--gray);
+        }
+
+        body.page-notifications .notification-item.unread .notification-icon-large{
+            color: var(--primary-color);
+        }
+
+        body.page-notifications .notif-content{
+            flex: 1;
+        }
+
+        body.page-notifications .notif-text{
+            margin: 0;
+            font-size: 15px;
+            color: #334155;
+        }
+
+        body.page-notifications .notification-item.unread .notif-text{
+            font-weight: 600;
+        }
+
+        body.page-notifications .notif-time{
+            font-size: 12px;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        body.page-notifications .footer{
+            background: white;
+            border-top: 1px solid #edf2f7;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 600px) {
+            body.page-notifications .logo-title{ font-size: 1.2em; }
+            body.page-notifications .header-actions{ gap: 8px; }
+            body.page-notifications .notification-item{ flex-direction: column; align-items: flex-start; gap: 8px; }
+            body.page-notifications .notif-time{ align-self: flex-end; }
+        }
+    
+
+/* ===== privacy.html page-specific CSS ===== */
+
+        /* CSS ভেরিয়েবল */
+        html.page-privacy{
+            --primary-color: #007bff;
+        }
+
+        /* গ্লোবাল ফিক্স */
+        body.page-privacy{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
+
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-privacy .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [START] সাইডবার ফিক্স: সম্পূর্ণ কার্যকারিতা, নতুন রঙ সহ --- */
+        body.page-privacy .sidebar{
+            position: fixed; /* ফিক্সড পজিশন সেট করা হলো */
+            top: 0;
+            left: -250px; /* ডিফল্টভাবে স্ক্রিনের বাইরে লুকিয়ে রাখা হলো */
+            width: 250px; /* সাইডবারের প্রস্থ */
+            height: 100%;
+            
+            /* ⭐ ব্যাকগ্রাউন্ড কালার ফিক্সড: গাঢ় নীল/ধূসর (#34495e) ⭐ */
+            background-color: #34495e; 
+            
+            transition: left 0.3s ease; /* মসৃণ স্লাইড ট্রানজিশন */
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+        }
+        
+        body.page-privacy .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-privacy .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-privacy .overlay.active{
+            display: block; 
+        }
+        
+        /* ⭐ সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা (#ffffff) ⭐ */
+        body.page-privacy .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; /* লিঙ্কগুলোর padding */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-privacy .sidebar a i.material-icons{
+            color: #ffffff; /* আইকনগুলোর রঙ সাদা */
+            margin-right: 10px;
+        }
+
+        body.page-privacy .sidebar a:hover{
+            background-color: #3e5369; /* হোভার ইফেক্টের জন্য একটু হালকা রঙ */
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
+        body.page-privacy .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; /* নিশ্চিত সাদা */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        /* --- [END] সাইডবার ফিক্স: সম্পূর্ণ কার্যকারিতা, নতুন রঙ সহ --- */
 
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-2 { font-size: 18px; }
+        body.page-privacy .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
 
+        body.page-privacy .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-3 { font-size: 18px; }
+        body.page-privacy .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-privacy .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-privacy .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-privacy .logo-icon{
+            margin-right: 5px;
+        }
 
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-privacy .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-privacy .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-privacy .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-privacy .notification-icon{ color: var(--primary-color); }
+        body.page-privacy .message-icon{ color: var(--primary-color); }
+        body.page-privacy .post-icon-header{ color: #28a745; }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-4 { display: none; }
+        /* প্রোফাইল ইমেজ স্টাইল */
+        body.page-privacy .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; 
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-privacy #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-privacy{
+                padding-top: 46px; 
+            }
+            body.page-privacy .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-privacy .header-actions{
+                 gap: 8px; 
+            }
+            body.page-privacy .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
 
+/* ===== about.html page-specific CSS ===== */
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-5 { display:none; text-align:center; padding: 30px; color: var(--gray); }
+        /* CSS ভেরিয়েবল */
+        html.page-about{
+            --primary-color: #007bff;
+        }
 
+        /* গ্লোবাল ফিক্স */
+        body.page-about{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-6 { text-align:center; padding: 30px; color: var(--gray); }
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-about .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [ফিক্স: সাইডবার পজিশনিং এবং ট্রানজিশন] --- */
+        body.page-about .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* আপনার পছন্দ করা গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; /* হেডার এর নিচে থেকে শুরু হবে */
+        }
+        
+        body.page-about .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-about .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-about .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-about .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
+        body.page-about .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-7 { margin: 0 0 15px 0; text-align: center; }
+        body.page-about .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
+        body.page-about .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [ফিক্স শেষ] --- */
 
+        body.page-about .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-8 { text-align: center; margin-bottom: 12px; position: relative; }
+        body.page-about .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
 
+        body.page-about .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-about .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-about .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-about .logo-icon{
+            margin-right: 5px;
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-9 { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; }
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-about .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-about .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-about .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-about .notification-icon{ color: var(--primary-color); }
+        body.page-about .message-icon{ color: var(--primary-color); }
+        body.page-about .post-icon-header{ color: #28a745; }
 
+        /* প্রোফাইল ইমেজ স্টাইল */
+        body.page-about .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; /* আইকন থেকে সামান্য বড় */
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-about #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-about{
+                padding-top: 46px; 
+            }
+            body.page-about .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-about .header-actions{
+                 gap: 8px; 
+            }
+            body.page-about .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-10 { position: absolute; bottom: 0; right: calc(50% - 45px); background: #1c1e21; color: white; padding: 5px; border-radius: 50%; cursor: pointer; }
+/* ===== contact.html page-specific CSS ===== */
 
+        /* CSS ভেরিয়েবল */
+        html.page-contact{
+            --primary-color: #007bff;
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-11 { font-size: 16px; }
+        /* গ্লোবাল ফিক্স */
+        body.page-contact{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
 
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-contact .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [ফিক্স: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ] --- */
+        body.page-contact .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-contact .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-contact .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-contact .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-contact .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-12 { display: none; }
+        body.page-contact .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
 
+        body.page-contact .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক */
+        body.page-contact .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [ফিক্স শেষ] --- */
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-13 { margin: 0 0 15px 0; text-align: center; color: var(--primary); }
+        body.page-contact .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
 
+        body.page-contact .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-14 { text-align: center; margin-bottom: 12px; position: relative; }
+        body.page-contact .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-contact .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-contact .logo-icon{
+            margin-right: 5px;
+        }
 
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-contact .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-contact .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-contact .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-contact .notification-icon{ color: var(--primary-color); }
+        body.page-contact .message-icon{ color: var(--primary-color); }
+        body.page-contact .post-icon-header{ color: #28a745; }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-15 { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+        /* ⭐ ফিক্স: প্রোফাইল ইমেজ স্টাইল (ছবি লোড না হলেও ডিফল্ট আইকন দেখা যাবে) ⭐ */
+        body.page-contact .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; 
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-contact #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* ডিফল্টভাবে ছবি লুকানো থাকবে */
+        }
+        body.page-contact #defaultProfileIcon{
+            display: block; /* ডিফল্টভাবে আইকন দেখাবে */
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-contact{
+                padding-top: 46px; 
+            }
+            body.page-contact .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-contact .header-actions{
+                 gap: 8px; 
+            }
+            body.page-contact .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
 
+/* ===== tips.html page-specific CSS ===== */
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-16 { position: absolute; bottom: 0; right: calc(50% - 45px); background: var(--primary); color: white; padding: 6px; border-radius: 50%; cursor: pointer; }
+        /* CSS ভেরিয়েবল */
+        html.page-tips{
+            --primary-color: #007bff;
+        }
 
+        /* গ্লোবাল ফিক্স */
+        body.page-tips{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-17 { font-size: 16px; }
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-tips .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- ⭐ FIX 2: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ যোগ করা হলো ⭐ --- */
+        body.page-tips .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-tips .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-tips .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-tips .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-tips .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
+        body.page-tips .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-18 { display: none; }
+        body.page-tips .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক */
+        body.page-tips .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [সাইডবার ফিক্স শেষ] --- */
 
+        body.page-tips .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
 
-/* inline style migrated from profile.html */
-body.page-profile .inline-style-page-profile-19 { text-align: center; padding: 15px; color: var(--gray); font-size: 13px; }
+        body.page-tips .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
 
+        body.page-tips .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-tips .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-tips .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-tips .logo-icon{
+            margin-right: 5px;
+        }
 
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-tips .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-tips .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-tips .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-tips .notification-icon{ color: var(--primary-color); }
+        body.page-tips .message-icon{ color: var(--primary-color); }
+        body.page-tips .post-icon-header{ color: #28a745; }
 
-/* =========================================================
-   RESPONSIVE SYSTEM - MOBILE / TABLET / DESKTOP
-   ========================================================= */
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{min-width:0;overflow-x:hidden}
-img,video,canvas,svg{max-width:100%;height:auto}
-button,input,select,textarea{font:inherit;max-width:100%}
-button,a{touch-action:manipulation}
-input,select,textarea{min-height:42px}
-button{min-height:42px}
-.container,.main-container,.page-container,.content-wrapper{width:min(100% - 24px,1200px);margin-inline:auto}
-.property-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+        
 
-/* Wide screens */
-@media (min-width:1200px){
-  .container,.main-container,.page-container,.content-wrapper{width:min(100% - 40px,1200px)}
+        /* প্রোফাইল ইমেজের বাইরের গোল বক্স */
+
+        body.page-tips .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; /* আইকন থেকে সামান্য বড় */
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-tips #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+/* 🎯 ইমেজের একাংশ কেটে যাওয়া রোধ করার ফিক্স */
+body.page-tips .profile-image-wrapper img{
+    width: 100%;          /* বক্সের পুরো উইডথ নিবে */
+    height: 100%;         /* বক্সের পুরো হাইট নিবে */
+    object-fit: cover;    /* 👈 এটি ছবিটিকে চ্যাপ্টা বা বিকৃত না করে গোল বক্সের মাঝে সুন্দরভাবে ফিট করবে */
+    object-position: center; /* ছবির মাঝখানের অংশ ফোকাস করবে */
+    display: block;
 }
-/* Tablets */
-@media (min-width:768px) and (max-width:1199px){
-  .container,.main-container,.page-container,.content-wrapper{width:min(100% - 28px,960px)}
-  .property-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+     
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-tips{
+                padding-top: 46px; 
+            }
+            body.page-tips .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-tips .header-actions{
+                 gap: 8px; 
+            }
+            body.page-tips .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
+
+/* ===== Production-safe base layer ===== */
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video, canvas { max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-width: 320px; }
+@media (max-width: 767px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
 }
-/* Phones */
-@media (max-width:767px){
-  body{font-size:15px}
-  .container,.main-container,.page-container,.content-wrapper{width:calc(100% - 20px)}
-  .main-header,.fb-header{height:auto;min-height:56px}
-  .sidebar{max-width:86vw}
-  .content-card,.preview-wrapper,.card,.post-card,.profile-card{border-radius:10px;padding:14px}
-  .property-grid{grid-template-columns:1fr;gap:10px}
-  .form-grid,.two-column,.details-grid,.stats-grid{grid-template-columns:1fr!important}
-  .actions,.button-row{flex-wrap:wrap}
-  .actions>* ,.button-row>*{flex:1 1 140px}
-  table{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
-  .modal,.dialog{width:calc(100% - 20px)!important;max-width:none!important}
-}
-@media (max-width:380px){
-  .container,.main-container,.page-container,.content-wrapper{width:calc(100% - 14px)}
-  h1{font-size:1.45rem} h2{font-size:1.25rem}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
-/* Avoid layout shift for common remote images */
-img{content-visibility:auto}
