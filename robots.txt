@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /auth.html
-Disallow: /post.html
-Disallow: /preview.html
-Disallow: /messages.html
-Disallow: /notifications.html
-Disallow: /profile.html
-Sitemap: https://amarbari.online/sitemap.xml
