@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="page-about" lang="bn">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>আমাদের সম্পর্কে - আমার বাড়ি.কম</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script>
+      // **আপনার বিদ্যমান Firebase কনফিগারেশন**
+      const firebaseConfig = {
+        apiKey: "AIzaSyBrGpbFoGmPhWv5i6Nzc4s1duDn7-uE4zA",
+        authDomain: "amar-bari-website.firebaseapp.com",
+        projectId: "amar-bari-website",
+        storageBucket: "amar-bari-website.firebasestorage.app",
+        messagingSenderId: "719084789035",
+        appId: "1:719084789035:web:f4da765290b3519d0e82fe"
+      };
+      
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+      
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
+
+<meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://amarbari.online/about.html" rel="canonical"/></head>
+<body class="page-about">
+<header class="main-header">
+<div class="header-top">
+<div class="header-left">
+<i class="material-icons menu-icon" id="menuButton">menu</i>
+<a class="logo-title" href="index.html">
+<i class="material-icons logo-icon">home</i>
+<span>আমার বাড়ি.কম</span>
+</a>
+</div>
+<div class="header-actions">
+<div class="icon-wrapper" id="notificationButton">
+<i class="material-icons notification-icon">notifications</i>
+<span class="notification-count" id="notification-count"></span>
+</div>
+<div class="icon-wrapper" id="headerPostButton">
+<i class="material-icons post-icon-header">add_circle_outline</i>
+<span class="notification-count" id="post-count" style="background-color: #28a745;"></span>
+</div>
+<div class="icon-wrapper" id="messageButton">
+<i class="material-icons message-icon">message</i>
+<span class="notification-count" id="message-count"></span>
+</div>
+<div class="profile-image-wrapper" id="profileImageWrapper">
+<img alt="Profile" id="profileImage" src="https://www.w3schools.com/howto/img_avatar.png"/>
+</div>
+<div class="notification-dropdown" id="notification-dropdown"></div>
+</div>
+</div>
+</header>
+<div class="sidebar" id="sidebar">
+<nav>
+<a class="sidebar-logo" href="index.html">
+<i class="material-icons">home</i>
+<span>আমার বাড়ি.কম</span>
+</a>
+<a href="index.html" id="home-link-sidebar"><i class="material-icons">dashboard</i> ড্যাশবোর্ড</a>
+<a class="sidebar-post-link" href="post.html" id="post-link-sidebar-menu"><i class="material-icons">add_home</i> প্রপার্টি যোগ করুন</a>
+<a href="tips.html" id="tips-link-sidebar"><i class="material-icons">lightbulb</i> টিপস ও গাইড</a>
+<a href="privacy.html" id="privacy-link-sidebar"><i class="material-icons">security</i> প্রাইভেসি পলিসি</a>
+<a href="about.html" id="about-link-sidebar"><i class="material-icons">info</i> আমাদের সম্পর্কে</a>
+<a href="contact.html" id="contact-link-sidebar"><i class="material-icons">mail</i> যোগাযোগ</a>
+<a class="login-link" href="auth.html" id="login-link-sidebar"><i class="material-icons">lock_open</i> লগইন</a>
+</nav>
+</div>
+<div class="overlay" id="overlay"></div>
+<main class="main-content container about-us-content">
+<h1>আমাদের সম্পর্কে</h1>
+<section class="mission">
+<h2>আমাদের লক্ষ্য</h2>
+<p>আমার বাড়ি.কম একটি প্ল্যাটফর্ম যা বাড়ি কেনা, বেচা এবং ভাড়া নেওয়ার প্রক্রিয়াকে সহজ ও বিশ্বাসযোগ্য করে তোলে। আমরা ক্রেতা, বিক্রেতা এবং ভাড়াটিয়াদের জন্য একটি উন্মুক্ত এবং স্বচ্ছ পরিবেশ তৈরি করতে প্রতিশ্রুতিবদ্ধ।</p>
+</section>
+<section class="team">
+<h2>আমাদের দল</h2>
+<p>আমরা একদল প্রযুক্তি-প্রেমী এবং রিয়েল এস্টেট বিশেষজ্ঞদের সমন্বয়ে গঠিত, যারা বাংলাদেশে প্রযুক্তি ব্যবহার করে হাউজিং সেক্টরে পরিবর্তন আনতে বদ্ধপরিকর।</p>
+</section>
+<section class="values">
+<h2>আমাদের মূল্যবোধ</h2>
+<ul>
+<li>স্বচ্ছতা: প্রতিটি লেনদেনে সর্বোচ্চ স্বচ্ছতা বজায় রাখা।</li>
+<li>বিশ্বাসযোগ্যতা: ব্যবহারকারীদের মধ্যে আস্থা তৈরি করা।</li>
+<li>উদ্ভাবন: প্রক্রিয়া সহজ করার জন্য প্রযুক্তির ব্যবহার।</li>
+</ul>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<p>© 2024 আমার বাড়ি.কম। সর্বস্বত্ব সংরক্ষিত।</p>
+</div>
+</footer>
+<script src="notifications.js"></script>
+<script>
+  // header_logic.js
+
+// 🆕 লগইন করা ইউজারের প্রোফাইল পিকচার হেডারে দেখানোর লজিক
+firebase.auth().onAuthStateChanged(async (user) => {
+    const headerProfileImg = document.querySelector('#profileImageWrapper img');
+    
+    if (user && headerProfileImg) {
+        try {
+            // ফায়ারবেস 'users' কালেকশন থেকে ইউজারের ডাটা আনা হচ্ছে
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            if (userDoc.exists && userDoc.data().profilePic) {
+                // ডাটাবেজে প্রোফাইল পিকচার থাকলে সেটি হেডারে সেট হবে
+                headerProfileImg.src = userDoc.data().profilePic;
+            } else if (user.photoURL) {
+                // গুগল লগইন করা থাকলে গুগল প্রোফাইল পিকচার সেট হবে
+                headerProfileImg.src = user.photoURL;
+            } else {
+                // কোনো ছবি না থাকলে একটি ডিফল্ট অ্যাভাটার সেট হবে
+                headerProfileImg.src = 'assets/images/default-avatar.png'; // আপনার প্রজেক্টের ডিফল্ট ছবির পাথ দিন
+            }
+        } catch (error) {
+            console.error("হেডার প্রোফাইল পিকচার লোড করতে ব্যর্থ:", error);
+        }
+    }
+});
+        
+// ফাংশন ২: লগআউট হ্যান্ডেলার
+const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+        await auth.signOut(); 
+        alert('সফলভাবে লগআউট করা হয়েছে!');
+        window.location.href = 'index.html'; 
+    } catch (error) {
+        console.error("লগআউট ব্যর্থ হয়েছে:", error);
+        alert("লগআউট ব্যর্থ হয়েছে।");
+    }
+};
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- হেডার UI উপাদানগুলো ---
+    const menuButton = document.getElementById('menuButton');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const notificationButton = document.getElementById('notificationButton');
+    const headerPostButton = document.getElementById('headerPostButton');
+    const messageButton = document.getElementById('messageButton');
+    const profileImageWrapper = document.getElementById('profileImageWrapper'); 
+    const headerProfileImage = document.getElementById('profileImage');
+    const defaultProfileIcon = document.getElementById('defaultProfileIcon');
+    const postLinkSidebar = document.getElementById('post-link-sidebar-menu');
+    const loginLinkSidebar = document.getElementById('login-link-sidebar');
+
+
+    // ⭐ অথেন্টিকেশন স্টেট চেঞ্জ লজিক (প্রোফাইল ইমেজ এবং সাইডবার লিঙ্ক ম্যানেজ করে) ⭐
+    if (typeof auth !== 'undefined' && auth.onAuthStateChanged) {
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // লগইন অবস্থায়: প্রোফাইল ইমেজ লোড এবং সঠিক সাইডবার লিঙ্ক দেখানো
+                loadHeaderProfile(user); 
+                if (profileImageWrapper) profileImageWrapper.style.display = 'flex'; 
+
+                // সাইডবার লিঙ্ক আপডেট
+                if (postLinkSidebar) postLinkSidebar.style.display = 'flex';
+                if (loginLinkSidebar) {
+                    loginLinkSidebar.textContent = 'লগআউট';
+                    loginLinkSidebar.href = '#'; 
+                    loginLinkSidebar.onclick = handleLogout; 
+                }
+            } else {
+                // লগআউট অবস্থায়: ডিফল্ট আইকন দেখানো এবং সাইডবার লিঙ্ক আপডেট
+                if (headerProfileImage && defaultProfileIcon) {
+                    headerProfileImage.style.display = 'none';
+                    defaultProfileIcon.style.display = 'block';
+                }
+                if (profileImageWrapper) profileImageWrapper.style.display = 'flex';
+                
+                // সাইডবার লিঙ্ক আপডেট
+                if (postLinkSidebar) postLinkSidebar.style.display = 'none';
+                if (loginLinkSidebar) {
+                    loginLinkSidebar.textContent = 'লগইন';
+                    loginLinkSidebar.href = 'auth.html';
+                    loginLinkSidebar.onclick = null;
+                }
+            }
+        });
+    }
+
+    // ⭐ হেডার আইকন কার্যকারিতা (মেনু এবং ওভারলে ফিক্স) ⭐
+    
+    // মেনু বাটন এবং সাইডবার টগল
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+    }
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    }
+
+    // নোটিফিকেশন আইকন রিডাইরেক্ট
+    if (notificationButton) {
+        notificationButton.addEventListener('click', () => {
+             window.location.href = 'notifications.html'; 
+        });
+    }
+
+    // পোস্ট আইকন রিডাইরেক্ট
+    if (headerPostButton) {
+        headerPostButton.addEventListener('click', () => {
+            window.location.href = 'post.html'; 
+        });
+    }
+
+    // ম্যাসেজ আইকন রিডাইরেক্ট
+    if (messageButton) {
+        messageButton.addEventListener('click', () => {
+             window.location.href = 'messages.html';
+        });
+    }
+    
+    // প্রোফাইল ইমেজ রিডাইরেক্ট
+    if (profileImageWrapper) {
+        profileImageWrapper.addEventListener('click', () => {
+             window.location.href = 'profile.html'; 
+        });
+    }
+});
+    </script>
+<script src="notifications.js"></script>
+<!-- 🎯 আমাদের নতুন লাইভ হেডার সিঙ্ক স্ক্রিপ্ট -->
+<script src="header-sync.js"></script>
+</body>
+</html>

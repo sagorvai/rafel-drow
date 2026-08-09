@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="page-privacy" lang="bn">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>প্রোফাইল ড্যাশবোর্ড - আমার বাড়ি.কম</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script>
+      // **আপনার বিদ্যমান Firebase কনফিগারেশন**
+      const firebaseConfig = {
+        apiKey: "AIzaSyBrGpbFoGmPhWv5i6Nzc4s1duDn7-uE4zA",
+        authDomain: "amar-bari-website.firebaseapp.com",
+        projectId: "amar-bari-website",
+        storageBucket: "amar-bari-website.firebasestorage.app",
+        messagingSenderId: "719084789035",
+        appId: "1:719084789035:web:f4da765290b3519d0e82fe"
+      };
+      
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+<meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://amarbari.online/privacy.html" rel="canonical"/></head>
+<body class="page-privacy">
+<header class="main-header">
+<div class="header-top">
+<div class="header-left">
+<i class="material-icons menu-icon" id="menuButton">menu</i>
+<a class="logo-title" href="index.html">
+<i class="material-icons logo-icon">home</i>
+<span>আমার বাড়ি.কম</span>
+</a>
+</div>
+<div class="header-actions">
+<div class="icon-wrapper" id="notificationButton">
+<i class="material-icons notification-icon">notifications</i>
+<span class="notification-count" id="notification-count"></span>
+</div>
+<div class="icon-wrapper" id="headerPostButton">
+<i class="material-icons post-icon-header">add_circle_outline</i>
+<span class="notification-count" id="post-count" style="background-color: #28a745;"></span>
+</div>
+<div class="icon-wrapper" id="messageButton">
+<i class="material-icons message-icon">message</i>
+<span class="notification-count" id="message-count"></span>
+</div>
+<div class="profile-image-wrapper" id="profileImageWrapper">
+<img alt="Profile" id="profileImage" src="https://www.w3schools.com/howto/img_avatar.png"/>
+</div>
+<div class="notification-dropdown" id="notification-dropdown">
+</div>
+</div>
+</div>
+</header>
+<div class="sidebar" id="sidebar">
+<nav>
+<a class="sidebar-logo" href="index.html">
+<i class="material-icons">home</i>
+<span>আমার বাড়ি.কম</span>
+</a>
+<a href="index.html" id="home-link-sidebar"><i class="material-icons">dashboard</i> ড্যাশবোর্ড</a>
+<a class="sidebar-post-link" href="post.html" id="post-link-sidebar-menu"><i class="material-icons">add_home</i> প্রপার্টি যোগ করুন</a>
+<a href="tips.html" id="tips-link-sidebar"><i class="material-icons">lightbulb</i> টিপস ও গাইড</a>
+<a href="privacy.html" id="privacy-link-sidebar"><i class="material-icons">security</i> প্রাইভেসি পলিসি</a>
+<a href="about.html" id="about-link-sidebar"><i class="material-icons">info</i> আমাদের সম্পর্কে</a>
+<a href="contact.html" id="contact-link-sidebar"><i class="material-icons">mail</i> যোগাযোগ</a>
+<a class="login-link" href="auth.html" id="login-link-sidebar"><i class="material-icons">lock_open</i> লগইন</a>
+</nav>
+</div>
+<div class="overlay" id="overlay"></div>
+<main class="main-content container policy-content">
+<h1>প্রাইভেসি পলিসি</h1>
+<p>এই প্রাইভেসি পলিসি ("পলিসি") আমার বাড়ি.কম ("ওয়েবসাইট", "আমরা", "আমাদের") দ্বারা পরিচালিত হয় এবং আপনি ("ব্যবহারকারী", "আপনি") আমাদের পরিষেবাগুলি ব্যবহার করার সময় কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সংরক্ষণ করা হয় তা ব্যাখ্যা করে। আমাদের ওয়েবসাইট ব্যবহার করার মাধ্যমে, আপনি এই পলিসির শর্তাবলিতে সম্মতি দিচ্ছেন।</p>
+<h2>১. আমরা যে তথ্য সংগ্রহ করি</h2>
+<p>আপনি যখন আমাদের ওয়েবসাইটে একটি প্রপার্টি পোস্ট করেন, কোনো অনুসন্ধানে যোগাযোগ করেন, বা আমাদের নিউজলেটারে সাবস্ক্রাইব করেন, তখন আমরা বিভিন্ন ধরণের তথ্য সংগ্রহ করতে পারি। এর মধ্যে রয়েছে:</p>
+<ul>
+<li>**ব্যক্তিগত পরিচিতি তথ্য:** নাম, ইমেল ঠিকানা, ফোন নম্বর এবং প্রোফাইল ছবি।</li>
+<li>**প্রপার্টির তথ্য:** প্রপার্টির ঠিকানা, মূল্য, ছবি এবং বিবরণ।</li>
+<li>**ব্যবহারের ডেটা:** আপনি কীভাবে আমাদের ওয়েবসাইট ব্যবহার করেন, যেমন ভিজিট করা পৃষ্ঠা, ভিজিট সময়কাল, এবং ডিভাইস তথ্য।</li>
+</ul>
+<h2>২. আপনার তথ্য কেন ব্যবহার করি</h2>
+<p>আমরা নিম্নলিখিত উদ্দেশ্যে আপনার তথ্য ব্যবহার করি:</p>
+<ul>
+<li>আপনাকে পরিষেবা সরবরাহ করতে এবং আপনার লেনদেন প্রক্রিয়া করতে।</li>
+<li>ওয়েবসাইটটি পরিচালনা, রক্ষণাবেক্ষণ এবং উন্নত করতে।</li>
+<li>আপনার অনুসন্ধান বা অনুরোধের জবাব দিতে।</li>
+<li>আপনাকে প্রাসঙ্গিক প্রপার্টি এবং অফার সম্পর্কে ইমেল বা বিজ্ঞপ্তি পাঠাতে (যদি আপনি এতে সম্মতি দিয়ে থাকেন)।</li>
+<li>সুরক্ষা এবং জালিয়াতি প্রতিরোধ নিশ্চিত করতে।</li>
+</ul>
+<h2>৩. কুকিজ এবং ট্র্যাকিং প্রযুক্তি</h2>
+<p>অন্যান্য ওয়েবসাইটের মতো, আমরাও কুকিজ (Cookies) এবং অনুরূপ ট্র্যাকিং প্রযুক্তি ব্যবহার করি আপনার অভিজ্ঞতা উন্নত করতে, আমাদের ট্র্যাফিক বিশ্লেষণ করতে এবং আমাদের পরিষেবাগুলি কাস্টমাইজ করতে। আপনি আপনার ব্রাউজার সেটিংসের মাধ্যমে কুকিজ প্রত্যাখ্যান করতে পারেন, তবে এটি আমাদের ওয়েবসাইটের কিছু অংশকে প্রভাবিত করতে পারে।</p>
+<h2>৪. ডেটা শেয়ারিং এবং প্রকাশ</h2>
+<p>আমরা আপনার ব্যক্তিগত তথ্য নিম্নলিখিত সীমিত পরিস্থিতিতে তৃতীয় পক্ষের সাথে শেয়ার করতে পারি:</p>
+<ul>
+<li>আপনার অনুরোধ করা পরিষেবা প্রদানকারী (যেমন, কোনো এজেন্টের সাথে আপনাকে সংযুক্ত করতে)।</li>
+<li>আইনগত প্রয়োজনীয়তা মেটানোর জন্য বা আদালতের নির্দেশ অনুসরণ করার জন্য।</li>
+<li>আমাদের অধিকার, সম্পত্তি বা নিরাপত্তা রক্ষা করতে।</li>
+</ul>
+<h2>৫. আপনার অধিকার</h2>
+<p>আপনার ব্যক্তিগত তথ্য সংক্রান্ত কিছু অধিকার রয়েছে, যার মধ্যে রয়েছে:</p>
+<ul>
+<li>আমাদের কাছে থাকা আপনার ব্যক্তিগত তথ্যের কপি অনুরোধ করার অধিকার।</li>
+<li>অসম্পূর্ণ বা ভুল তথ্য সংশোধন করার অধিকার।</li>
+<li>কিছু পরিস্থিতিতে আপনার তথ্য মুছে ফেলার অনুরোধ করার অধিকার।
+        </li></ul>
+<h2>৬. পলিসি পরিবর্তন</h2>
+<p>আমরা সময়ে সময়ে এই প্রাইভেসি পলিসি আপডেট করতে পারি। যেকোনো উল্লেখযোগ্য পরিবর্তন এই পেইজে পোস্ট করা হবে এবং প্রয়োজনে আপনাকে সরাসরি জানানো হবে। এই পলিসিটি শেষবার **নভেম্বর 2025** তারিখে আপডেট করা হয়েছে।</p>
+<h2>যোগাযোগ</h2>
+<p>এই প্রাইভেসি পলিসি সম্পর্কে আপনার কোনো প্রশ্ন থাকলে, অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন:</p>
+<p>ইমেল: support@amar-bari.com</p>
+</main>
+<footer class="footer">
+<div class="container">
+<p>© 2024 আমার বাড়ি.কম। সর্বস্বত্ব সংরক্ষিত।</p>
+</div>
+</footer>
+<script src="notifications.js"></script>
+<script>
+  // header_logic.js
+
+// 🆕 লগইন করা ইউজারের প্রোফাইল পিকচার হেডারে দেখানোর লজিক
+firebase.auth().onAuthStateChanged(async (user) => {
+    const headerProfileImg = document.querySelector('#profileImageWrapper img');
+    
+    if (user && headerProfileImg) {
+        try {
+            // ফায়ারবেস 'users' কালেকশন থেকে ইউজারের ডাটা আনা হচ্ছে
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            if (userDoc.exists && userDoc.data().profilePic) {
+                // ডাটাবেজে প্রোফাইল পিকচার থাকলে সেটি হেডারে সেট হবে
+                headerProfileImg.src = userDoc.data().profilePic;
+            } else if (user.photoURL) {
+                // গুগল লগইন করা থাকলে গুগল প্রোফাইল পিকচার সেট হবে
+                headerProfileImg.src = user.photoURL;
+            } else {
+                // কোনো ছবি না থাকলে একটি ডিফল্ট অ্যাভাটার সেট হবে
+                headerProfileImg.src = 'assets/images/default-avatar.png'; // আপনার প্রজেক্টের ডিফল্ট ছবির পাথ দিন
+            }
+        } catch (error) {
+            console.error("হেডার প্রোফাইল পিকচার লোড করতে ব্যর্থ:", error);
+        }
+    }
+});
+
+// --- ফাংশন ২: লগআউট হ্যান্ডেলার ---
+const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+        // auth এর গ্লোবাল অ্যাক্সেস ধরে নেওয়া হয়েছে
+        await auth.signOut(); 
+        alert('সফলভাবে লগআউট করা হয়েছে!');
+        window.location.href = 'index.html'; 
+    } catch (error) {
+        console.error("লগআউট ব্যর্থ হয়েছে:", error);
+        alert("লগআউট ব্যর্থ হয়েছে।");
+    }
+};
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- হেডার UI উপাদানগুলো ---
+    const menuButton = document.getElementById('menuButton');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const notificationButton = document.getElementById('notificationButton');
+    const headerPostButton = document.getElementById('headerPostButton');
+    const messageButton = document.getElementById('messageButton');
+    const profileImageWrapper = document.getElementById('profileImageWrapper'); 
+    const headerProfileImage = document.getElementById('profileImage');
+    const defaultProfileIcon = document.getElementById('defaultProfileIcon');
+    const postLinkSidebar = document.getElementById('post-link-sidebar-menu');
+    const loginLinkSidebar = document.getElementById('login-link-sidebar');
+
+
+    
+    // --- হেডার আইকন কার্যকারিতা ---
+    
+    // মেনু বাটন এবং সাইডবার টগল
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+    }
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    }
+
+    // নোটিফিকেশন আইকন রিডাইরেক্ট
+    if (notificationButton) {
+        notificationButton.addEventListener('click', () => {
+             window.location.href = 'notifications.html'; 
+        });
+    }
+
+    // পোস্ট আইকন রিডাইরেক্ট
+    if (headerPostButton) {
+        headerPostButton.addEventListener('click', () => {
+            window.location.href = 'post.html'; 
+        });
+    }
+
+    // ম্যাসেজ আইকন রিডাইরেক্ট
+    if (messageButton) {
+        messageButton.addEventListener('click', () => {
+             window.location.href = 'messages.html';
+        });
+    }
+    
+    // প্রোফাইল ইমেজ রিডাইরেক্ট
+    if (profileImageWrapper) {
+        profileImageWrapper.addEventListener('click', () => {
+             window.location.href = 'profile.html'; 
+        });
+    }
+});
+    </script>
+<script src="notifications.js"></script>
+<!-- 🎯 আমাদের নতুন লাইভ হেডার সিঙ্ক স্ক্রিপ্ট -->
+<script src="header-sync.js"></script>
+</body>
+</html>

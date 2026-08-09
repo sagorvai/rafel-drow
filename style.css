@@ -1,0 +1,4606 @@
+/* AMAR BARI — single consolidated stylesheet. Original shared CSS preserved. Page-specific CSS is scoped to each page to prevent cross-page overrides. */
+
+/* =====================================
+   ১. বেসিক এবং সাধারণ স্টাইল
+   ==================================== */
+/* 🚀 ফিক্স ১: sticky কাজ করার জন্য overflow-x: hidden নিশ্চিত করা হলো */
+html, body {
+    overflow-x: hidden; 
+}
+body {
+    /* ফ্রন্ট: একটি আধুনিক, পাঠযোগ্য সিস্টেম ফন্ট ব্যবহার করা হলো */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* হালকা ধূসর ব্যাকগ্রাউন্ড */
+    color: #333;
+    /* ✅ ডেস্কটপ ফিক্স: হেডার (100px) + ফিল্টার বার (~50px) = 150px */
+    padding-top: 150px; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* ছোট স্ক্রিনের জন্য প্যাডিং */
+}
+
+/* মেইন কন্টেন্ট এলাকা: ফুটার নিচে রাখতে সাহায্য করবে */
+.main-content {
+    min-height: calc(100vh - 170px); /* হেডার ও ফুটারের জন্য জায়গা রাখা */
+}
+
+
+/* =====================================
+   ২. ফিক্সড হেডার এবং নেভিগেশন (ছবি অনুযায়ী পরিবর্তিত)
+   ==================================== */
+.main-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.header-top {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 60px; /* হেডারের উচ্চতা নির্দিষ্ট করা হলো */
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* লোগো টাইটেল - মাঝখানে থাকবে */
+.logo-title {
+    display: flex;
+    align-items: center;
+    color: #2ecc71; /* লোগো কালার */
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap; 
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+/* অ্যাকশন বাটন গ্রুপ - প্রোফাইল আইকন ডান দিকে */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+/* মেনু এবং প্রোফাইল আইকনের সাধারণ স্টাইল */
+.menu-icon,
+.profile-icon {
+    cursor: pointer;
+    font-size: 28px; /* আইকনের আকার */
+    color: #333;
+    transition: color 0.2s;
+}
+
+/* ✅ নতুন যোগ: মেনু আইকন এবং লোগোর মধ্যে সামান্য দূরত্ব তৈরি করা */
+.menu-icon {
+    margin-right: 10px;
+}
+
+.menu-icon:hover,
+.profile-icon:hover {
+    color: #2ecc71;
+}
+
+/* এই বাটনটি index.html থেকে সরানো হয়েছে, কিন্তু অন্য পেজে লাগতে পারে */
+.post-button {
+    display: none; /* index.html এ লুকানো হলো */
+}
+
+/* সার্চ বার স্টাইল */
+.search-bar {
+    display: flex;
+    padding: 5px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+    background-color: #2980b9;
+}
+
+/* নেভিগেশন ফিল্টার */
+.nav-filters {
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+    
+    /* 🚀 ফিক্স ২: position: sticky এবং top যুক্ত করা হলো */
+    position: sticky; 
+    /* ✅ ডেস্কটপ: ফিক্সড হেডারের মোট উচ্চতা (~100px) */
+    top: 100px; 
+    
+    background-color: #fff; /* স্ক্রল করার সময় কনটেন্টের উপরে থাকার জন্য সাদা ব্যাকগ্রাউন্ড */
+    z-index: 90; /* প্রধান হেডারের (100) নিচে কিন্তু কন্টেন্টের (নিচে) উপরে */
+}
+
+.nav-filters .nav-button {
+    background: none;
+    border: none;
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.nav-filters .nav-button:hover {
+    background-color: #ecf0f1;
+}
+
+.nav-filters .nav-button.active {
+    background-color: #2ecc71;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(46, 204, 113, 0.3);
+}
+
+
+/* =====================================
+   ৩. সাইডবার স্টাইল
+   ==================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* লুকানো অবস্থা */
+    width: 260px;
+    height: 100%;
+    background-color: #2c3e50; /* গাঢ় ব্যাকগ্রাউন্ড */
+    color: #ecf0f1;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0; /* দৃশ্যমান অবস্থা */
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ecf0f1;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background-color: #34495e; /* হোভারে গাঢ় রঙ */
+    color: #2ecc71;
+}
+
+.sidebar a .material-icons {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* সাইডবার লোগো স্টাইল */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2ecc71;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar-logo:hover {
+    background-color: transparent;
+    color: #2ecc71;
+}
+
+/* ওভারলে */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* =====================================
+   ৪. প্রপার্টি গ্রিড এবং কার্ড স্টাইল (স্লাইডার এবং ডাইনামিক ডেটা যুক্ত)
+   ==================================== */
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 15px; 
+}
+
+.property-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* স্লাইডারের জন্য আবশ্যক */
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- প্রপার্টি ইমেজ কন্টেইনার এবং স্লাইডার স্টাইল --- */
+.property-image-container {
+    width: 100%;
+    height: 200px; /* কার্ডের জন্য ছবির উচ্চতা */
+    overflow: hidden;
+    position: relative; /* স্লাইডার, নেভিগেশন ও ক্যাটাগরি ট্যাগের জন্য */
+    border-radius: 10px 10px 0 0;
+}
+
+.image-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slider-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* transition: opacity 0.3s ease; */ /* JS ডিসপ্লে টগল ব্যবহার করছে */
+}
+
+/* ক্যাটাগরি ট্যাগ */
+.property-category {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 51; 
+    background-color: #2ecc71; 
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* নেভিগেশন বাটন স্টাইল */
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 12px; /* প্যাডিং কমানো হলো */
+    cursor: pointer;
+    z-index: 50; 
+    font-size: 18px; /* ফন্ট সাইজ কমানো হলো */
+    line-height: 1;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.slider-nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* --- প্রপার্টি ডিটেইলস এবং স্পেকস স্টাইল --- */
+.property-details {
+    padding: 15px;
+}
+
+.property-title {
+    margin: 5px 0 10px 0;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.3;
+}
+
+.property-location {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.property-location .material-icons {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #777;
+}
+
+/* ডাইনামিক স্পেকস কন্টেইনার */
+.property-specs {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.property-specs span {
+    display: flex;
+    align-items: center;
+    background-color: #ecf0f1; /* হালকা ব্যাকগ্রাউন্ড */
+    padding: 4px 8px;
+    border-radius: 5px;
+    white-space: nowrap; /* টেক্সট যাতে না ভাঙে */
+}
+
+.property-specs .material-icons {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #3498db;
+}
+
+.property-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2ecc71;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.property-price .unit {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-left: 5px;
+}
+
+/* নো রেজাল্ট মেসেজ স্টাইল */
+.loading-message, .no-results-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 0;
+    font-size: 18px;
+    color: #777;
+}
+
+/* ************************************************************
+   ৫, ৬, ৭, ৮, ৯ নং সেকশনগুলি অপরিবর্তিত আছে, শুধুমাত্র কার্ড স্টাইল আপডেট করা হয়েছে
+   ************************************************************ */
+
+
+/* =====================================
+   ৫. অন্য সেকশন স্টাইল (টিপস, অ্যাবাউট, কন্টাক্ট)
+   ==================================== */
+h2 {
+    color: #2ecc71;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* টিপস এবং কন্টাক্ট কার্ডের জন্য গ্রিড */
+.tip-card-grid, .contact-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tip-card, .contact-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tip-card h3, .contact-card h3 {
+    color: #3498db;
+    font-size: 18px;
+    margin-top: 0;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-card .material-icons {
+    font-size: 30px;
+    color: #2ecc71;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* =====================================
+   ৬. ফর্ম স্টাইল (অন্যান্য পেইজের জন্য)
+   ==================================== */
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #333;
+    border-bottom: none;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group input[type="tel"],
+.input-group input[type="url"],
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-container button[type="submit"],
+.form-container button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-container button[type="submit"]:hover,
+.form-container button[type="button"]:hover {
+    background-color: #2980b9;
+}
+
+.form-container button[type="submit"]:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* অন্যান্য ফর্ম স্টাইল */
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.switch-form a {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+/* প্রোফাইল ট্যাব স্টাইল (profile.html-এর জন্য) */
+.tab-navigation {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #777;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-bottom-color 0.2s;
+}
+
+.tab-button.active {
+    color: #2ecc71;
+    border-bottom-color: #2ecc71;
+}
+
+.tab-content-item {
+    padding: 10px 0;
+}
+
+/* =====================================
+   ৭. ফুটার
+   ==================================== */
+.footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* =====================================
+   ৮. রেসপনসিভনেস (Responsive Design)
+   ==================================== */
+
+/* অতিরিক্ত ছোট স্ক্রিনের জন্য সামঞ্জস্য (৬০০পিক্সেলের নিচে) */
+@media (max-width: 600px) {
+    /* কন্টেইনারের সাইড প্যাডিং কমানো হলো */
+    .container {
+        padding: 0 8px; 
+    }
+    
+    .property-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tip-card-grid, .contact-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-filters {
+        flex-wrap: wrap;
+        /* নেভ-ফিল্টারের প্যাডিং কমানো হলো */
+        padding: 5px 8px; 
+        
+        /* 🚀 মোবাইল ফিক্স: ফিক্সড হেডারের মোট উচ্চতা (~90px) */
+        top: 90px; 
+    }
+    
+    .nav-filters .nav-button {
+        /* বাটন প্যাডিং সামান্য কমানো হলো */
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    /* প্রপার্টি কার্ডে স্পেকস এর গ্যাপ কমানো */
+    .property-specs {
+        gap: 5px;
+        font-size: 12px;
+    }
+    
+    .property-specs span {
+        padding: 3px 6px;
+    }
+
+    /* হেডার পরিবর্তন */
+    .header-top {
+        height: 50px; /* হেডারের উচ্চতা কমানো হলো */
+        padding: 0 8px; 
+    }
+
+    /* ✅ সংশোধিত: ছোট স্ক্রিনে লোগোকে বাম দিকে আনা হলো */
+    .logo-title {
+        font-size: 18px;
+    }
+    
+    .logo-title span {
+        display: inline; 
+        font-size: 16px; 
+        font-weight: 600;
+    }
+    
+    .logo-title .logo-icon {
+        font-size: 24px;
+    }
+    
+    /* ফিক্সড হেডারের জন্য কন্টেন্টকে নিচে নামানো */
+    /* ✅ মোবাইল ফিক্স: হেডার (90px) + ফিল্টার বার (~40px) = 130px */
+    body {
+        padding-top: 130px; 
+    }
+}
+
+/* =====================================
+   ৯. পোস্ট প্রিভিউ স্টাইল (preview.html এর জন্য)
+   ==================================== */
+.preview-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.preview-container h2 {
+    color: var(--primary-color, #007bff); 
+    border-bottom: 2px solid #eee;
+}
+
+.preview-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.preview-section h3 {
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.preview-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee;
+    align-items: flex-start;
+}
+
+.preview-item:last-child {
+    border-bottom: none;
+}
+
+.preview-label {
+    font-weight: 600;
+    color: #555;
+    flex-basis: 40%; 
+}
+
+.preview-value {
+    flex-basis: 55%; 
+    text-align: right;
+    word-wrap: break-word;
+}
+
+.not-found {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.1em;
+    color: #e74c3c;
+    border: 1px dashed #e74c3c;
+    border-radius: 5px;
+}
+
+/* ছবি স্টাইল */
+#image-carousel {
+    display: flex;
+    overflow-x: auto; 
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.preview-image-wrapper {
+    flex-shrink: 0; 
+    width: 200px; 
+    height: 150px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.utility-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+.utility-list li {
+    display: inline-block;
+    background-color: #ecf0f1;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #34495e;
+}
+
+.preview-description {
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+/* অ্যাকশন বাটন স্টাইল */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 15px;
+}
+.edit-button, .confirm-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-grow: 1;
+}
+
+.edit-button {
+    background-color: #f39c12; 
+    color: white;
+}
+.confirm-button {
+    background-color: #2ecc71; 
+    color: white;
+}
+.confirm-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+    .action-buttons {
+        flex-direction: column;
+    }
+   }
+
+/* --- preview.html এর জন্য স্টাইল --- */
+
+/* কার্ড বেস স্টাইল */
+.stylish-card {
+    background-color: #ffffff; /* সাদা ব্যাকগ্রাউন্ড */
+    border-radius: 12px; /* গোল কোণা */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* হালকা শ্যাডো */
+    margin-bottom: 25px; /* নিচের দিকে মার্জিন */
+    padding: 25px; /* ভেতরের প্যাডিং */
+    border: 1px solid #e0e0e0; /* হালকা বর্ডার */
+}
+
+/* সেকশন টাইটেল স্টাইল */
+.section-title {
+    font-size: 1.6em; /* বড় ফন্ট সাইজ */
+    color: #007bff; /* প্রাইমারি নীল রঙ */
+    margin-bottom: 20px; /* নিচের দিকে মার্জিন */
+    border-bottom: 2px solid #e9ecef; /* হালকা বর্ডার */
+    padding-bottom: 10px; /* বর্ডারের নিচে প্যাডিং */
+    display: flex; /* আইকন এবং টেক্সট এক লাইনে */
+    align-items: center; /* উল্লম্বভাবে মাঝখানে */
+    font-weight: 600; /* সেমি-বোল্ড ফন্ট */
+}
+
+/* সেকশন টাইটেলে আইকন স্টাইল */
+.icon-styling {
+    color: #28a745; /* সবুজ আইকন */
+    margin-right: 10px; /* আইকনের ডানে মার্জিন */
+    font-size: 1.2em; /* আইকনের ফন্ট সাইজ */
+}
+
+
+/* প্রিভিউ হেডার স্টাইল */
+.preview-header-section {
+    text-align: center; /* মাঝখানে টেক্সট */
+    padding-bottom: 15px; /* নিচের দিকে প্যাডিং */
+}
+
+.preview-title {
+    font-size: 2.5em; /* শিরোনামের বড় ফন্ট */
+    color: #343a40; /* গাঢ় ধূসর রঙ */
+    margin-bottom: 10px; /* নিচের দিকে মার্জিন */
+    font-weight: 700; /* বোল্ড ফন্ট */
+}
+
+.preview-meta-info {
+    font-size: 1.1em; /* মেটা তথ্যের ফন্ট সাইজ */
+    color: #6c757d; /* হালকা ধূসর রঙ */
+}
+
+.highlight-text {
+    color: #007bff; /* হাইলাইট টেক্সটের জন্য নীল */
+    font-weight: 600;
+}
+
+/* ডেটা গ্রিড স্টাইল */
+.info-grid {
+    display: grid; /* গ্রিড লেআউট */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* রেসপন্সিভ কলাম */
+    gap: 15px; /* আইটেমগুলির মধ্যে গ্যাপ */
+    margin-top: 15px; /* উপরের দিকে মার্জিন */
+}
+
+.info-item {
+    background-color: #f8f9fa; /* হালকা ধূসর ব্যাকগ্রাউন্ড */
+    padding: 15px 20px; /* প্যাডিং */
+    border-radius: 8px; /* গোল কোণা */
+    border: 1px solid #e9ecef; /* হালকা বর্ডার */
+    font-size: 1.05em; /* ফন্ট সাইজ */
+    color: #343a40; /* টেক্সট রঙ */
+    display: flex; /* টেক্সট ও ভ্যালু এক লাইনে */
+    justify-content: space-between; /* ভ্যালুকে ডানে সরিয়ে দেওয়া */
+    align-items: center; /* উল্লম্বভাবে মাঝখানে */
+}
+
+.info-item strong {
+    color: #495057; /* বোল্ড টেক্সটের রঙ */
+    margin-right: 10px; /* স্পেস */
+}
+
+.info-value {
+    color: #007bff; /* ভ্যালুর জন্য নীল রঙ */
+    font-weight: 600; /* সেমি-বোল্ড */
+}
+
+.price-highlight {
+    color: #dc3545; /* দামের জন্য লাল হাইলাইট */
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* সম্পূর্ণ প্রস্থের আইটেম */
+.full-width-item {
+    grid-column: 1 / -1; /* সম্পূর্ণ প্রস্থে প্রসারিত */
+}
+
+/* বিবরণ টেক্সট */
+.description-text {
+    line-height: 1.7; /* লাইনের উচ্চতা */
+    color: #495057; /* টেক্সট রঙ */
+    font-size: 1.1em; /* ফন্ট সাইজ */
+}
+
+/* ইউটিলিটি তালিকা */
+.utility-list {
+    list-style: none; /* বুলেট পয়েন্ট সরান */
+    padding: 0; /* প্যাডিং সরান */
+    margin-top: 10px; /* উপরের দিকে মার্জিন */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.utility-list li {
+    background-color: #eaf7ed; /* সবুজ ব্যাকগ্রাউন্ড */
+    padding: 8px 12px; /* প্যাডিং */
+    border-radius: 6px; /* গোল কোণা */
+    color: #155724; /* গাঢ় সবুজ টেক্সট */
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+.utility-icon {
+    margin-right: 8px; /* আইকনের ডানে মার্জিন */
+    color: #28a745; /* আইকনের রঙ */
+}
+
+
+/* গুগল ম্যাপ লিঙ্ক স্টাইল */
+.google-map-link-container {
+    text-align: center;
+}
+.map-link {
+    display: inline-block;
+    background-color: #28a745; /* সবুজ বাটন */
+    color: #ffffff; /* সাদা টেক্সট */
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none; /* আন্ডারলাইন সরান */
+    font-weight: 600;
+    transition: background-color 0.3s ease; /* হোভারে স্মুথ ট্রানজিশন */
+}
+
+.map-link:hover {
+    background-color: #218838; /* হোভারে গাঢ় সবুজ */
+}
+
+/* ছবি গ্যালারি স্টাইল */
+.image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* রেসপন্সিভ গ্রিড */
+    gap: 20px; /* ছবিগুলির মধ্যে গ্যাপ */
+    margin-top: 20px;
+}
+
+.preview-gallery-image,
+.ownership-doc-image {
+    width: 100%; /* সম্পূর্ণ প্রস্থ */
+    height: 250px; /* নির্দিষ্ট উচ্চতা */
+    object-fit: cover; /* ছবি যাতে ক্রপ না হয় এবং নির্দিষ্ট অনুপাত বজায় রাখে */
+    border-radius: 8px; /* গোল কোণা */
+    border: 1px solid #e0e0e0; /* হালকা বর্ডার */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* হালকা শ্যাডো */
+    transition: transform 0.3s ease; /* হোভারে ট্রানজিশন */
+}
+
+.preview-gallery-image:hover,
+.ownership-doc-image:hover {
+    transform: scale(1.02); /* হোভারে সামান্য বড় হবে */
+}
+
+.placeholder-text {
+    color: #6c757d;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}
+
+/* ডকুমেন্ট প্রিভিউ এরিয়া (খতিয়ান, নকশা) */
+.doc-preview-area {
+    display: grid;
+    grid-template-columns: 1fr; /* মোবাইল ভিউতে একটি কলাম */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .doc-preview-area {
+        grid-template-columns: 1fr 1fr; /* ডেস্কটপে দুটি কলাম */
+    }
+}
+
+.doc-item p {
+    text-align: center;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.doc-image-wrapper {
+    background-color: #f8f9fa;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    height: 250px; /* মূল ছবির মতোই উচ্চতা */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* অতিরিক্ত অংশ লুকানো */
+}
+
+/* এরর বক্স স্টাইল */
+.error-box {
+    background-color: #fff3cd; /* হালকা হলুদ ব্যাকগ্রাউন্ড */
+    border: 1px solid #ffeeba; /* হলুদ বর্ডার */
+    color: #856404; /* গাঢ় হলুদ টেক্সট */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error-box h3 {
+    color: #856404;
+    margin-bottom: 10px;
+}
+
+/* রেসপন্সিভনেস */
+@media (max-width: 767px) {
+    .preview-title {
+        font-size: 1.8em;
+    }
+    .section-title {
+        font-size: 1.4em;
+    }
+    .info-grid {
+        grid-template-columns: 1fr; /* মোবাইল ডিভাইসের জন্য একটি কলাম */
+    }
+    .preview-gallery-image,
+    .ownership-doc-image {
+        height: 200px; /* মোবাইলে ছবির উচ্চতা কমানো */
+    }
+    .doc-image-wrapper {
+        height: 200px;
+    }
+    .placeholder-text {
+        height: 200px; /* মোবাইলে উচ্চতা ঠিক করা হলো */
+    }
+
+   }
+
+
+/* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        .main-header {
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [ফিক্স: সাইডবার পজিশনিং এবং ট্রানজিশন] --- */
+        .sidebar {
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* আপনার পছন্দ করা গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; /* হেডার এর নিচে থেকে শুরু হবে */
+        }
+        
+        .sidebar.active {
+            left: 0; 
+        }
+        
+        .overlay {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        .overlay.active {
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        .sidebar a {
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar a i.material-icons {
+            color: #ffffff; 
+            margin-right: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
+        .sidebar-logo {
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [ফিক্স শেষ] --- */
+
+    .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        .menu-icon {
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        .logo-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: #007bff);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        .logo-title:visited {
+             color: #007bff;
+        }
+        .logo-icon {
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        .header-actions {
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        .icon-wrapper {
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        .notification-count {
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        .notification-icon { color: #007bff; }
+        .message-icon { color: #007bff; }
+        .post-icon-header { color: #28a745; }
+
+        .icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* ১. গোল করার জন্য ম্যাজিক কোড */
+    height: 42px;
+    width: 42px;
+    border-radius: 50%; /* এটি চারকোনা বক্সকে একদম নিখুঁত গোল করে দেয় */
+    
+    /* ২. ব্যাকগ্রাউন্ড কালার (হালকা গ্লাস ফিল) */
+    background: rgba(255, 255, 255, 0.9);
+    
+    /* ৩. মডার্ন ও সফট ড্রপ শ্যাডো (যা নিচে হালকা ভাসমান ভাব তৈরি করে) */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+    
+    /* ৪. সূক্ষ্ম বর্ডার এবং অ্যানিমেশন ট্রানজিশন */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* ৫. মাউস নিলে (Hover করলে) শ্যাডোটি আরও রঙিন ও গভীর হওয়ার কোড */
+.icon-wrapper:hover {
+    transform: translateY(-3px); /* সামান্য ওপরে ভেসে উঠবে */
+    box-shadow: 0 5px 15px rgba(255, 90, 95, 0.2); /* ব্র্যান্ড কালারের একটি গ্লোয়িং শ্যাডো আসবে */
+           }
+
+
+        /* প্রোফাইল ইমেজ স্টাইল */
+        .profile-image-wrapper {
+            cursor: pointer;
+            width: 35px; /* আইকন থেকে সামান্য বড় */
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #profileImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+           
+
+
+
+
+
+/* ===== index.html page-specific CSS ===== */
+
+        html.page-index{
+            --fb-blue: #1877f2;
+            --fb-bg: #f0f2f5;
+            --fb-card-bg: #ffffff;
+            --text-main: #050505;
+            --text-sub: #65676b;
+            --border-color: #ced0d4;
+            --success: #42b72a;
+            --boost-gold: #ff9800;
+        }
+
+        body.page-index *{ box-sizing: border-box; }
+
+        body.page-index{
+            font-family: "Hind Siliguri", Arial, sans-serif;
+            margin: 0; padding: 0; padding-top: 56px;
+            background-color: var(--fb-bg); color: var(--text-main);
+        }
+
+        body.page-index .container{ max-width: 680px; margin: 0 auto; padding: 0 8px; }
+
+        body.page-index .fb-header{
+            position: fixed; top: 0; left: 0; right: 0; height: 56px;
+            background-color: var(--fb-card-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            z-index: 1000; display: flex; align-items: center; border-bottom: 1px solid var(--border-color);
+        }
+
+        body.page-index .header-content{ display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 16px; }
+        body.page-index .header-left{ display: flex; align-items: center; gap: 8px; }
+        body.page-index .menu-btn{ cursor: pointer; color: var(--text-sub); font-size: 28px; }
+        body.page-index .logo-fb{ font-size: 22px; font-weight: 800; color: var(--fb-blue); text-decoration: none; }
+        body.page-index .header-actions{ display: flex; align-items: center; gap: 10px; }
+        
+        body.page-index .fb-icon-circle{
+            background-color: #e4e6eb; width: 38px; height: 38px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            position: relative; text-decoration: none; color: var(--text-main);
+        }
+
+        body.page-index .fb-profile-pic{ width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--fb-blue); cursor: pointer; }
+
+        /* সাইডবার */
+        body.page-index .sidebar{
+            position: fixed; top: 0; left: -280px; width: 280px; height: 100%;
+            background: white; box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+            transition: left 0.3s ease; z-index: 1050; padding-top: 10px;
+        }
+        body.page-index .sidebar.active{ left: 0; }
+        body.page-index .sidebar a{ display: flex; align-items: center; gap: 12px; padding: 14px 20px; color: var(--text-main); text-decoration: none; font-weight: 500; }
+        body.page-index .overlay{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: none; z-index: 1040; }
+        body.page-index .overlay.active{ display: block; }
+        
+        /* 📸 কভার ব্যানার অটো-স্লাইডার স্টাইল */
+        body.page-index .cover-slider-container{
+            width: 100%; height: 180px; position: relative; overflow: hidden;
+            border-radius: 8px; margin: 10px 0 12px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
+        body.page-index .cover-slide{
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        body.page-index .cover-slide.active{ opacity: 1; }
+        body.page-index .cover-overlay-text{
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            color: #fff; padding: 12px; font-size: 14px; font-weight: 600;
+        }
+
+        /* সার্চ বক্স */
+        body.page-index .fb-hero{
+            background: var(--fb-card-bg); padding: 14px; margin-bottom: 12px;
+            border: 1px solid var(--border-color); border-radius: 8px;
+        }
+        body.page-index .seo-h1{ font-size: 16px; font-weight: 700; margin: 0 0 10px 0; text-align: center; }
+
+        body.page-index .fb-search-box{ display: flex; flex-direction: column; gap: 8px; }
+        body.page-index .fb-search-box select, body.page-index .fb-search-box input{
+            background: #f8f9fa; border: 1px solid var(--border-color); padding: 9px 12px;
+            border-radius: 6px; font-family: inherit; font-size: 13.5px; outline: none; width: 100%;
+        }
+        body.page-index .fb-search-btn{
+            background: var(--fb-blue); color: white; border: none; padding: 10px;
+            border-radius: 6px; font-weight: bold; font-size: 14px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+
+        /* ট্যাব বার */
+        body.page-index .fb-tabs{
+            display: flex; background: var(--fb-card-bg); border: 1px solid var(--border-color);
+            margin-bottom: 12px; border-radius: 8px; overflow: hidden;
+        }
+        body.page-index .fb-tab-btn{
+            flex: 1; padding: 10px 4px; border: none; background: none; cursor: pointer;
+            font-family: inherit; font-weight: bold; font-size: 13px; color: var(--text-sub);
+            display: flex; align-items: center; justify-content: center; gap: 4px;
+            border-bottom: 3px solid transparent;
+        }
+        body.page-index .fb-tab-btn.active{ color: var(--fb-blue); border-bottom: 3px solid var(--fb-blue); background: rgba(24, 119, 242, 0.05); }
+
+        body.page-index .property-grid{ display: flex; flex-direction: column; gap: 16px; width: 100%; }
+
+        body.page-index .fb-feed-card{ background: #fff; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        body.page-index .fb-feed-card.boosted-card{ border: 2px solid var(--boost-gold); background: #fffdf6; }
+
+        body.page-index .card-author-header{ padding: 12px; display: flex; align-items: center; justify-content: space-between; }
+        body.page-index .author-info{ display: flex; align-items: center; gap: 10px; }
+        body.page-index .author-meta h4{ margin: 0; font-size: 14px; font-weight: 600; }
+        body.page-index .author-meta p{ margin: 2px 0 0 0; font-size: 11.5px; color: var(--text-sub); display: flex; align-items: center; gap: 4px; }
+
+        body.page-index .badge-verified{ background: var(--success); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+        body.page-index .badge-category{ background: var(--fb-blue); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+        body.page-index .badge-boosted{ background: var(--boost-gold); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; }
+
+        body.page-index .card-body-text{ padding: 0 12px 10px 12px; font-size: 13.5px; line-height: 1.4; }
+
+        body.page-index .card-media-section{ position: relative; height: 250px; background: #000; overflow: hidden; }
+        body.page-index .fb-slider{ width: 100%; height: 100%; position: relative; }
+        body.page-index .fb-slide-item{ width: 100%; height: 100%; background-size: cover; background-position: center; position: absolute; top:0; left:0; }
+        
+        body.page-index .fb-slider-btn{
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: white; border: none; width: 32px; height: 32px;
+            border-radius: 50%; cursor: pointer; font-size: 16px; z-index: 5; display: flex; align-items: center; justify-content: center;
+        }
+        body.page-index .fb-prev{ left: 8px; } body.page-index .fb-next{ right: 8px; }
+
+        body.page-index .price-tag-overlay{
+            position: absolute; bottom: 10px; right: 10px; background: rgba(0, 0, 0, 0.8);
+            color: #fff; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; z-index: 4;
+        }
+
+        body.page-index .fb-stats-bar{ padding: 8px 12px; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-sub); border-bottom: 1px solid #f2f3f5; }
+        body.page-index .fb-action-buttons{ display: flex; padding: 2px; border-top: 1px solid #f2f3f5; }
+        body.page-index .fb-action-btn{
+            flex: 1; padding: 8px; border: none; background: none; cursor: pointer;
+            font-family: inherit; font-size: 13px; font-weight: 600; color: var(--text-sub);
+            display: flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none;
+        }
+
+        body.page-index .featured-scroll-container{ display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        body.page-index .featured-card-item{ min-width: 260px; width: 260px; background: #fff; border: 1px solid #ff9800; border-radius: 8px; overflow: hidden; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        body.page-index .featured-img-box{ height: 150px; background-size: cover; background-position: center; position: relative; }
+
+        body.page-index .fb-footer{ background: white; border-top: 1px solid var(--border-color); padding: 14px 0; text-align: center; font-size: 12px; color: var(--text-sub); margin-top: 20px; }
+    
+
+/* ===== auth.html page-specific CSS ===== */
+
+        /* পুরো পেজের ব্যাকগ্রাউন্ড কালার ব্লু করা হয়েছে */
+        body.page-auth .auth-body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50; /* ডিপ ব্লু ব্যাকগ্রাউন্ড */
+            color: #fff; /* সাদা টেক্সট */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* সাইট নেম হেডার */
+        body.page-auth .auth-header-title{
+            padding: 20px 0;
+            text-align: center;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        body.page-auth .auth-logo-title{
+            text-decoration: none;
+            color: #f1c40f; /* উজ্জ্বল গোল্ডেন/হলুদ রং */
+            font-size: 2.5em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 2px;
+        }
+
+        body.page-auth .auth-logo-title .logo-icon{
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #ecf0f1;
+        }
+
+        /* লগইন/সাইনআপ মেইন কন্টেইনার */
+        body.page-auth .auth-main-content{
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Auth বক্সের দৃষ্টিনন্দন স্টাইল */
+        body.page-auth .auth-box-stylish{
+            background-color: rgba(255, 255, 255, 0.95); /* প্রায় সাদা স্বচ্ছ ব্যাকগ্রাউন্ড */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            color: #333; /* বক্সের ভিতরের টেক্সটের রং */
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        body.page-auth .auth-box-stylish:hover{
+            transform: scale(1.02);
+        }
+
+        body.page-auth #auth-title{
+            color: #3498db; /* উজ্জ্বল ব্লু রং */
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        /* ইনপুট গ্রুপ স্টাইল */
+        body.page-auth .input-group{
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        body.page-auth .input-group label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        body.page-auth .input-group input{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        body.page-auth .input-group input:focus{
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        /* বাটন স্টাইল */
+        body.page-auth .submit-button{
+            background-color: #e74c3c; /* কালারফুল লাল রং */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        body.page-auth .submit-button:hover{
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* ফর্ম পরিবর্তন লিঙ্ক */
+        body.page-auth .switch-form{
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        body.page-auth .switch-form a{
+            color: #2980b9; /* লিঙ্ক কালার */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        body.page-auth .switch-form a:hover{
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* ফুটার স্টাইল */
+        body.page-auth .auth-footer-min{
+            text-align: center;
+            padding: 15px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8em;
+        }
+    
+
+/* ===== post.html page-specific CSS ===== */
+
+        /* প্রজেক্টের মেইন থিম ও গ্লোবাল কালার */
+html.page-post{
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --background-gray: #f4f6f9;
+    --text-dark: #2d3748;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+        /* গ্লোবাল ফিক্স */
+        body.page-post{
+            background-color: var(--background-gray);
+    color: var(--text-dark);
+    padding-top: 70px; /* হেডার দিয়ে কন্টেন্ট কেটে যাওয়া রোধ করতে */
+            font-family: Arial, sans-serif; 
+        }
+
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-post .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- সাইডবার ফিক্স: হেডারের উপরে নিয়ে আসা --- */
+        body.page-post .sidebar{
+            z-index: 1050; 
+        }
+        body.page-post .overlay{
+            z-index: 1040; 
+        }
+        
+        body.page-post .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        body.page-post .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        body.page-post .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-post .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-post .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-post .logo-icon{
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-post .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-post .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-post .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-post .notification-icon{ color: var(--primary-color); }
+        body.page-post .message-icon{ color: var(--primary-color); }
+        body.page-post .post-icon-header{ color: #28a745; }
+
+        /* প্রোফাইল ইমেজের বাইরের গোল বক্স */
+
+        body.page-post .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; /* আইকন থেকে সামান্য বড় */
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-post #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+/* 🎯 ইমেজের একাংশ কেটে যাওয়া রোধ করার ফিক্স */
+body.page-post .profile-image-wrapper img{
+    width: 100%;          /* বক্সের পুরো উইডথ নিবে */
+    height: 100%;         /* বক্সের পুরো হাইট নিবে */
+    object-fit: cover;    /* 👈 এটি ছবিটিকে চ্যাপ্টা বা বিকৃত না করে গোল বক্সের মাঝে সুন্দরভাবে ফিট করবে */
+    object-position: center; /* ছবির মাঝখানের অংশ ফোকাস করবে */
+    display: block;
+}
+
+        body.page-post .btn-back{ background: white; border: 1px solid #ddd; color: var(--dark); padding: 8px 16px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: bold; font-size: 14px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: fit-content; transition: 0.2s; }
+        body.page-post .btn-back:hover{ background: var(--primary); color: white; border-color: var(--primary); }
+        
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-post{
+                padding-top: 46px; 
+            }
+            body.page-post .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-post .header-actions{
+                 gap: 8px; 
+            }
+            body.page-post .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    /* প্রফেশনাল ফাইল আপলোড ড্রপ বক্স (ইউজারের স্ক্রিনশট অনুযায়ী) */
+body.page-post .custom-upload-box{
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+body.page-post .custom-upload-box:hover{
+    border-color: var(--primary-color);
+    background: #f8fafc;
+}
+body.page-post .upload-icon-cloud{
+    font-size: 48px;
+    color: #6366f1;
+    margin-bottom: 10px;
+}
+body.page-post .upload-text-main{
+    font-size: 16px;
+    font-weight: bold;
+    color: #1e293b;
+    margin: 5px 0;
+}
+body.page-post .upload-text-sub{
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+body.page-post .upload-btn-fake{
+    background-color: #6366f1;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ফেসবুক স্টাইল ফটো বক্স গ্রিড লেআউট */
+body.page-post .image-preview-area{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+    width: 100%;
+}
+body.page-post .image-preview-wrapper{
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+}
+body.page-post .preview-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+        /* আপলোড চলার সময় ছবি ঝাপসা করার CSS */
+body.page-post .image-preview-wrapper.uploading img{
+    filter: blur(4px);
+    opacity: 0.6;
+}
+
+/* পার্সেন্টেজ ওভারলে স্টাইল (Circular Loading Box) */
+body.page-post .upload-progress-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* হালকা অন্ধকার ব্যাকগ্রাউন্ড */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+}
+
+/* গোল প্রোগ্রেস স্পিনার (CSS দিয়ে তৈরি বৃত্তাকার লোডার) */
+body.page-post .circular-spinner{
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #e0115f; /* তোমার থিম কালার দিতে পারো */
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 4px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+        
+
+
+/* টপ-রাইট কর্নারে ডিলিট বাটন */
+body.page-post .remove-image-btn{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    }
+
+    
+
+
+/* 🔙 ব্যাক বাটন ফিক্স ও জাঁকজমক লুক */
+body.page-post .btn-back{
+    background: white;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 15px 0;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+body.page-post .btn-back:hover{
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 📦 সেকশনগুলোকে আলাদা কার্ডে ভাগ করা (Zonal Layout) */
+body.page-post .form-section{
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid var(--primary-color); /* বামে একটি সুন্দর কালার বার */
+}
+
+/* সেকশনের আকর্ষণীয় হেডিং */
+body.page-post .form-section h3{
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1a202c;
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #edf2f7;
+    padding-bottom: 8px;
+}
+
+/* 📝 ইনপুট ফিল্ড ও সিলেক্ট বক্সের আধুনিক রূপ */
+body.page-post .input-group input[type="text"], body.page-post .input-group input[type="number"], body.page-post .input-group select, body.page-post .input-group textarea{
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}
+
+body.page-post .input-group input:focus, body.page-post .input-group select:focus, body.page-post .input-group textarea:focus{
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+}
+
+/* 📍 ম্যাপ এবং আপলোড বক্সের বর্ডার সুন্দর করা */
+body.page-post #map-container{
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+}
+
+/* 🚀 প্রিমিয়াম ও বড় 'পোস্ট করুন' বাটন */
+body.page-post .submit-button, body.page-post button[type="submit"]{
+    width: 100% !important; /* ফুল উইডথ */
+    padding: 16px !important;
+    background: linear-gradient(135deg, #28a745, #218838) !important; /* গ্রাডিয়েন্ট কালার */
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3) !important;
+    transition: all 0.3s ease !important;
+    display: block;
+    margin: 30px 0 10px 0;
+}
+
+body.page-post .submit-button:hover, body.page-post button[type="submit"]:hover{
+    background: linear-gradient(135deg, #218838, #1e7e34) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4) !important;
+}
+
+body.page-post .submit-button:active, body.page-post button[type="submit"]:active{
+    transform: translateY(1px);
+        }
+        
+    
+
+/* ===== preview.html page-specific CSS ===== */
+
+    html.page-preview{
+      --primary: #1e3a8a;
+      --secondary: #0284c7;
+      --success: #16a34a;
+      --dark: #1f2937;
+      --gray-bg: #f8fafc;
+      --card-border: #e2e8f0;
+    }
+
+    body.page-preview{
+      font-family: "Hind Siliguri", sans-serif;
+      background-color: #f1f5f9;
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    body.page-preview .preview-wrapper{
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 24px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+
+    body.page-preview .page-title{
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* 🖼️ প্রোপার্টি ইমেজ গ্যালারি ও ফ্রেম স্টাইল */
+    body.page-preview .gallery-title{
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 10px 0 6px 0;
+    }
+    
+    body.page-preview .preview-images{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: var(--gray-bg);
+      border-radius: 12px;
+      border: 1px dashed #cbd5e1;
+    }
+
+    body.page-preview .preview-images img{
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    body.page-preview .preview-images img:hover{
+      transform: scale(1.04);
+    }
+
+    /* 📑 খতিয়ান ও নকশার জন্য বিশেষ ডকুমেন্ট সেকশন */
+    body.page-preview .document-section{
+      background: #fffbeb;
+      border: 1px dashed #f59e0b;
+    }
+
+    /* 📂 কার্ড এবং সেকশন ডিজাইন */
+    body.page-preview .preview-section{
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    body.page-preview .preview-section h3{
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-size: 16px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+    }
+
+    /* 📊 গ্রিড লেআউট (দুই কলামে তথ্য সাজানো) */
+    body.page-preview .section-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    body.page-preview .preview-row{
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+    }
+
+    body.page-preview .preview-row strong{
+      color: #64748b;
+      min-width: 130px;
+      display: inline-block;
+    }
+
+    body.page-preview .preview-row span{
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    /* 💰 দামের জন্য স্পেশাল হাইলাইট */
+    body.page-preview .price-tag{
+      color: var(--success) !important;
+      font-weight: 700 !important;
+      font-size: 16px;
+    }
+
+    /* 🔘 বোতামের আকর্ষণীয় ডিজাইন */
+    body.page-preview .preview-actions{
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    body.page-preview .preview-actions button{
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    body.page-preview .btn-edit{
+      background-color: #e2e8f0;
+      color: #475569;
+    }
+
+    body.page-preview .btn-edit:hover{ background-color: #cbd5e1; }
+
+    body.page-preview .btn-publish{
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    body.page-preview .btn-publish:hover{ background-color: #026ca3; }
+  
+
+/* ===== details.html page-specific CSS ===== */
+
+        html.page-details{ --primary: #007bff; --success: #28a745; --dark: #2c3e50; --gray: #7f8c8d; --bg: #f4f7f6; }
+        body.page-details{ background-color: var(--bg); font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding-bottom: 50px; }
+        body.page-details .container{ max-width: 800px; margin: auto; padding: 15px; }
+        
+        body.page-details .top-bar{ display: flex; align-items: center; gap: 10px; padding: 10px 0; margin-bottom: 15px; }
+        body.page-details .btn-back{ background: none; border: none; color: var(--dark); cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: bold; font-size: 16px; }
+
+        body.page-details .content-card{ background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        body.page-details .post-title{ font-size: 22px; color: var(--dark); margin: 0 0 8px 0; }
+        body.page-details .post-price{ font-size: 20px; color: var(--success); font-weight: bold; margin-bottom: 12px; display: block; }
+        body.page-details .post-desc{ color: #444; line-height: 1.7; border-top: 1px solid #eee; padding-top: 15px; white-space: pre-line; }
+
+        body.page-details .gallery-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 20px 0; }
+        body.page-details .gal-item{ border-radius: 8px; overflow: hidden; cursor: pointer; background: #eee; height: 100px; }
+        body.page-details .gal-item:first-child{ grid-column: span 4; height: 350px; }
+        body.page-details .gal-item img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* পোস্টদাতা ইনফো সেকশন এবং রেটিং */
+        body.page-details .publisher-card{ background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; }
+        body.page-details .pub-left{ display: flex; align-items: center; gap: 12px; }
+        
+        /* 🆕 ক্লিকের জন্য কার্সর পয়েন্টার ও ইফেক্ট যুক্ত করা হলো */
+        body.page-details .clickable-author{ cursor: pointer; display: flex; align-items: center; gap: 12px; transition: opacity 0.2s; }
+        body.page-details .clickable-author:hover{ opacity: 0.8; }
+
+        body.page-details .pub-avatar-box{ width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); background: #eee; display: flex; align-items: center; justify-content: center; }
+        body.page-details .pub-avatar{ width: 100%; height: 100%; object-fit: cover; }
+        body.page-details .pub-details h3{ font-size: 16px; margin: 0 0 4px 0; color: var(--dark); }
+        body.page-details .pub-time-meta{ display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--gray); }
+        body.page-details .pub-time-meta i{ font-size: 14px; }
+        body.page-details .rating-box{ display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+        body.page-details .stars{ display: flex; gap: 2px; }
+        body.page-details .stars i{ font-size: 24px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        body.page-details .stars i.active{ color: #f1c40f; }
+        body.page-details .rating-text{ font-size: 11px; color: var(--gray); font-weight: bold; }
+
+        /* লাইক বাটন কাস্টমাইজেশন */
+        body.page-details .like-btn-box{
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.page-details .like-btn-box:active{
+            transform: scale(0.9);
+        }
+
+        body.page-details .like-btn-box i{
+            font-size: 38px;
+            color: #bdc3c7; /* ডিফল্ট গ্রে */
+            transition: color 0.2s;
+        }
+
+        body.page-details .like-btn-box.liked i{
+            color: #2196F3; /* ফেসবুক ব্লু লাইক কালার */
+        }
+        
+        @media (max-width: 600px) {
+            body.page-details{ padding-top: 46px; }
+            body.page-details .logo-title{ font-size: 1.5em; }
+            body.page-details .header-actions{ gap: 8px; }
+            body.page-details .profile-image-wrapper{ width: 30px; height: 30px; }
+        }
+
+
+        body.page-details .gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  margin-top: 15px;
+}
+body.page-details .gallery-thumb{
+  transition: transform 0.2s ease;
+}
+body.page-details .gallery-thumb:hover{
+  transform: scale(1.05); /* মাউস নিলে ছবি সামান্য বড় হবে */
+}
+
+        
+        body.page-details .action-bar{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
+        body.page-details .btn-act{ padding: 10px; border: 1px solid #ddd; border-radius: 8px; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; text-decoration: none; font-size: 12px; font-weight: bold; background: white; color: var(--dark); }
+        body.page-details .btn-call{ color: var(--success); border-color: var(--success); }
+
+        body.page-details .section-header{ background: #fff; padding: 12px 15px; border-radius: 8px 8px 0 0; margin-top: 25px; border-bottom: 2px solid var(--primary); font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        body.page-details .info-table{ width: 100%; border-collapse: collapse; background: white; margin-bottom: 10px; }
+        body.page-details .info-table td{ padding: 12px 15px; border-bottom: 1px solid #f8f9fa; font-size: 14px; }
+        body.page-details .info-table td:last-child{ text-align: right; font-weight: 600; }
+
+        body.page-details .btn-map{ background: #e74c3c; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+
+        /* Related Posts */
+        body.page-details .related-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 15px; }
+        body.page-details .rel-card{ background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); cursor: pointer; }
+        body.page-details .rel-card img{ width: 100%; height: 110px; object-fit: cover; }
+        body.page-details .rel-info{ padding: 8px; }
+        body.page-details .rel-title{ font-size: 13px; font-weight: bold; margin: 0; height: 36px; overflow: hidden; }
+        body.page-details .rel-price{ color: var(--success); font-size: 12px; font-weight: bold; margin: 4px 0; }
+        body.page-details .rel-loc{ font-size: 11px; color: var(--gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        body.page-details .see-more-container{ text-align: center; margin-top: 20px; }
+        body.page-details .btn-see-more{ padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; }
+
+        body.page-details #lightbox{ display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+        body.page-details #lb-img{ max-width: 90%; max-height: 80%; }
+
+        /* CSS ভেরিয়েবল */
+        html.page-details{
+            --primary-color: #007bff;
+        }
+
+        /* গ্লোবাল ফিক্স */
+        body.page-details{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
+ 
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-details .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- ⭐ FIX 2: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ যোগ করা হলো ⭐ --- */
+        body.page-details .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-details .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-details .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-details .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-details .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-details .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
+
+        body.page-details .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক */
+        body.page-details .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [সাইডবার ফিক্স শেষ] --- */
+
+        body.page-details .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        body.page-details .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        body.page-details .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-details .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-details .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-details .logo-icon{
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-details .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-details .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-details .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-details .notification-icon{ color: var(--primary-color); }
+        body.page-details .message-icon{ color: var(--primary-color); }
+        body.page-details .post-icon-header{ color: #28a745; }
+
+        /* প্রোফাইল ইমেজের বাইরের গোল বক্স */
+body.page-details .profile-image-wrapper{
+    cursor: pointer;
+    width: 35px;          /* আপনার পছন্দমতো সাইজ */
+    height: 35px;         /* উইডথ ও হাইট একদম সমান রাখবেন */
+    border-radius: 50%;   /* গোল করার জন্য */
+    overflow: hidden;     /* বক্সের বাইরের অংশ কেটে ফেলার জন্য */
+    border: 2px solid var(--primary); /* বর্ডার */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🎯 ইমেজের একাংশ কেটে যাওয়া রোধ করার ফিক্স */
+body.page-details .profile-image-wrapper img{
+    width: 100%;          /* বক্সের পুরো উইডথ নিবে */
+    height: 100%;         /* বক্সের পুরো হাইট নিবে */
+    object-fit: cover;    /* 👈 এটি ছবিটিকে চ্যাপ্টা বা বিকৃত না করে গোল বক্সের মাঝে সুন্দরভাবে ফিট করবে */
+    object-position: center; /* ছবির মাঝখানের অংশ ফোকাস করবে */
+    display: block;
+}
+        
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-details{
+                padding-top: 46px; 
+            }
+            body.page-details .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-details .header-actions{
+                 gap: 8px; 
+            }
+            body.page-details .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
+    
+/* ==========================================
+   TABLET VIEW (768px - 1023px)
+========================================== */
+
+@media screen and (min-width:768px) and (max-width:1023px){
+
+    body.page-details .container{
+        max-width:95%;
+        padding:20px;
+    }
+
+    body.page-details .gallery-grid{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+    }
+
+    body.page-details .gallery-grid .gal-item:first-child{
+        grid-column:span 3;
+        height:350px;
+    }
+
+    body.page-details .gallery-grid .gal-item{
+        height:150px;
+    }
+
+    body.page-details .post-title{
+        font-size:28px;
+    }
+
+    body.page-details .post-price{
+        font-size:26px;
+    }
+
+    body.page-details .publisher-card{
+        padding:18px;
+    }
+
+    body.page-details .pub-avatar-box{
+        width:60px;
+        height:60px;
+    }
+
+    body.page-details .pub-details h3{
+        font-size:18px;
+    }
+
+    body.page-details .action-bar{
+        grid-template-columns:repeat(4,1fr);
+        gap:12px;
+    }
+
+    body.page-details .btn-act{
+        padding:14px;
+        font-size:14px;
+    }
+
+    body.page-details .info-table td{
+        padding:14px 18px;
+        font-size:15px;
+    }
+
+    body.page-details #map-container{
+        height:420px !important;
+    }
+
+    body.page-details .related-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    body.page-details .rel-card img{
+        height:170px;
+    }
+}
+
+
+/* ==========================================
+   DESKTOP VIEW (1024px+)
+========================================== */
+
+@media screen and (min-width:1024px){
+
+    body.page-details{
+        background:#f5f7fb;
+    }
+
+    body.page-details .container{
+        max-width:1400px;
+        margin:auto;
+        padding:25px;
+    }
+
+    /* Main Layout */
+
+    body.page-details .details-layout{
+        display:grid;
+        grid-template-columns:2fr 380px;
+        gap:30px;
+        align-items:start;
+    }
+
+    /* Gallery */
+
+    body.page-details .gallery-grid{
+        display:grid;
+        grid-template-columns:2fr 1fr 1fr;
+        gap:12px;
+        margin-bottom:25px;
+    }
+
+    body.page-details .gallery-grid .gal-item:first-child{
+        grid-row:span 2;
+        grid-column:auto;
+        height:460px;
+    }
+
+    body.page-details .gallery-grid .gal-item{
+        height:224px;
+    }
+
+    body.page-details .gallery-grid img{
+        transition:.3s;
+    }
+
+    body.page-details .gallery-grid img:hover{
+        transform:scale(1.03);
+    }
+
+    /* Property Card */
+
+    body.page-details .content-card{
+        padding:25px;
+        border-radius:18px;
+        box-shadow:0 4px 18px rgba(0,0,0,.08);
+    }
+
+    body.page-details .post-title{
+        font-size:34px;
+        line-height:1.4;
+        margin-bottom:10px;
+    }
+
+    body.page-details .post-price{
+        font-size:32px;
+        color:#ff6b00;
+        margin-bottom:15px;
+    }
+
+    body.page-details #p-location{
+        display:block;
+        font-size:16px;
+        color:#666;
+        margin-bottom:15px;
+    }
+
+    body.page-details .post-desc{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    /* Seller Card */
+
+    body.page-details .publisher-card{
+        padding:20px;
+        border-radius:18px;
+        box-shadow:0 4px 18px rgba(0,0,0,.08);
+    }
+
+    body.page-details .pub-avatar-box{
+        width:70px;
+        height:70px;
+    }
+
+    body.page-details .pub-details h3{
+        font-size:20px;
+    }
+
+    body.page-details .pub-time-meta{
+        font-size:14px;
+    }
+
+    /* Like Button */
+
+    body.page-details .like-btn-box i{
+        font-size:42px;
+    }
+
+    /* Action Buttons */
+
+    body.page-details .action-bar{
+        grid-template-columns:repeat(4,1fr);
+        gap:15px;
+        margin:25px 0;
+    }
+
+    body.page-details .btn-act{
+        padding:15px;
+        font-size:14px;
+        border-radius:12px;
+        transition:.3s;
+    }
+
+    body.page-details .btn-act:hover{
+        transform:translateY(-2px);
+    }
+
+    body.page-details .btn-call{
+        background:#22c55e;
+        color:white;
+        border:none;
+    }
+
+    /* Section Header */
+
+    body.page-details .section-header{
+        font-size:18px;
+        padding:15px 20px;
+        border-radius:12px 12px 0 0;
+    }
+
+    /* Tables */
+
+    body.page-details .info-table{
+        border-radius:0 0 12px 12px;
+        overflow:hidden;
+    }
+
+    body.page-details .info-table td{
+        padding:16px 20px;
+        font-size:15px;
+    }
+
+    body.page-details .info-table td:first-child{
+        width:35%;
+        color:#666;
+        font-weight:600;
+    }
+
+    /* Map */
+
+    body.page-details #map-container{
+        height:500px !important;
+        border-radius:18px;
+        overflow:hidden;
+    }
+
+    /* Related Posts */
+
+    body.page-details .related-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:18px;
+    }
+
+    body.page-details .rel-card{
+        border-radius:16px;
+        transition:.3s;
+    }
+
+    body.page-details .rel-card:hover{
+        transform:translateY(-5px);
+        box-shadow:0 8px 25px rgba(0,0,0,.12);
+    }
+
+    body.page-details .rel-card img{
+        height:200px;
+    }
+
+    body.page-details .rel-info{
+        padding:12px;
+    }
+
+    body.page-details .rel-title{
+        font-size:15px;
+        height:42px;
+    }
+
+    body.page-details .rel-price{
+        font-size:14px;
+    }
+
+    body.page-details .rel-loc{
+        font-size:12px;
+    }
+
+    /* Header */
+
+    body.page-details .main-header{
+        padding:0 15px;
+    }
+
+    body.page-details .logo-title{
+        font-size:2rem;
+    }
+
+    body.page-details .header-actions{
+        gap:18px;
+    }
+
+    body.page-details .profile-image-wrapper{
+        width:40px;
+        height:40px;
+    }
+
+        }
+
+    
+
+/* ===== messages.html page-specific CSS ===== */
+
+        html.page-messages{ 
+            --primary: #007bff; 
+            --primary-light: #ebf5ff;
+            --success: #28a745; 
+            --dark: #2c3e50; 
+            --gray: #7f8c8d; 
+            --bg: #f4f7f6; 
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        
+        body.page-messages{ 
+            background-color: var(--bg); 
+            font-family: "Segoe UI", Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+            padding-top: 60px;
+        }
+
+        /* হেডার ফিক্সড পজিশনিং */
+        body.page-messages .main-header{
+            position: fixed; 
+            top: 0; left: 0; right: 0;
+            background-color: white; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+            z-index: 1000; 
+        }
+        
+        /* সাইডবার */
+        body.page-messages .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; 
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-messages .sidebar.active{ left: 0; }
+        
+        body.page-messages .overlay{
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-messages .overlay.active{ display: block; }
+        
+        body.page-messages .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-messages .sidebar a i.material-icons{ color: #ffffff; margin-right: 10px; }
+        body.page-messages .sidebar a:hover{ background-color: #3e5369; }
+        
+        body.page-messages .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        body.page-messages .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+        body.page-messages .header-left{ display: flex; align-items: center; flex-shrink: 0; }
+        body.page-messages .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
+        
+        body.page-messages .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary); text-decoration: none; white-space: nowrap; margin-left: 10px; }
+        body.page-messages .logo-icon{ margin-right: 5px; }
+
+        body.page-messages .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        body.page-messages .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
+        
+        body.page-messages .notification-count{ position: absolute; top: -5px; right: -8px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold; min-width: 10px; text-align: center; line-height: 1; display: none; }
+        body.page-messages .notification-icon, body.page-messages .message-icon{ color: var(--primary); }
+        body.page-messages .post-icon-header{ color: #28a745; }
+
+        body.page-messages .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; }
+        body.page-messages .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        
+        @media (max-width: 600px) {
+            body.page-messages .logo-title{ font-size: 1.2em; }
+            body.page-messages .header-actions{ gap: 8px; }
+        }
+
+        /* 🔙 প্রোফাইল পেজের মতো স্বাভাবিক ব্যাক বাটন স্টাইল */
+        body.page-messages .simple-back-bar{
+            padding: 12px 15px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        body.page-messages .back-link{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        body.page-messages .back-link i{ font-size: 22px; }
+
+        /* 📦 চ্যাট কন্টেইনার ফ্রেম ফিক্স */
+        body.page-messages .main-content-area{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: calc(100vh - 120px);
+        }
+
+        body.page-messages .chat-container{ 
+            display: flex; 
+            flex: 1; 
+            max-width: 1200px; 
+            width: 100%; 
+            margin: 0 auto; 
+            background: white; 
+            overflow: hidden; 
+            height: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        
+        /* 👥 বামপাশ: চ্যাট লিস্ট */
+        body.page-messages .chat-sidebar{ 
+            width: 350px; 
+            border-right: 1px solid #edf2f7; 
+            display: flex; 
+            flex-direction: column; 
+            background: #fff; 
+        }
+        
+        body.page-messages .sidebar-header{ 
+            padding: 18px 20px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            color: var(--dark); 
+            border-bottom: 1px solid #edf2f7; 
+            background: #fafbfc;
+        }
+        
+        body.page-messages .chat-list{ flex: 1; overflow-y: auto; }
+        
+        body.page-messages .chat-item{ 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            padding: 15px 20px; 
+            cursor: pointer; 
+            border-bottom: 1px solid #f7fafc; 
+            transition: all 0.25s ease; 
+            position: relative;
+            padding-right: 45px;
+        }
+        
+        body.page-messages .chat-item:hover{ background: #f8faff; }
+        body.page-messages .chat-item.active{ background: var(--primary-light); border-left: 4px solid var(--primary); }
+        
+        body.page-messages .chat-item img{ 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            background: #edf2f7; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        body.page-messages .chat-item-info{ flex: 1; overflow: hidden; }
+        body.page-messages .chat-item-info h4{ margin: 0 0 5px 0; font-size: 15px; font-weight: 600; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        body.page-messages .chat-item-info p{ margin: 0; font-size: 13px; color: var(--gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* 💬 ডানপাশ: চ্যাট বক্স */
+        body.page-messages .chat-main{ 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            background: #f4f7f9; 
+            position: relative; 
+        }
+        
+        body.page-messages .chat-empty-state{ 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            flex: 1; 
+            color: var(--gray); 
+        }
+        
+        body.page-messages .chat-empty-state i{ font-size: 56px; color: #cbd5e1; margin-bottom: 15px; }
+
+        body.page-messages .chat-box-header{ 
+            padding: 12px 20px; 
+            background: white; 
+            border-bottom: 1px solid #edf2f7; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+        
+        body.page-messages .active-user-details{ display: flex; align-items: center; gap: 12px; }
+        body.page-messages .active-user-details h3{ margin: 0; font-size: 16px; font-weight: bold; color: var(--dark); }
+        
+        body.page-messages .property-mini-card{ 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            background: #f8fafc; 
+            padding: 8px 14px; 
+            border-radius: 10px; 
+            border: 1px solid #e2e8f0;
+            cursor: pointer; 
+            text-decoration: none; 
+            max-width: 280px; 
+            transition: all 0.2s;
+        }
+        
+        body.page-messages .property-mini-card:hover{ border-color: var(--primary); background: white; }
+        body.page-messages .property-mini-card img{ width: 38px; height: 38px; border-radius: 6px; object-fit: cover; }
+        body.page-messages .property-mini-info h5{ margin: 0; font-size: 12px; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        body.page-messages .property-mini-info span{ font-size: 11px; color: var(--success); font-weight: bold; }
+
+        body.page-messages .messages-display{ 
+            flex: 1; 
+            padding: 20px; 
+            overflow-y: auto; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+        }
+        
+        body.page-messages .msg-bubble{ 
+            max-width: 70%; 
+            padding: 12px 16px; 
+            border-radius: 16px; 
+            font-size: 14px; 
+            line-height: 1.5; 
+            word-wrap: break-word; 
+            position: relative; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        body.page-messages .msg-bubble.incoming{ background: white; align-self: flex-start; border-top-left-radius: 4px; color: #333; }
+        body.page-messages .msg-bubble.outgoing{ background: var(--primary); color: white; align-self: flex-end; border-top-right-radius: 4px; }
+        body.page-messages .msg-time{ font-size: 9px; display: block; margin-top: 5px; text-align: right; opacity: 0.7; }
+
+        body.page-messages .quick-replies{ 
+            padding: 10px 20px; 
+            display: flex; 
+            gap: 8px; 
+            overflow-x: auto; 
+            background: #fafbfc; 
+            border-top: 1px solid #edf2f7;
+        }
+        
+        body.page-messages .quick-btn{ 
+            padding: 8px 16px; 
+            background: white; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 20px; 
+            font-size: 13px; 
+            font-weight: 500;
+            cursor: pointer; 
+            color: var(--dark); 
+            transition: all 0.25s; 
+        }
+        
+        body.page-messages .quick-btn:hover{ border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+
+        body.page-messages .chat-input-area{ 
+            padding: 15px 20px; 
+            background: white; 
+            border-top: 1px solid #edf2f7; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        
+        body.page-messages .chat-input-area input{ 
+            flex: 1; 
+            padding: 12px 18px; 
+            border: 1.5px solid #e2e8f0; 
+            border-radius: 30px; 
+            outline: none; 
+            font-size: 14px; 
+            transition: all 0.25s;
+            background: #f8fafc;
+        }
+        
+        body.page-messages .chat-input-area input:focus{ border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1); }
+        
+        body.page-messages .btn-send{ 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            width: 44px; 
+            height: 44px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+            transition: all 0.2s;
+        }
+        
+        body.page-messages .btn-send:hover{ background: #0056b3; transform: scale(1.05); }
+
+        /* 🔻 ফুটার নির্দিষ্ট স্টাইলিং */
+        body.page-messages .footer{
+            background: white;
+            border-top: 1px solid #edf2f7;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray);
+            flex-shrink: 0;
+        }
+
+        /* ⚙️ থ্রি-ডট ও ড্রপডাউন মেনু */
+        body.page-messages .chat-item-menu-btn{
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+            z-index: 10;
+        }
+
+        body.page-messages .chat-item-menu-btn:hover{ background: rgba(0, 0, 0, 0.05); color: var(--dark); }
+
+        body.page-messages .chat-dropdown{
+            display: none;
+            position: absolute;
+            right: 15px;
+            top: 75%;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 20;
+            min-width: 120px;
+            overflow: hidden;
+        }
+
+        body.page-messages .chat-dropdown.show{ display: block; }
+
+        body.page-messages .chat-dropdown-item{
+            width: 100%;
+            padding: 10px 15px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 13px;
+            color: #e53e3e;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        body.page-messages .chat-dropdown-item:hover{ background: #fff5f5; }
+
+        /* 📱 মোবাইল ভিউ ফিক্স */
+        @media (max-width: 768px) {
+            body.page-messages{ height: 100vh; height: -webkit-fill-available; }
+
+            body.page-messages .main-content-area{ height: calc(100vh - 120px); position: relative; }
+
+            body.page-messages.chat-open .simple-back-bar{ display: none !important; }
+
+            body.page-messages .chat-main{ 
+                display: none; 
+                position: fixed; 
+                top: 60px; 
+                left: 0; 
+                right: 0; 
+                bottom: 0; 
+                z-index: 100; 
+                height: calc(100vh - 60px); 
+                height: calc(100svh - 60px); 
+                background: #f4f7f9; 
+            }
+            
+            body.page-messages .chat-main.active{ display: flex; }
+            body.page-messages .chat-sidebar.hidden{ display: none; }
+            
+            body.page-messages .back-to-list{ display: block !important; margin-right: 10px; cursor: pointer; color: var(--dark); }
+
+            body.page-messages .quick-replies{
+                flex-direction: column;
+                white-space: normal;
+                overflow-x: visible;
+                padding: 10px 15px;
+                gap: 6px;
+            }
+
+            body.page-messages .quick-btn{ width: 100%; text-align: left; padding: 10px 14px; font-size: 13px; border-radius: 12px; }
+            body.page-messages .chat-input-area{ padding: 10px 15px; background: white; }
+        }
+    
+
+/* ===== profile.html page-specific CSS ===== */
+
+        html.page-profile{ 
+            --primary: #007bff; 
+            --primary-gradient: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+            --cover-gradient: linear-gradient(135deg, rgba(24, 43, 73, 0.9) 0%, rgba(0, 123, 255, 0.85) 100%);
+            --success: #2ecc71; 
+            --danger: #e74c3c;
+            --dark: #1c1e21; 
+            --gray: #65676b; 
+            --bg: #f0f2f5;   
+            --border: #ced0d4;
+        }
+        body.page-profile{ background-color: var(--bg); font-family: "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; padding-top: 60px; color: var(--dark); }
+        body.page-profile .container{ max-width: 650px; margin: auto; padding:10px; box-sizing: border-box; }
+
+        body.page-profile .main-header{
+             position: fixed; 
+             top: 0; left: 0; right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+        }
+        
+        body.page-profile .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; 
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-profile .sidebar.active{ left: 0; }
+        
+        body.page-profile .overlay{
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; display: none; 
+        }
+        
+        body.page-profile .overlay.active{ display: block; }
+        
+        body.page-profile .sidebar a{
+            color: #ffffff; padding: 12px 15px; 
+            display: flex; align-items: center; text-decoration: none; font-weight: 500;
+        }
+
+        body.page-profile .sidebar a i.material-icons{ color: #ffffff; margin-right: 10px; }
+        body.page-profile .sidebar a:hover{ background-color: #3e5369; }
+        
+        body.page-profile .sidebar-logo{
+            padding: 15px; font-size: 1.5em; font-weight: bold;
+            color: white !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 5px;
+        }
+        
+        body.page-profile .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+        body.page-profile .header-left{ display: flex; align-items: center; flex-shrink: 0; }
+        body.page-profile .menu-icon{ cursor: pointer; color: dark; font-size: 28px; }
+        
+        body.page-profile .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary); text-decoration: none; white-space: nowrap; margin-left: 10px; }
+        body.page-profile .logo-icon{ margin-right: 5px; }
+
+        body.page-profile .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        body.page-profile .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
+        
+        body.page-profile .notification-count{ position: absolute; top: -5px; right: -8px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold; min-width: 10px; text-align: center; line-height: 1; display: none; }
+        body.page-profile .notification-icon, body.page-profile .message-icon{ color: var(--primary); }
+        body.page-profile .post-icon-header{ color: #28a745; }
+
+        body.page-profile .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; }
+        body.page-profile .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        
+        /* ⬅️ ব্যাক বাটন স্টাইল (স্ক্রিনশটের মত) */
+        body.page-profile .back-navigation-bar{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: fit-content;
+        }
+        body.page-profile .back-navigation-bar i{
+            font-size: 22px;
+            color: var(--dark);
+        }
+        body.page-profile .back-navigation-bar span{
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        @media (max-width: 600px) {
+            body.page-profile{ padding-top: 55px; }
+            body.page-profile .logo-title{ font-size: 1.2em; }
+            body.page-profile .header-actions{ gap: 8px; }
+        }
+        
+        body.page-profile .profile-premium-card{ 
+            background: white; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); text-align: center; margin-bottom: 16px; position: relative; overflow: hidden; border: 1px solid var(--border);
+        }
+        body.page-profile .profile-cover-photo::before{
+            content: "corporate_fare"; font-family: "Material Icons";
+            position: absolute; right: 15px; bottom: -15px; font-size: 120px; color: rgba(255, 255, 255, 0.08); pointer-events: none;
+        }
+        body.page-profile .profile-cover-photo::after{
+            content: "home"; font-family: "Material Icons";
+            position: absolute; left: 20px; top: 20px; font-size: 70px; color: rgba(255, 255, 255, 0.05); pointer-events: none;
+        }
+        
+        body.page-profile .profile-cover-photo{ height: 140px; background: var(--cover-gradient); position: relative; background-size: cover; background-position: center; }
+        body.page-profile .profile-content-box{ padding: 0px 16px 20px 16px; position: relative; margin-top: -60px; z-index: 5; }
+        body.page-profile .avatar-container{ position: relative; width: 120px; height: 120px; margin: 0 auto 10px auto; }
+        body.page-profile .profile-avatar-big{ width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: #eee; }
+        
+        body.page-profile .user-info h2{ margin: 0 0 4px 0; font-size: 24px; color: var(--dark); font-weight: bold; }
+        body.page-profile .user-bio-text{ font-size: 14px; color: var(--gray); max-width: 85%; margin: 8px auto 14px auto; line-height: 1.4; font-style: italic; }
+
+        body.page-profile .company-switch-card{ 
+            background: white; border-radius: 12px; border: 1px solid #e4e6eb; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1); padding: 14px 16px; margin-bottom: 16px; text-align: left; 
+        }
+        body.page-profile .company-switch-card h4{ margin: 0 0 10px 0; font-size: 13px; font-weight: bold; color: var(--gray); text-transform: uppercase; }
+        body.page-profile .company-item-box{ 
+            display: flex; align-items: center; justify-content: space-between; 
+            background: #f7f8fa; padding: 10px 12px; border-radius: 8px; border: 1px solid #e4e6eb; cursor: pointer; transition: 0.2s; 
+        }
+        body.page-profile .company-item-box:hover{ background: #eef2f7; }
+        body.page-profile .company-left{ display: flex; align-items: center; gap: 12px; }
+        body.page-profile .company-logo-img{ width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+        body.page-profile .company-title{ font-weight: bold; font-size: 15px; color: var(--dark); }
+        body.page-profile .badge-company{ background: #28a745; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 5px; vertical-align: middle; }
+        body.page-profile .btn-create-company{ 
+            background: var(--primary-gradient); color: white; border: none; padding: 10px 15px; 
+            border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; 
+        }
+        body.page-profile .btn-switch-back{ 
+            background: #e7f3ff; color: var(--primary); border: 1px solid #bcdcff; padding: 10px; 
+            border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; 
+        }
+
+        body.page-profile .facebook-intro-card{ background: white; border-radius: 12px; border: 1px solid #e4e6eb; box-shadow: 0 1px 2px rgba(0,0,0,0.1); padding: 16px; margin-bottom: 16px; text-align: left; }
+        body.page-profile .facebook-intro-card h3{ margin: 0 0 12px 0; font-size: 17px; font-weight: bold; color: var(--dark); }
+        body.page-profile .intro-list{ list-style: none; padding: 0; margin: 0; }
+        body.page-profile .intro-item{ display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--dark); }
+        body.page-profile .intro-item i{ color: #8c939d; font-size: 20px; }
+        
+        body.page-profile .action-buttons-div{ display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 5px; border-top: 1px solid #e4e6eb; padding-top: 15px; }
+        body.page-profile .edit-badge{ background: #e4e6eb; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; color: var(--dark); display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+        body.page-profile .add-property-btn{ background: var(--primary); padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; color: white; display: inline-flex; align-items: center; gap: 6px; border: none; font-weight: 600; }
+
+        body.page-profile .stats-container{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+        body.page-profile .stat-card{ background: white; padding: 12px 5px; border-radius: 8px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); border: 1px solid #e4e6eb; }
+        body.page-profile .stat-card h4{ margin: 0 0 4px 0; color: var(--gray); font-size: 12px; font-weight: 600; }
+
+        body.page-profile .profile-tabs{ display: flex; gap: 8px; border-bottom: 1px solid #ced0d4; margin-bottom: 16px; }
+        body.page-profile .tab-btn{ padding: 10px 12px; border: none; background: none; cursor: pointer; font-size: 14px; font-weight: bold; color: var(--gray); position: relative; }
+        body.page-profile .tab-btn.active{ color: var(--primary); }
+        body.page-profile .tab-btn.active::after{ content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 3px; background: var(--primary); border-radius: 3px; }
+        
+        body.page-profile .tab-content{ display: none; }
+        body.page-profile .tab-content.active{ display: block; }
+        body.page-profile .property-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 12px; }
+        body.page-profile .property-card{ background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.1); border: 1px solid #e4e6eb; }
+        
+        body.page-profile .modal{ display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); overflow-y: auto; backdrop-filter: blur(3px); }
+        body.page-profile .modal-content{ background: white; margin: 5% auto; padding: 20px; width: 92%; max-width: 440px; border-radius: 12px; position: relative; box-sizing: border-box; }
+        body.page-profile .close-modal{ position: absolute; right: 16px; top: 12px; font-size: 24px; cursor: pointer; color: var(--gray); }
+        body.page-profile .input-group{ margin-bottom: 12px; }
+        body.page-profile .input-group label{ display: block; margin-bottom: 4px; font-weight: 600; font-size: 13px; color: var(--dark); }
+        body.page-profile .input-group input, body.page-profile .input-group textarea{ width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        body.page-profile .submit-button{ background: var(--primary); color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: bold; width: 100%; }
+
+        @media screen and (min-width:768px){
+            body.page-profile .container{ max-width:1000px; padding:20px; }
+            body.page-profile .profile-cover-photo{ height:220px; }
+            body.page-profile .profile-content-box{ margin-top:-80px; }
+            body.page-profile .avatar-container{ width:160px; height:160px; }
+            body.page-profile .user-info h2{ font-size:32px; }
+            body.page-profile .user-bio-text{ font-size:16px; max-width:70%; }
+            body.page-profile .stats-container{ grid-template-columns:repeat(3,1fr); gap:20px; }
+            body.page-profile .stat-card{ padding:18px; }
+            body.page-profile .stat-card p{ font-size:22px; font-weight:bold; }
+            body.page-profile .facebook-intro-card{ padding:25px; }
+            body.page-profile .profile-tabs{ justify-content:center; gap:20px; }
+            body.page-profile .tab-btn{ font-size:16px; padding:15px 25px; }
+            body.page-profile .property-grid{ grid-template-columns:repeat(3,1fr); gap:20px; }
+            body.page-profile .property-card{ transition:.3s; }
+            body.page-profile .property-card:hover{ transform:translateY(-4px); }
+        }
+
+        @media screen and (min-width:1024px){
+            body.page-profile{ background:#eef2f7; }
+            body.page-profile .container{ max-width:1400px; padding:25px; }
+            body.page-profile .main-content{ display:grid; grid-template-columns:380px 1fr; gap:30px; align-items:start; }
+            body.page-profile .profile-premium-card, body.page-profile .company-switch-card, body.page-profile .facebook-intro-card, body.page-profile .stats-container{ grid-column:1; }
+            body.page-profile .profile-tabs, body.page-profile #my-posts, body.page-profile #saved-posts{ grid-column:2; }
+            body.page-profile .profile-premium-card{ position:sticky; top:80px; margin-bottom:20px; border-radius:20px; overflow:hidden; }
+            body.page-profile .profile-cover-photo{ height:240px; }
+            body.page-profile .avatar-container{ width:180px; height:180px; }
+            body.page-profile .profile-content-box{ margin-top:-95px; }
+            body.page-profile .user-info h2{ font-size:34px; }
+            body.page-profile .user-bio-text{ max-width:80%; font-size:16px; }
+            body.page-profile .facebook-intro-card{ border-radius:18px; padding:25px; }
+            body.page-profile .intro-item{ font-size:15px; }
+            body.page-profile .stats-container{ display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+            body.page-profile .stat-card{ border-radius:15px; padding:20px; }
+            body.page-profile .stat-card p{ font-size:24px; font-weight:700; color:#007bff; }
+            body.page-profile .profile-tabs{ background:#fff; padding:10px 15px; border-radius:15px; margin-bottom:20px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+            body.page-profile .tab-btn{ font-size:16px; padding:15px 25px; }
+            body.page-profile .property-grid{ grid-template-columns:repeat(3,1fr); gap:25px; }
+            body.page-profile .property-card{ border-radius:16px; overflow:hidden; transition:.3s; box-shadow:0 4px 15px rgba(0,0,0,.08); }
+            body.page-profile .property-card:hover{ transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,.15); }
+            body.page-profile .property-card img{ height:220px; object-fit:cover; }
+            body.page-profile .action-buttons-div{ flex-direction:column; gap:10px; }
+            body.page-profile .edit-badge, body.page-profile .add-property-btn{ width:100%; justify-content:center; padding:12px; }
+            body.page-profile .modal-content{ max-width:700px; }
+        }
+    
+
+/* ===== seller-profile.html page-specific CSS ===== */
+
+        html.page-seller_profile{ 
+            --primary: #007bff; 
+            --primary-gradient: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+            --cover-gradient: linear-gradient(135deg, rgba(24, 43, 73, 0.9) 0%, rgba(0, 123, 255, 0.85) 100%);
+            --success: #28a745; 
+            --dark: #1c1e21;
+            --gray: #65676b;
+            --bg: #f0f2f5;
+            --gold: #f1c40f;
+            --border: #e4e6eb;
+        }
+        body.page-seller_profile{ background-color: var(--bg); font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding-top: 70px; color: var(--dark); }
+       
+        body.page-seller_profile .main-header{
+             position: fixed; 
+             top: 0; left: 0; right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+        }
+        
+        body.page-seller_profile .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e;
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-seller_profile .sidebar.active{ left: 0; }
+        
+        body.page-seller_profile .overlay{
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; display: none; 
+        }
+        body.page-seller_profile .overlay.active{ display: block; }
+        
+        body.page-seller_profile .sidebar a{
+            color: white; padding: 12px 15px; display: flex;
+            align-items: center; text-decoration: none; font-weight: 500;
+        }
+        body.page-seller_profile .sidebar a i.material-icons{ color: white; margin-right: 10px; }
+        body.page-seller_profile .sidebar a:hover{ background-color: #3e5369; }
+        
+        body.page-seller_profile .sidebar-logo{
+            padding: 15px; font-size: 1.5em; font-weight: bold;
+            color: white !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        body.page-seller_profile .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+        body.page-seller_profile .header-left{ display: flex; align-items: center; flex-shrink: 0; }
+        body.page-seller_profile .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
+        body.page-seller_profile .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary); text-decoration: none; white-space: nowrap; margin-left: 10px; }
+        body.page-seller_profile .logo-icon{ margin-right: 5px; }
+
+        body.page-seller_profile .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        body.page-seller_profile .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
+        
+        body.page-seller_profile .notification-count{ position: absolute; top: -5px; right: -8px; background-color: red; color: white; border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold; min-width: 10px; text-align: center; line-height: 1; display: none; }
+        body.page-seller_profile .notification-icon, body.page-seller_profile .message-icon{ color: var(--primary); }
+        body.page-seller_profile .post-icon-header{ color: #28a745; }
+
+        body.page-seller_profile .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; }
+        body.page-seller_profile .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        
+        @media (max-width: 600px) {
+            body.page-seller_profile{ padding-top: 55px; }
+            body.page-seller_profile .logo-title{ font-size: 1.2em; }
+            body.page-seller_profile .header-actions{ gap: 8px; }
+        }
+        
+        body.page-seller_profile .container{ max-width: 600px; margin: auto; padding: 10px; box-sizing: border-box; }
+        body.page-seller_profile .btn-back{ background: white; border: 1px solid #ddd; color: var(--dark); padding: 8px 16px; border-radius: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: bold; font-size: 14px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); width: fit-content; transition: 0.2s; }
+        body.page-seller_profile .btn-back:hover{ background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* 👑 প্রিমিয়াম প্রোফাইল কার্ড */
+        body.page-seller_profile .seller-premium-card{ 
+            background: white; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); text-align: center; margin-bottom: 16px; position: relative; overflow: hidden; border: 1px solid var(--border);
+        }
+
+        body.page-seller_profile .profile-cover-photo{ height: 140px; background: var(--cover-gradient); position: relative; }
+        body.page-seller_profile .profile-cover-photo::before{
+            content: "corporate_fare"; font-family: "Material Icons"; position: absolute; right: 15px; bottom: -15px; font-size: 120px; color: rgba(255, 255, 255, 0.08); pointer-events: none;
+        }
+        body.page-seller_profile .profile-cover-photo::after{
+            content: "home"; font-family: "Material Icons"; position: absolute; left: 20px; top: 20px; font-size: 70px; color: rgba(255, 255, 255, 0.05); pointer-events: none;
+        }
+
+        body.page-seller_profile .profile-content-box{ padding: 0px 16px 20px 16px; position: relative; margin-top: -60px; z-index: 5; }
+
+        body.page-seller_profile .viral-badge-box{ position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; z-index: 10; }
+        body.page-seller_profile .badge-item{ display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: bold; padding: 6px 12px; border-radius: 20px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        body.page-seller_profile .badge-verified{ background: #00b894; }
+        body.page-seller_profile .badge-top-seller{ background: #6c5ce7; }
+
+        body.page-seller_profile .avatar-container{ position: relative; width: 110px; height: 110px; margin: 0 auto 10px auto; }
+        body.page-seller_profile .seller-avatar{ width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); background: #fff; }
+        body.page-seller_profile .status-dot{ position: absolute; bottom: 6px; right: 6px; width: 14px; height: 14px; background: #2ecc71; border: 2px solid white; border-radius: 50%; }
+
+        body.page-seller_profile .seller-name{ font-size: 24px; font-weight: bold; color: var(--dark); margin: 0 0 4px 0; }
+        body.page-seller_profile .seller-bio{ font-size: 14px; color: var(--gray); line-height: 1.4; margin: 6px auto 12px auto; max-width: 85%; font-style: italic; }
+
+        body.page-seller_profile .facebook-intro-card{ background: white; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 2px rgba(0,0,0,0.1); padding: 16px; margin-bottom: 16px; text-align: left; }
+        body.page-seller_profile .facebook-intro-card h3{ margin: 0 0 12px 0; font-size: 17px; font-weight: bold; color: var(--dark); }
+        
+        body.page-seller_profile .intro-list{ list-style: none; padding: 0; margin: 0; }
+        body.page-seller_profile .intro-item{ display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--dark); }
+        body.page-seller_profile .intro-item i{ color: #8c939d; font-size: 20px; }
+
+        body.page-seller_profile .profile-rating-section{ background: #fffdf3; border: 1px solid #fbf1c9; padding: 15px; border-radius: 12px; margin-top: 15px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        body.page-seller_profile .rating-title{ font-size: 13px; font-weight: bold; color: #b78a00; text-transform: uppercase; }
+        body.page-seller_profile .stars-display{ display: flex; gap: 4px; }
+        body.page-seller_profile .stars-display i{ font-size: 26px; color: #ddd; cursor: pointer; transition: 0.1s; }
+        body.page-seller_profile .stars-display i.active{ color: var(--gold); }
+        body.page-seller_profile .rating-stats-text{ font-size: 12px; color: var(--dark); font-weight: 600; background: #fef6d3; padding: 4px 10px; border-radius: 10px; }
+
+        body.page-seller_profile .list-title{ font-size: 16px; font-weight: bold; color: var(--dark); margin: 25px 0 12px 0; display: flex; align-items: center; gap: 6px; border-left: 4px solid var(--primary); padding-left: 8px; }
+        body.page-seller_profile .seller-posts-grid{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+        body.page-seller_profile .post-card{ background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid var(--border); position: relative; }
+        body.page-seller_profile .post-card img{ width: 100%; height: 110px; object-fit: cover; background: #eee; }
+        
+        body.page-seller_profile .card-tag{ position: absolute; top: 6px; left: 6px; background: rgba(0, 0, 0, 0.75); color: white; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: bold; }
+        body.page-seller_profile .post-info{ padding: 8px; }
+        body.page-seller_profile .post-title-text{ font-size: 12px; font-weight: bold; margin: 0; height: 32px; overflow: hidden; color: var(--dark); line-height: 1.3; }
+        body.page-seller_profile .post-meta-loc{ font-size: 11px; color: var(--gray); display: flex; align-items: center; gap: 2px; margin: 4px 0; }
+        body.page-seller_profile .post-meta-loc i{ font-size: 12px; }
+        body.page-seller_profile .post-price-box{ display: flex; justify-content: space-between; align-items: center; margin-top: 6px; border-top: 1px solid #f5f5f5; padding-top: 6px; }
+        body.page-seller_profile .post-price-text{ color: var(--success); font-size: 12px; font-weight: bold; margin: 0; }
+        
+        body.page-seller_profile .no-post{ text-align: center; color: var(--gray); padding: 30px; font-weight: 500; width: 100%; background: white; border-radius: 8px; border: 1px solid var(--border); box-sizing: border-box; }
+
+        @media (min-width:768px){
+            body.page-seller_profile .container{ max-width:950px; }
+            body.page-seller_profile .profile-cover-photo{ height:180px; }
+            body.page-seller_profile .seller-posts-grid{ grid-template-columns:repeat(3,1fr); }
+            body.page-seller_profile .seller-name{ font-size:28px; }
+        }
+
+        @media (min-width:1024px){
+            body.page-seller_profile .container{ max-width:1200px; }
+            body.page-seller_profile .profile-cover-photo{ height:220px; }
+            body.page-seller_profile .avatar-container{ width:130px; height:130px; }
+            body.page-seller_profile .seller-name{ font-size:30px; }
+            body.page-seller_profile .seller-posts-grid{ grid-template-columns:repeat(4,1fr); }
+        }
+    
+
+/* ===== notifications.html page-specific CSS ===== */
+
+        html.page-notifications{
+            --primary-color: #007bff;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --bg: #f4f7f6;
+        }
+
+        body.page-notifications{
+            margin: 0; 
+            padding-top: 60px;
+            font-family: "Segoe UI", Arial, sans-serif; 
+            background-color: var(--bg);
+        }
+
+        /* --- হেডার ফিক্স --- */
+        body.page-notifications .main-header{
+             position: fixed; 
+             top: 0; left: 0; right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+             z-index: 1000; 
+        }
+        
+        /* --- সাইডবার ফিক্স --- */
+        body.page-notifications .sidebar{
+            position: fixed; top: 0; left: -250px; width: 250px; height: 100%;
+            background-color: #34495e; transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); z-index: 1050; 
+            overflow-y: auto; padding-top: 50px; 
+        }
+        body.page-notifications .sidebar.active{ left: 0; }
+        body.page-notifications .overlay{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1040; display: none; }
+        body.page-notifications .overlay.active{ display: block; }
+        
+        body.page-notifications .sidebar a{ color: #ffffff; padding: 12px 15px; display: flex; align-items: center; text-decoration: none; font-weight: 500; }
+        body.page-notifications .sidebar a i.material-icons{ margin-right: 10px; }
+        body.page-notifications .sidebar a:hover{ background-color: #3e5369; }
+        body.page-notifications .sidebar-logo{ padding: 15px; font-size: 1.5em; font-weight: bold; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 5px; }
+        
+        body.page-notifications .header-top{ display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+        body.page-notifications .header-left{ display: flex; align-items: center; flex-shrink: 0; }
+        body.page-notifications .menu-icon{ cursor: pointer; color: var(--dark); font-size: 28px; }
+        
+        body.page-notifications .logo-title{ display: flex; align-items: center; font-size: 1.5em; font-weight: bold; color: var(--primary-color); text-decoration: none; white-space: nowrap; margin-left: 10px; }
+        body.page-notifications .logo-icon{ margin-right: 5px; }
+
+        body.page-notifications .header-actions{ display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        body.page-notifications .icon-wrapper{ position: relative; display: inline-flex; cursor: pointer; align-items: center; justify-content: center; height: 30px; width: 30px; }
+        
+        body.page-notifications .notification-count{
+            position: absolute; top: -5px; right: -8px; background-color: red; color: white;
+            border-radius: 50%; padding: 2px 5px; font-size: 0.7em; font-weight: bold;
+            min-width: 10px; text-align: center; line-height: 1; display: none; 
+        }
+        
+        body.page-notifications .notification-icon, body.page-notifications .message-icon{ color: var(--primary-color); }
+        body.page-notifications .post-icon-header{ color: #28a745; }
+
+        body.page-notifications .profile-image-wrapper{ cursor: pointer; width: 35px; height: 35px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; }
+        body.page-notifications .profile-image-wrapper img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* --- নোটিফিকেশন পেজ কন্টেন্ট স্টাইল --- */
+        body.page-notifications .main-content{
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        body.page-notifications .notification-page-container{
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        body.page-notifications .notification-page-container h2{
+            margin-top: 0;
+            color: var(--dark);
+            font-size: 22px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        body.page-notifications .notification-list{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        body.page-notifications .notification-item{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        body.page-notifications .notification-item:hover{
+            background: #f8fafc;
+        }
+
+        body.page-notifications .notification-item.unread{
+            background: #ebf5ff;
+        }
+
+        body.page-notifications .notification-icon-large{
+            font-size: 28px;
+            color: var(--gray);
+        }
+
+        body.page-notifications .notification-item.unread .notification-icon-large{
+            color: var(--primary-color);
+        }
+
+        body.page-notifications .notif-content{
+            flex: 1;
+        }
+
+        body.page-notifications .notif-text{
+            margin: 0;
+            font-size: 15px;
+            color: #334155;
+        }
+
+        body.page-notifications .notification-item.unread .notif-text{
+            font-weight: 600;
+        }
+
+        body.page-notifications .notif-time{
+            font-size: 12px;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        body.page-notifications .footer{
+            background: white;
+            border-top: 1px solid #edf2f7;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 600px) {
+            body.page-notifications .logo-title{ font-size: 1.2em; }
+            body.page-notifications .header-actions{ gap: 8px; }
+            body.page-notifications .notification-item{ flex-direction: column; align-items: flex-start; gap: 8px; }
+            body.page-notifications .notif-time{ align-self: flex-end; }
+        }
+    
+
+/* ===== privacy.html page-specific CSS ===== */
+
+        /* CSS ভেরিয়েবল */
+        html.page-privacy{
+            --primary-color: #007bff;
+        }
+
+        /* গ্লোবাল ফিক্স */
+        body.page-privacy{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
+
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-privacy .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [START] সাইডবার ফিক্স: সম্পূর্ণ কার্যকারিতা, নতুন রঙ সহ --- */
+        body.page-privacy .sidebar{
+            position: fixed; /* ফিক্সড পজিশন সেট করা হলো */
+            top: 0;
+            left: -250px; /* ডিফল্টভাবে স্ক্রিনের বাইরে লুকিয়ে রাখা হলো */
+            width: 250px; /* সাইডবারের প্রস্থ */
+            height: 100%;
+            
+            /* ⭐ ব্যাকগ্রাউন্ড কালার ফিক্সড: গাঢ় নীল/ধূসর (#34495e) ⭐ */
+            background-color: #34495e; 
+            
+            transition: left 0.3s ease; /* মসৃণ স্লাইড ট্রানজিশন */
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+        }
+        
+        body.page-privacy .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-privacy .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-privacy .overlay.active{
+            display: block; 
+        }
+        
+        /* ⭐ সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা (#ffffff) ⭐ */
+        body.page-privacy .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; /* লিঙ্কগুলোর padding */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-privacy .sidebar a i.material-icons{
+            color: #ffffff; /* আইকনগুলোর রঙ সাদা */
+            margin-right: 10px;
+        }
+
+        body.page-privacy .sidebar a:hover{
+            background-color: #3e5369; /* হোভার ইফেক্টের জন্য একটু হালকা রঙ */
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
+        body.page-privacy .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; /* নিশ্চিত সাদা */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        
+        /* --- [END] সাইডবার ফিক্স: সম্পূর্ণ কার্যকারিতা, নতুন রঙ সহ --- */
+
+
+        body.page-privacy .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        body.page-privacy .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        body.page-privacy .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-privacy .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-privacy .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-privacy .logo-icon{
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-privacy .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-privacy .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-privacy .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-privacy .notification-icon{ color: var(--primary-color); }
+        body.page-privacy .message-icon{ color: var(--primary-color); }
+        body.page-privacy .post-icon-header{ color: #28a745; }
+
+        /* প্রোফাইল ইমেজ স্টাইল */
+        body.page-privacy .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; 
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-privacy #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-privacy{
+                padding-top: 46px; 
+            }
+            body.page-privacy .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-privacy .header-actions{
+                 gap: 8px; 
+            }
+            body.page-privacy .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
+
+/* ===== about.html page-specific CSS ===== */
+
+        /* CSS ভেরিয়েবল */
+        html.page-about{
+            --primary-color: #007bff;
+        }
+
+        /* গ্লোবাল ফিক্স */
+        body.page-about{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
+
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-about .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [ফিক্স: সাইডবার পজিশনিং এবং ট্রানজিশন] --- */
+        body.page-about .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* আপনার পছন্দ করা গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; /* হেডার এর নিচে থেকে শুরু হবে */
+        }
+        
+        body.page-about .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-about .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-about .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-about .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-about .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
+
+        body.page-about .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক (প্রথম লিঙ্ক) */
+        body.page-about .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [ফিক্স শেষ] --- */
+
+        body.page-about .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        body.page-about .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        body.page-about .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-about .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-about .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-about .logo-icon{
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-about .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-about .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-about .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-about .notification-icon{ color: var(--primary-color); }
+        body.page-about .message-icon{ color: var(--primary-color); }
+        body.page-about .post-icon-header{ color: #28a745; }
+
+        /* প্রোফাইল ইমেজ স্টাইল */
+        body.page-about .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; /* আইকন থেকে সামান্য বড় */
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-about #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-about{
+                padding-top: 46px; 
+            }
+            body.page-about .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-about .header-actions{
+                 gap: 8px; 
+            }
+            body.page-about .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
+
+/* ===== contact.html page-specific CSS ===== */
+
+        /* CSS ভেরিয়েবল */
+        html.page-contact{
+            --primary-color: #007bff;
+        }
+
+        /* গ্লোবাল ফিক্স */
+        body.page-contact{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
+
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-contact .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- [ফিক্স: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ] --- */
+        body.page-contact .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-contact .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-contact .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-contact .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-contact .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-contact .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
+
+        body.page-contact .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক */
+        body.page-contact .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [ফিক্স শেষ] --- */
+
+        body.page-contact .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        body.page-contact .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        body.page-contact .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-contact .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-contact .logo-icon{
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-contact .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-contact .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-contact .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-contact .notification-icon{ color: var(--primary-color); }
+        body.page-contact .message-icon{ color: var(--primary-color); }
+        body.page-contact .post-icon-header{ color: #28a745; }
+
+        /* ⭐ ফিক্স: প্রোফাইল ইমেজ স্টাইল (ছবি লোড না হলেও ডিফল্ট আইকন দেখা যাবে) ⭐ */
+        body.page-contact .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; 
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-contact #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none; /* ডিফল্টভাবে ছবি লুকানো থাকবে */
+        }
+        body.page-contact #defaultProfileIcon{
+            display: block; /* ডিফল্টভাবে আইকন দেখাবে */
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-contact{
+                padding-top: 46px; 
+            }
+            body.page-contact .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-contact .header-actions{
+                 gap: 8px; 
+            }
+            body.page-contact .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
+
+/* ===== tips.html page-specific CSS ===== */
+
+        /* CSS ভেরিয়েবল */
+        html.page-tips{
+            --primary-color: #007bff;
+        }
+
+        /* গ্লোবাল ফিক্স */
+        body.page-tips{
+            margin: 0; 
+            padding-top: 50px; /* হেডারের উচ্চতা অনুযায়ী padding যোগ করা হলো */
+            font-family: Arial, sans-serif; 
+        }
+
+        /* --- হেডার ফিক্স: সবার উপরে ফিক্সড করা --- */
+        body.page-tips .main-header{
+             position: fixed; 
+             top: 0;
+             left: 0;
+             right: 0;
+             background-color: white; 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+             z-index: 1000; 
+             padding-bottom: 0;
+        }
+        
+        /* --- ⭐ FIX 2: সাইডবার পজিশনিং, ট্রানজিশন ও রঙ যোগ করা হলো ⭐ --- */
+        body.page-tips .sidebar{
+            position: fixed; 
+            top: 0;
+            left: -250px; 
+            width: 250px; 
+            height: 100%;
+            background-color: #34495e; /* গাঢ় নীল/ধূসর রঙ */
+            transition: left 0.3s ease; 
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5); 
+            z-index: 1050; 
+            overflow-y: auto;
+            padding-top: 50px; 
+        }
+        
+        body.page-tips .sidebar.active{
+            left: 0; 
+        }
+        
+        body.page-tips .overlay{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1040; 
+            display: none; 
+        }
+        
+        body.page-tips .overlay.active{
+            display: block; 
+        }
+        
+        /* সাইডবারের লিঙ্ক এবং আইকনের রঙ সাদা করা */
+        body.page-tips .sidebar a{
+            color: #ffffff; 
+            padding: 12px 15px; 
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        body.page-tips .sidebar a i.material-icons{
+            color: #ffffff; 
+            margin-right: 10px;
+        }
+
+        body.page-tips .sidebar a:hover{
+            background-color: #3e5369; 
+        }
+        
+        /* সাইডবারের লোগো লিঙ্ক */
+        body.page-tips .sidebar-logo{
+            padding: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white !important; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+        }
+        /* --- [সাইডবার ফিক্স শেষ] --- */
+
+        body.page-tips .header-top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            padding: 8px 15px; 
+        }
+
+        body.page-tips .header-left{
+            display: flex;
+            align-items: center;
+            flex-shrink: 0; 
+        }
+
+        body.page-tips .menu-icon{
+             margin-right: 0; 
+             cursor: pointer;
+        }
+        
+        body.page-tips .logo-title{
+            display: flex;
+            align-items: center;
+            font-size: 1.8em; 
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 0px; 
+            text-decoration: none; 
+            white-space: nowrap; 
+        }
+        body.page-tips .logo-title:visited{
+             color: var(--primary-color);
+        }
+        body.page-tips .logo-icon{
+            margin-right: 5px;
+        }
+
+        /* ডানের ব্লক (আইকন) ফিক্স */
+        body.page-tips .header-actions{
+             display: flex;
+             align-items: center;
+             gap: 12px; 
+             position: relative; 
+             flex-shrink: 0; 
+        }
+        
+        /* কমন আইকন র‍্যাপার স্টাইল (নোটিফিকেশন, ম্যাসেজ, পোস্ট) */
+        body.page-tips .icon-wrapper{
+             position: relative;
+             display: inline-flex;
+             cursor: pointer;
+             align-items: center; 
+             justify-content: center;
+             height: 30px; 
+             width: 30px; 
+        }
+        
+        /* কমন নোটিফিকেশন কাউন্ট স্টাইল */
+        body.page-tips .notification-count{
+            position: absolute;
+            top: -5px; 
+            right: -8px; 
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px; 
+            font-size: 0.7em;
+            font-weight: bold;
+            min-width: 10px;
+            text-align: center;
+            line-height: 1; 
+            display: none; 
+        }
+        
+        /* আইকন কালার */
+        body.page-tips .notification-icon{ color: var(--primary-color); }
+        body.page-tips .message-icon{ color: var(--primary-color); }
+        body.page-tips .post-icon-header{ color: #28a745; }
+
+        
+
+        /* প্রোফাইল ইমেজের বাইরের গোল বক্স */
+
+        body.page-tips .profile-image-wrapper{
+            cursor: pointer;
+            width: 35px; /* আইকন থেকে সামান্য বড় */
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-color); /* রঙের বর্ডার */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body.page-tips #profileImage{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+/* 🎯 ইমেজের একাংশ কেটে যাওয়া রোধ করার ফিক্স */
+body.page-tips .profile-image-wrapper img{
+    width: 100%;          /* বক্সের পুরো উইডথ নিবে */
+    height: 100%;         /* বক্সের পুরো হাইট নিবে */
+    object-fit: cover;    /* 👈 এটি ছবিটিকে চ্যাপ্টা বা বিকৃত না করে গোল বক্সের মাঝে সুন্দরভাবে ফিট করবে */
+    object-position: center; /* ছবির মাঝখানের অংশ ফোকাস করবে */
+    display: block;
+}
+     
+        /* --- 📱 মোবাইল ভিউয়ের জন্য নির্দিষ্ট ফিক্স --- */
+        @media (max-width: 600px) {
+            body.page-tips{
+                padding-top: 46px; 
+            }
+            body.page-tips .logo-title{
+                 font-size: 1.5em; 
+                 margin-left: 0px;
+            }
+            body.page-tips .header-actions{
+                 gap: 8px; 
+            }
+            body.page-tips .profile-image-wrapper{
+                 width: 30px; 
+                 height: 30px;
+            }
+        }
+        
+    
+
+/* ===== Production-safe base layer ===== */
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video, canvas { max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { min-width: 320px; }
+@media (max-width: 767px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+}

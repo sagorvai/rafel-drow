@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="page-index" lang="bn">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>amarbari | আমার বাড়ি | বাংলাদেশ ও খুলনায় ফ্ল্যাট, প্লট এবং বাড়ি কেনাবেচার সেরা মাধ্যম</title>
+<meta content="কোনো দালাল বা থার্ড-পার্টি কমিশন ছাড়াই সরাসরি মালিকের কাছ থেকে প্রপার্টি, ফ্ল্যাট, বাড়ি এবং জমি কিনুন বা ভাড়া নিন।" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<!-- Leaflet CSS & JS for Map -->
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
+<script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBrGpbFoGmPhWv5i6Nzc4s1duDn7-uE4zA",
+        authDomain: "amar-bari-website.firebaseapp.com",
+        projectId: "amar-bari-website",
+        storageBucket: "amar-bari-website.firebasestorage.app",
+        messagingSenderId: "719084789035",
+        appId: "1:719084789035:web:f4da765290b3519d0e82fe"
+      };
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    </script>
+
+</link><link href="style.css" rel="stylesheet"/><meta content="index, follow, max-image-preview:large" name="robots"/><link href="https://amarbari.online/index.html" rel="canonical"/></head>
+<body class="page-index">
+<header class="fb-header">
+<div class="header-content">
+<div class="header-left">
+<i class="material-icons menu-btn" id="menuButton">menu</i>
+<a class="logo-fb" href="index.html">AmarBari</a>
+</div>
+<div class="header-actions">
+<a class="fb-icon-circle" href="notifications.html" title="নোটিফিকেশন">
+<i class="material-icons">notifications</i>
+</a>
+<a class="fb-icon-circle" href="post.html" title="প্রপার্টি পোস্ট">
+<i class="material-icons" style="color: var(--success);">add_circle</i>
+</a>
+<a class="fb-icon-circle" href="messages.html" title="মেসেজ">
+<i class="material-icons">chat</i>
+</a>
+<!-- 👤 ডায়নামিক প্রোফাইল পিকচার -->
+<a href="profile.html">
+<img alt="Profile" class="fb-profile-pic" id="profileImage" src="" style="display:none;"/>
+<i class="material-icons" id="defaultProfileIcon" style="font-size: 38px; color: var(--text-sub); cursor:pointer;">account_circle</i>
+</a>
+</div>
+</div>
+</header>
+<div class="sidebar" id="sidebar">
+<a href="index.html" style="background: var(--fb-bg); font-weight: bold; color: var(--fb-blue); border-radius: 8px; margin: 4px 8px;">
+<i class="material-icons">feed</i> নিউজ ফিড
+        </a>
+<a href="post.html"><i class="material-icons">add_business</i> প্রপার্টি পোস্ট করুন</a>
+<a href="messages.html"><i class="material-icons">chat</i> মেসেজ সমূহ</a>
+<a href="boost.html"><i class="material-icons" style="color: var(--boost-gold);">bolt</i> পোস্ট বুস্ট করুন</a>
+<a href="tips.html"><i class="material-icons">sticky_note_2</i> আবাসন গাইডলাইন</a>
+<a href="auth.html" id="login-link-sidebar"><i class="material-icons">login</i> অ্যাকাউন্ট লগইন</a>
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="container">
+<!-- 📸 ১. সবার উপরে অটো-স্লাইড কভার ছবি (৩টি ছবি) -->
+<div class="cover-slider-container" id="coverSlider">
+<div class="cover-slide active" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&amp;auto=format&amp;fit=crop&amp;q=80');">
+<div class="cover-overlay-text">🏡 আপনার স্বপ্নের বাড়ি ও জমি কিনুন দালালমুক্ত উপায়ে</div>
+</div>
+<div class="cover-slide" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&amp;auto=format&amp;fit=crop&amp;q=80');">
+<div class="cover-overlay-text">✨ সরাসরি প্রপার্টি মালিকের সাথে চ্যাট করুন</div>
+</div>
+<div class="cover-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&amp;auto=format&amp;fit=crop&amp;q=80');">
+<div class="cover-overlay-text">🔥 খুলনা ও সারা দেশের ভেরিফাইড প্রপার্টি ডিলস</div>
+</div>
+</div>
+<!-- ২. সার্চ ফিল্টার -->
+<section class="fb-hero">
+<h1 class="seo-h1">আমার বাড়ি.কম - ফ্ল্যাট, প্লট ও জমি কেনাবেচার সেরা মাধ্যম</h1>
+<div class="fb-search-box">
+<select id="filterType">
+<option value="">সব ধরনের আবাসন</option>
+<option value="জমি">জমি (Land)</option>
+<option value="বাড়ি">বাড়ি (House)</option>
+<option value="প্লট">প্লট (Plot)</option>
+<option value="ফ্ল্যাট">ফ্ল্যাট (Apartment)</option>
+<option value="অফিস">অফিস (Office)</option>
+<option value="দোকান">দোকান (Shop)</option>
+</select>
+<select id="filterDivision">
+<option value="">সব বিভাগ (All Divisions)</option>
+<option value="ঢাকা">ঢাকা</option>
+<option value="খুলনা">খুলনা</option>
+<option value="চট্টগ্রাম">চট্টগ্রাম</option>
+<option value="রাজশাহী">রাজশাহী</option>
+<option value="রংপুর">রংপুর</option>
+<option value="বরিশাল">বরিশাল</option>
+<option value="সিলেট">সিলেট</option>
+<option value="ময়মনসিংহ">ময়মনসিংহ</option>
+</select>
+<select disabled="" id="filterDistrict">
+<option value="">প্রথমে বিভাগ মেলান</option>
+</select>
+<input id="globalSearchInput" placeholder="এলাকা, থানা, রোড বা গ্রাম..." type="text"/>
+<button class="fb-search-btn" id="btnAdvancedSearch">
+<i class="material-icons">search</i> খুঁজুন
+                </button>
+</div>
+</section>
+<main>
+<!-- ৩. নেভিগেশন ট্যাব উইথ ম্যাপ বাটন -->
+<div class="fb-tabs">
+<button class="fb-tab-btn active" data-category="বিক্রয়">
+<i class="material-icons">shopping_bag</i> বিক্রির পোস্ট
+                </button>
+<button class="fb-tab-btn" data-category="ভাড়া">
+<i class="material-icons">hotel</i> ভাড়ার পোস্ট
+                </button>
+<button class="fb-tab-btn" id="mapViewToggleBtn">
+<i class="material-icons">pin_drop</i> ম্যাপে দেখুন
+                </button>
+</div>
+<!-- নিউজ ফিড কনটেইনার -->
+<div id="property-grid-container">
+<div class="property-grid"></div>
+</div>
+<!-- 🗺️ ম্যাপ সেকশন -->
+<div id="map-section" style="display: none;">
+<div id="map-container" style="height: 420px; width: 100%; border-radius: 8px; border: 1px solid var(--border-color);"></div>
+</div>
+</main>
+</div>
+<footer class="fb-footer">
+<div class="container">
+<p>© 2026 আমার বাড়ি.কম। সর্বস্বত্ব সংরক্ষিত।</p>
+</div>
+</footer>
+<!-- 🎯 আমাদের নতুন লাইভ হেডার সিঙ্ক স্ক্রিপ্ট -->
+<script src="header-sync.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

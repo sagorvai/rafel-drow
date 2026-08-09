@@ -1,0 +1,139 @@
+// Firebase SDKs
+const auth = firebase.auth();
+const db = firebase.firestore(); // ফায়ারস্টোর ডাটাবেজ রেফারেন্স যুক্ত করা হলো
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const switchLink = document.getElementById('switch-link');
+    const authTitle = document.getElementById('auth-title');
+    
+    // নতুন সাইডবার লিঙ্ক উপাদানগুলো
+    const postLinkSidebar = document.getElementById('post-link'); 
+    const loginLinkSidebar = document.getElementById('login-link-sidebar'); 
+    
+    // প্রোফাইল আইকন উপাদানটি
+    const profileButton = document.getElementById('profileButton');
+    
+
+    // Show login form by default, hide signup
+    if (loginForm && signupForm) {
+        // শুরুতে লগইন ফর্ম দেখাবে
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        authTitle.textContent = 'লগইন করুন'; // শিরোনাম নিশ্চিত করা হলো
+    }
+
+    // লগইন ও সাইনআপ ফর্মের মধ্যে পরিবর্তন (Switch between forms)
+    if (switchLink && loginForm && signupForm) {
+        switchLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (loginForm.style.display === 'block') {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                authTitle.textContent = 'সাইনআপ করুন';
+                switchLink.textContent = 'আপনার কি একটি অ্যাকাউন্ট আছে? লগইন করুন';
+            } else {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                authTitle.textContent = 'লগইন করুন';
+                switchLink.textContent = 'আপনার কি একটি অ্যাকাউন্ট নেই? সাইনআপ করুন';
+            }
+        });
+    }
+
+    // ১. ইউজার লগইন হ্যান্ডেল
+    if (loginForm) {
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = loginForm['login-email'].value;
+            const password = loginForm['login-password'].value;
+            try {
+                await auth.signInWithEmailAndPassword(email, password);
+                alert('সফলভাবে লগইন করা হয়েছে!');
+                window.location.href = 'index.html';
+            } catch (error) {
+                console.error("লগইন ব্যর্থ হয়েছে:", error);
+                alert("লগইন ব্যর্থ হয়েছে: " + error.message);
+            }
+        });
+    }
+
+    // ২. ইউজার সাইনআপ হ্যান্ডেল (স্বাগত নোটিফিকেশন ও প্রোফাইল এডিট ফ্লোসহ আপডেটেড)
+    if (signupForm) {
+        signupForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = signupForm['signup-email'].value;
+            const password = signupForm['signup-password'].value;
+            try {
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+                
+                console.log("সফলভাবে অ্যাকাউন্ট তৈরি হয়েছে। UID:", user.uid);
+
+                // ফায়ারস্টোরে ইন-অ্যাপ স্বাগত নোটিফিকেশন পাঠানো
+                await db.collection("notifications").add({
+                    userId: user.uid,
+                    title: "🏡 আমার বাড়ি.কম-এ আপনাকে স্বাগতম!",
+                    message: "সেরা সব প্রপার্টি ডিল এবং ক্রেতা-বিক্রেতার চ্যাট মেসেজের লাইভ আপডেট পেতে এই মেসেজটিতে ক্লিক করে নোটিফিকেশন সচল করুন।",
+                    type: "welcome",
+                    isRead: false,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                console.log("স্বাগত নোটিফিকেশন ফায়ারস্টোরে যুক্ত হয়েছে।");
+                
+                alert('সফলভাবে সাইনআপ করা হয়েছে! অনুগ্রহ করে আপনার তথ্যগুলো আপডেট করুন।');
+                // 🎯 সাইনআপের পর ইউজারকে ইউআরএল প্যারামিটারসহ প্রোফাইল পেজে রিডাইরেক্ট করা হচ্ছে
+                window.location.href = 'profile.html?openEdit=true';
+
+            } catch (error) {
+                console.error("সাইনআপ ব্যর্থ হয়েছে:", error);
+                let errorMessage = "সাইনআপ ব্যর্থ হয়েছে।";
+                
+                if (error.code === 'auth/weak-password') {
+                    errorMessage = "পাসওয়ার্ডটি খুব দুর্বল। কমপক্ষে ৬ অক্ষরের পাসওয়ার্ড ব্যবহার করুন।";
+                } else {
+                    errorMessage = `সাইনআপ ব্যর্থ হয়েছে। (${error.message})`;
+                }
+                
+                alert(errorMessage);
+            }
+        });
+    }
+    
+    // **প্রোফাইল আইকন ফাংশনালিটি (শুধুমাত্র profile.html এ যাবে)**
+    if (profileButton) {
+        profileButton.addEventListener('click', () => {
+            window.location.href = 'profile.html'; 
+        });
+    }
+
+    // ৩. অথেন্টিকেশন স্টেট পরিবর্তন (Auth state change handler)
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            if (postLinkSidebar) postLinkSidebar.style.display = 'flex';
+            
+            if (loginLinkSidebar) {
+                loginLinkSidebar.textContent = 'লগআউট';
+                loginLinkSidebar.href = '#';
+                
+                loginLinkSidebar.onclick = async (e) => {
+                    e.preventDefault();
+                    await auth.signOut();
+                    alert('সফলভাবে লগআউট করা হয়েছে!');
+                    window.location.href = 'index.html';
+                };
+            }
+        } else {
+            if (postLinkSidebar) postLinkSidebar.style.display = 'none';
+            
+            if (loginLinkSidebar) {
+                loginLinkSidebar.textContent = 'লগইন';
+                loginLinkSidebar.href = 'auth.html';
+                loginLinkSidebar.onclick = null;
+            }
+        }
+    });
+
+});
